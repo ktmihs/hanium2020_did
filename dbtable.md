@@ -80,7 +80,7 @@ CREATE TABLE `user` (
 	`user_name` VARCHAR(10) NULL DEFAULT NULL COMMENT '사용자 이름' COLLATE 'utf8_general_ci',
 	`user_password` VARCHAR(20) NULL DEFAULT NULL COMMENT '비밀번호' COLLATE 'utf8_general_ci',
 	`user_birth` INT(8) NULL DEFAULT NULL COMMENT '생년월일',
-	`user_gender` BINARY(1) NULL DEFAULT NULL COMMENT '성별',
+	`user_gender` INT(1) NULL DEFAULT NULL COMMENT '성별',
 	`user_phone` VARCHAR(11) NULL DEFAULT NULL COMMENT '전화번호' COLLATE 'utf8_general_ci',
 	`user_address` VARCHAR(25) NULL DEFAULT NULL COMMENT '주소' COLLATE 'utf8_general_ci',
 	`user_email` VARCHAR(30) NULL DEFAULT NULL COMMENT '이메일' COLLATE 'utf8_general_ci',
