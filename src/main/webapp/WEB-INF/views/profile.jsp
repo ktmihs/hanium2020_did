@@ -58,7 +58,7 @@
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
-            </div> 
+            </div>
           </form> -->
 
           <!-- Topbar Navbar -->
@@ -92,10 +92,10 @@
               </a>
             </li>
 
-            <!-- Sign up, logout -->  
+            <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->                
+                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
                 <a href="#" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
@@ -105,7 +105,7 @@
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-            
+
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1" style="margin: auto;">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -153,7 +153,7 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>                
+            </li>
           </ul>
 
         </nav>
@@ -189,10 +189,72 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
-           
-          </div>
+          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5"style="margin:auto">
+                  <div class="card-body p-0" >
+                    <div class="row">
+                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+                <div class="col-lg-12">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h3 class="h4 text-gray-900 mb-4">회원상세정보</h3>
+                    </div>
+                    <hr>
+                    <form class="user">
+
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
+                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="김헌혈">
+                      </div>
+                    <div class="col-sm-6">
+                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원유형</p>
+                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="개인">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
+                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="990911">
+                        </div>
+                      <div class="col-sm-6">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성별</p>
+                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="남자">
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">주소</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="서울시 양천구 목동">
+                          </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">등록된 헌혈증 개수</p>
+                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="4개">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="col-sm-6 mb-3 mb-sm-0">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이메일</p>
+                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="eun298310@naver.com">
+                            </div>
+                          <div class="col-sm-6">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">전화번호</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="010-3342-1124">
+                              </div>
+                          </div>
+
+                          <div class="col-sm-2" style=" float:right; margin-bottom:2rem;">
+                           <a href="#" class="btn   btn-user btn-block" style="background-color:#2E64FE; color: white; width: 130px;"><i class="fas fa-check" style="margin-right:1rem;"></i> 기부내역 </a>
+
+
+
+
+
+
+
 
           <!-- Content Row -->
           <div class="row">
