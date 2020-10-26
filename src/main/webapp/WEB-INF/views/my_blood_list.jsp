@@ -258,6 +258,21 @@
                                     </tbody>
                                 </table>
                             </div>
+                          </br>
+                          <!--버튼-->
+                          <div class="form-group row">
+                            <div class="col-sm-3">
+                              <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-undo"></i> 뒤로가기  </a>
+                              <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                            </div>
+                            <div>
+                            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                            <div class="col-sm-3">
+                              <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 헌혈증발급  </a>
+                              <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
