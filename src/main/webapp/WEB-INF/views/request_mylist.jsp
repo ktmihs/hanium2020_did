@@ -186,7 +186,7 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h1 class="h3 text-gray-900 mb-4">내 기부내역</h1>
                     </div>
                       <hr class="mt-4">
                         <!-- request list datatable -->
