@@ -19,9 +19,6 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -49,6 +46,20 @@
           <div>
             <h1 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h1>
           </div>
+          <!-- End of Page title -->
+
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -158,11 +169,11 @@
           </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -178,76 +189,93 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5" style="margin:auto">
-            <div class="card-body p-0">
-              <!-- Nested Row within Card Body -->
-              <div class="row">
+          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5"style="margin:auto">
+                  <div class="card-body p-0" >
+                    <div class="row">
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h3 class="h4 text-gray-900 mb-4">헌혈증 상세정보</h3>
                     </div>
-                      <hr class="mt-4">
-                        <!-- request list datatable -->
-                        <div class="table-responsive">
+                    <hr>
+                    <form class="user">
 
-                          <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <tr>
-                                            <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
-                                        </tr>
 
-                                        <tr>
-                                            <td>273</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈증 번호</p>
+                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="200130203">
+                      </div>
+                    <div class="col-sm-6">
+                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
+                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="김헌혈">
+                        </div>
+                    </div>
 
-                                        <tr>
-                                            <td>275</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">발급일</p>
+                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="20.11.21">
+                        </div>
+                      <div class="col-sm-6">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
+                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="98.07.05">
+                          </div>
+                      </div>
 
-                                        <tr>
-                                            <td>276</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈일자</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="19.08.13">
+                          </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈종류</p>
+                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="전혈">
+                            </div>
+                        </div>
 
-                                </table>
-                              </body>
+                        <div class="form-group row">
+                          <div class="col-sm-6 mb-3 mb-sm-0">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원명</p>
+                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="서울 혈액원">
+                            </div>
+                          <div class="col-sm-6">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">용량</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="300ml">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">사용여부</p>
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="o">
+                              </div>
                             </div>
 
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
 
+
+                            <div class="form-group row">
+                                               <div class="col-sm-2">
+                                                 <a href="#" class="btn  text-white btn-danger btn-block" style="border-radius: 50px; width: 130px;"><i class="fas fa-check" style="margin-right:0.5rem;"></i> 변경  </a>
+                                                 <!-- <button type="text" class=" btn form-control bg-primary-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                                               </div>
+                                               <div>
+                                                 <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                               </div>
+                                               <div class="col-sm-2">
+                                                 <a href="#" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;"> <i class="fas fa-check" style="margin-right:0.5rem;"></i>완료  </a>
+                                                 <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                                               </div>
+                                             </div>
+
+          <!-- Content Row -->
+          <div class="row">
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -302,7 +330,7 @@
 
   <!-- Page level plugins -->
   <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>

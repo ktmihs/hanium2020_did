@@ -19,6 +19,13 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script type="javascript">
+    function click_check(){
+        location.href=""
+    }
+  </script>
+
+
 </head>
 
 <body id="page-top">
@@ -214,45 +221,7 @@
                         </div>
                       </div>
 
-                      <!--테이블형식
-                      <table class="table table-bordered">                
-                        <tbody>
-                          <form role="form">
-                            <tr>
-                              <th>제목 *</th>
-                              <td> 
-                                <input class="form-control" type="text" placeholder="제목을 입력하세요">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>기관(개인)명</th>
-                              <td> 
-                                신촌세브란스
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>기간(마감일) *</th>
-                              <td>
-                                  <input class="form-control col-lg-12" placeholder="6자리 입력 ex)20190518 -> 190518" type="text"">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>필요 증서 수량 *</th>
-                              <td>
-                                <input class="form-control col-lg-12" placeholder="숫자만 입력 ex)300개 필요-> 300" type="text" > 
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>요청 사유</th>
-                              <td> 
-                                <textarea class="col-lg-12" placeholder="요청 사유를 입력하세요"></textarea>
-                              </td>
-                            </tr>  
-                          </form>
-                        </tbody>
-                      </table>
-                        -->
-                      
+
                       </br>
                       <!--버튼-->
                       <div class="form-group row">

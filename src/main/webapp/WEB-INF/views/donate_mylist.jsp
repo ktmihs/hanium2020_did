@@ -49,6 +49,20 @@
           <div>
             <h1 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h1>
           </div>
+          <!-- End of Page title -->
+
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -94,6 +108,13 @@
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+
+
+
+
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1" style="margin: auto;">
@@ -162,7 +183,7 @@
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -186,66 +207,67 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h1 class="h3 text-gray-900 mb-4">기부내역</h1>
                     </div>
                       <hr class="mt-4">
-                        <!-- request list datatable -->
+                        <!-- donate list datatable -->
                         <div class="table-responsive">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
+                                    <thead>
                                         <tr>
                                             <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
+                                            <th>기부날짜</th>
+                                            <th>헌혈증 번호</th>
+                                            <th>사용</th>
+                                            <th>사용날짜</th>
+                                            <th>사용처</th>
                                         </tr>
-
+                                      </thead>
+                                      <tbody>
                                         <tr>
-                                            <td>273</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
                                             <td>1</td>
+                                            <td>20.2.1</td>
+                                            <td>01-01-123456</td>
+                                            <td>o</td>   <!-- 사용시 소문자 o, 미사용시 소문자 x -->
+                                            <td>20.2.9</td>
+                                            <td>아산병원</td>
                                         </tr>
 
                                         <tr>
-                                            <td>275</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>20.2.2</td>
+                                            <td>01-01-123457</td>
+                                            <td>o</td>
+                                            <td>20.2.4</td>
+                                            <td>세브란스병원</td>
                                         </tr>
 
                                         <tr>
-                                            <td>276</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
+                                          <td>3</td>
+                                          <td>20.7.1</td>
+                                          <td>01-01-123458</td>
+                                          <td>o</td>
+                                          <td>20.7.15</td>
+                                          <td>세브란스병원</td>
                                         </tr>
 
+                                        <tr>
+                                          <td>4</td>
+                                          <td>20.7.28</td>
+                                          <td>01-01-123459</td>
+                                          <td>x</td>
+                                          <td></td>
+                                          <td>아산병원</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                              </body>
                             </div>
-
-                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
               </div>
 
       <!-- End of Main Content -->
