@@ -186,7 +186,7 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h1 class="h3 text-gray-900 mb-4">내 기부내역</h1>
                     </div>
                       <hr class="mt-4">
                         <!-- request list datatable -->
@@ -203,7 +203,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>273</td>
+                                            <td>100</td>
                                             <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
                                             <td>B형 헌혈증이 필요</td>
                                             <td>20.8.20</td>
@@ -220,7 +220,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>275</td>
+                                            <td>274</td>
                                             <td>O형 수혈이 필  </td>
                                             <td> </td>
                                             <td>20.10.3</td>
@@ -229,7 +229,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>276</td>
+                                            <td>274</td>
                                             <td>AB형 수혈이 필  </td>
                                             <td> </td>
                                             <td>20.10.3</td>

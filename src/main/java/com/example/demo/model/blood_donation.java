@@ -56,16 +56,16 @@ public class blood_donation {
         this.bd_amount = bd_amount;
     }
 
-    public String getBd_institute() {
-        return bd_institute;
-    }
-
     public LocalTime getBd_date(){
         return bd_date;
     }
 
     public void setBd_date(LocalTime bd_date){
         this.bd_date=bd_date;
+    }
+
+    public String getBd_institute() {
+        return bd_institute;
     }
 
     public void setBd_institute(String bd_institute) {

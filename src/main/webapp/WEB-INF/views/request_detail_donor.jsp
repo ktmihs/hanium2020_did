@@ -19,24 +19,15 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column" >
-
       <!-- Main Content -->
       <div id="content">
-
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
 
@@ -49,7 +40,7 @@
           <div>
             <h1 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h1>
           </div>
-
+          <!-- End of Page title -->
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -147,7 +138,6 @@
 
         </nav>
         <!-- End of Topbar -->
-
         <!-- Topbar2 -->
         <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
@@ -158,11 +148,11 @@
           </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -173,6 +163,9 @@
           </div>
         </div>
         <!-- End of Topbar2 -->
+
+
+
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -186,69 +179,74 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h3 class="h3 text-gray-900 mb-4">헌혈증 요청합니다</h3>
                     </div>
-                      <hr class="mt-4">
-                        <!-- request list datatable -->
-                        <div class="table-responsive">
+                    <hr class="mt-4">
+                    <!--카드 안 내용-->
+                    <form class="user">
+                      <div class="mb-5">
+                        <div class="float-left">작성자: 신촌세브란스</div>
+                        <div align="right">작성일: 2020.08.24</div>
+                        <hr>
+                      </div>
 
-                          <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <tr>
-                                            <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>273</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>275</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>276</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                </table>
-                              </body>
-                            </div>
-
-                          </div>
+                      <!--고정값-->
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="신촌세브란스">
                         </div>
                       </div>
-                    </div>
-                  </div>
-              </div>
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="20년 09월 20일">
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="500개">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
+                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">헌혈증이 필요해요</textarea>
+                        </div>
+                      </div>
 
+                      </br>
+                      <!--버튼-->
+                      <div class="form-group row">
+                        <div class="col-sm-2"">
+                          <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-undo"></i> 목록으로  </a>
+                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                        </div>
+                        <div>
+                            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        </div>
+                        <div class="col-sm-2">
+                          <a href="#" class="btn   btn-user btn-block" style="background-color:red; color: white;"><i class="fas fa-trash"></i> 기부취소 </a>
+                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
       <!-- End of Main Content -->
+
+
+
+
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -262,15 +260,12 @@
 
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -302,7 +297,7 @@
 
   <!-- Page level plugins -->
   <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>

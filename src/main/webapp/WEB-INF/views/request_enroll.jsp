@@ -19,24 +19,22 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <script type="javascript">
+    function click_check(){
+        location.href=""
+    }
+  </script>
+
 
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column" >
-
       <!-- Main Content -->
       <div id="content">
-
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
 
@@ -47,9 +45,9 @@
 
           <!-- Page Title -->
           <div>
-            <h1 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h1>
+            <h3 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h3>
           </div>
-
+          <!-- End of Page title -->
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -81,10 +79,10 @@
               </a>
             </li>
 
-            <!-- Sign up, logout -->
+            <!-- Sign up, logout -->  
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
+                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->                
                 <a href="#" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
@@ -94,7 +92,7 @@
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-
+            
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1" style="margin: auto;">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,12 +140,11 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>
+            </li>                
           </ul>
 
         </nav>
         <!-- End of Topbar -->
-
         <!-- Topbar2 -->
         <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
@@ -158,11 +155,11 @@
           </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
+             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -173,6 +170,9 @@
           </div>
         </div>
         <!-- End of Topbar2 -->
+
+
+
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -186,69 +186,75 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
+                      <h3 class="h3 text-gray-900 mb-4">헌혈증서 요청하기</h3>
                     </div>
-                      <hr class="mt-4">
-                        <!-- request list datatable -->
-                        <div class="table-responsive">
-
-                          <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <tr>
-                                            <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>273</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>275</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>276</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                </table>
-                              </body>
-                            </div>
-
-                          </div>
+                    <hr>
+                    <!--카드 안 내용-->
+                    <form class="user">
+                      <p align="right">* 필수입력사항</p>
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">제목 *</p>
+                          <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="제목을 입력하세요">
                         </div>
                       </div>
-                    </div>
-                  </div>
-              </div>
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="신촌세브란스">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일) *</p>
+                          <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="6자리 입력 ex)20190518 -> 190518">
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량 *</p>
+                          <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="300개 필요-> 300">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
+                          <textarea class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="요청 사유를 입력하세요"></textarea>
+                        </div>
+                      </div>
 
+
+                      </br>
+                      <!--버튼-->
+                      <div class="form-group row">
+                        <div class="col-sm-2"">
+                          <a href="#" class="btn   btn-user btn-block" style="background-color:red; color: white;"><i class="fas fa-trash"></i> 취소  </a>
+                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                        </div>
+                        <div>
+                            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        </div>
+                        <div class="col-sm-2">
+                          <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i> 확인  </a>
+                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
       <!-- End of Main Content -->
+
+
+
+
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -262,15 +268,12 @@
 
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -302,7 +305,7 @@
 
   <!-- Page level plugins -->
   <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
