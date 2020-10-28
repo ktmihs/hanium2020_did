@@ -85,7 +85,7 @@
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
                 <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="#" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="profile.jsp" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
                 <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
@@ -201,7 +201,6 @@
                                             <th>필요증서 수량</th>
                                             <th>기부된 수량</th>
                                         </tr>
-
                                         <tr>
                                             <td>273</td>
                                             <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
@@ -218,7 +217,6 @@
                                             <td>5</td>
                                             <td>1</td>
                                         </tr>
-
                                         <tr>
                                             <td>275</td>
                                             <td>O형 수혈이 필  </td>
@@ -227,7 +225,6 @@
                                             <td>5</td>
                                             <td>1</td>
                                         </tr>
-
                                         <tr>
                                             <td>276</td>
                                             <td>AB형 수혈이 필  </td>
@@ -236,11 +233,17 @@
                                             <td>5</td>
                                             <td>1</td>
                                         </tr>
-
                                 </table>
                               </body>
                             </div>
-
+                            </br>
+                              <!--버튼-->
+                              <div class="form-group row">
+                                <div class="col-sm-3">
+                                  <a href="request_enroll.jsp" class="btn   btn-user btn-block" style="float:right; background-color:#1cc88a; color: white;"><i class="fas fa-check"></i> 요청글작성 </a>
+                                  <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                                </div>
+                              </div>
                           </div>
                         </div>
                       </div>
@@ -284,7 +287,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.jsp">Logout</a>
         </div>
       </div>
     </div>

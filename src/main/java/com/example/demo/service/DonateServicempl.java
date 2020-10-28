@@ -2,51 +2,50 @@ package com.example.demo.service;
 
 import com.example.demo.model.donate;
 import com.example.demo.repository.DonateRepository;
-import com.example.demo.repository.MaterialTransRepository;
-import lombok.Builder;
-import lombok.NonNull;
 import org.assertj.core.util.Lists;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalTime;
 import java.util.List;
 
 @Transactional
-@Service("DonateService")
-public class DonateServicempl {
-    private DonateRepository donateRepository;
+@Service("DonateServiceService")
+public class DonateServicempl implements DonateService {
+    DonateRepository donateRepository;
 
-    private String req_id;
-    private String user_id;
-    private LocalTime donate_date;
-    private int donate_amount;
-    private LocalTime donate_cancel;
+    //1. 게시글 작성
+    @Override
+    public void donate_create(donate don){
+        int donate_amount=don.getDonate_amount();
 
-    public donate donateForm(){
-        donate form=donate.builder()
-                .req_id(req_id)
-                .user_id(user_id)
-                .donate_date(donate_date)
-                .donate_amount(donate_amount)
-                .donate_cancel(donate_cancel);
-        return form;
-    }
-    @Builder
-    public DonateServicempl(String req_id, String user_id, LocalTime donate_date, int donate_amount, LocalTime donate_cancel){
-        this.req_id=req_id;
-        this.user_id=user_id;
-        this.donate_date=donate_date;
-        this.donate_amount=donate_amount;
-        this.donate_cancel=donate_cancel;
-    }
-    public List<donate> findAll(){
-        return Lists.newArrayList(donateRepository.findAll());
+        donateRepository.donate_create(don);
     }
 
-    @Autowired
-    public void setDonateRepository(DonateRepository donateRepository){
-        this.donateRepository = donateRepository;
+    //2. 게시글 상세보기
+    @Override
+    public donate donate_read(String req_id){
+        return donateRepository.donate_read(req_id);
     }
+
+    //3. 게시글 수정
+    @Override
+    public void donate_update(donate don){
+        donateRepository.donate_update(don);
+    }
+
+    //4. 게시글 삭제
+    @Override
+    public void donate_delete(String req_id){
+        donateRepository.donate_delete(req_id);
+    }
+
+    //5. 게시글 전체 목록
+    @Override
+    public List<donate> donate_listAll(){
+        return donateRepository.donate_listAll();
+        //return Lists.newArrayList(donateRepository.donate_listAll());
+    }
+
 }
