@@ -17,7 +17,7 @@ public class RequestServicempl implements RequestService {
 
     //1. 게시글 작성
     @Override
-    public void request_create(request re){
+    public void request_create(request re) throws Exception{
         //String req_id=re.getReq_id();
         //LocalTime req_date=re.getReq_date();
         LocalTime req_deadline=re.getReq_deadline();
@@ -39,25 +39,25 @@ public class RequestServicempl implements RequestService {
 
     //2. 게시글 상세보기
     @Override
-    public request request_read(String req_id){
+    public request request_read(String req_id) throws Exception{
         return requestRepository.request_read(req_id);
     }
 
     //3. 게시글 수정
     @Override
-    public void request_update(request re){
+    public void request_update(request re) throws Exception{
         requestRepository.request_update(re);
     }
 
     //4. 게시글 삭제
     @Override
-    public void request_delete(String req_id){
+    public void request_delete(String req_id) throws Exception{
         requestRepository.request_delete(req_id);
     }
 
     //5. 게시글 전체 목록
     @Override
-    public List<request> request_listAll(){
+    public List<request> request_listAll() throws Exception{
         return requestRepository.request_listAll();
         //return Lists.newArrayList(requestRepository.request_listAll());
     }

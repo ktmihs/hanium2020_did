@@ -17,7 +17,7 @@ public class DonateServicempl implements DonateService {
 
     //1. 게시글 작성
     @Override
-    public void donate_create(donate don){
+    public void donate_create(donate don) throws Exception{
         int donate_amount=don.getDonate_amount();
 
         donateRepository.donate_create(don);
@@ -25,25 +25,25 @@ public class DonateServicempl implements DonateService {
 
     //2. 게시글 상세보기
     @Override
-    public donate donate_read(String req_id){
+    public donate donate_read(String req_id) throws Exception{
         return donateRepository.donate_read(req_id);
     }
 
     //3. 게시글 수정
     @Override
-    public void donate_update(donate don){
+    public void donate_update(donate don) throws Exception{
         donateRepository.donate_update(don);
     }
 
     //4. 게시글 삭제
     @Override
-    public void donate_delete(String req_id){
+    public void donate_delete(String req_id) throws Exception{
         donateRepository.donate_delete(req_id);
     }
 
     //5. 게시글 전체 목록
     @Override
-    public List<donate> donate_listAll(){
+    public List<donate> donate_listAll() throws Exception{
         return donateRepository.donate_listAll();
         //return Lists.newArrayList(donateRepository.donate_listAll());
     }
