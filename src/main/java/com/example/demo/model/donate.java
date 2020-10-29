@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalTime;
@@ -16,11 +18,21 @@ import java.time.LocalTime;
 @Data
 public class donate {
     @NonNull
+    @Id
+    @Column(name="req_id")
     private String req_id;
     @NonNull
+    @Id
+    @Column(name="user_id")
     private String user_id;
+    @Id
+    @Column(name="donate_date")
     private LocalTime donate_date;
+    @Id
+    @Column(name="donate_amount")
     private int donate_amount;
+    @Id
+    @Column(name="donate_cancel")
     private LocalTime donate_cancel;
 
     public String getReq_id() {

@@ -15,25 +15,25 @@ public class HomeController {
 
         return "index";
     }
-    @RequestMapping("/tables")
-    public String viewTablesPage() {
+    @RequestMapping("/login")
+    public String viewLoginPage() {
 
-        return "tables";
+        return "login";
     }
 
-    @RequestMapping("/charts")
-    public String viewchartsPage() {
+    @RequestMapping("/enroll")
+    public String viewEnrollPage() {
 
-        return "charts";
+        return "my_blood_list";
     }
-    @RequestMapping("/enroll_com")
-    public String viewenroll_comPage() {
+    @RequestMapping("/donate")
+    public String viewDonatePage() {
 
-        return "enroll_com";
+        return "request_list";
     }
-    @RequestMapping("/enroll_res")
-    public String viewenroll_resPage() {
+    @RequestMapping("/profile")
+    public String viewProfilePage() {
 
-        return "enroll_res";
+        return "profile";
     }
 }
