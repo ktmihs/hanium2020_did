@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -15,8 +17,14 @@ import javax.persistence.Table;
 @Data
 public class group_detail {
     @NonNull
+    @Id
+    @Column(name="gc_id")
     private String gc_id;
+    @Id
+    @Column(name="gc_name")
     private String gc_name;
+    @Id
+    @Column(name="g_id")
     private String g_id;
 
     public String getGc_id() {

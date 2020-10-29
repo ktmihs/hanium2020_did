@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalTime;
@@ -16,12 +18,26 @@ import java.time.LocalTime;
 @Data
 public class request {
     @NonNull
+    @Id
+    @Column(name="req_id")
     private String req_id;
+    @Id
+    @Column(name="req_date")
     private LocalTime req_date;
+    @Id
+    @Column(name="req_deadline")
     private LocalTime req_deadline;
+    @Id
+    @Column(name="req_amount")
     private int req_amount;
+    @Id
+    @Column(name="req_reason")
     private String req_reason;
+    @Id
+    @Column(name="req_title")
     private String req_title;
+    @Id
+    @Column(name="user_id")
     private String user_id;
 
     public String getReq_id() {

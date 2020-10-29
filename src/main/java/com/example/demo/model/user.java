@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -15,15 +17,35 @@ import javax.persistence.Table;
 @Data
 public abstract class user {
     @NonNull
+    @Id
+    @Column(name="id")
     private String id;
+    @Id
+    @Column(name="user_name")
     private String user_name;
+    @Id
+    @Column(name="user_password")
     private String user_password;
+    @Id
+    @Column(name="user_birth")
     private int user_birth;
+    @Id
+    @Column(name="user_gender")
     private int user_gender;
+    @Id
+    @Column(name="user_phone")
     private String user_phone;
+    @Id
+    @Column(name="user_address")
     private String user_address;
+    @Id
+    @Column(name="user_email")
     private String user_email;
+    @Id
+    @Column(name="user_inputdate")
     private String user_inputdate;
+    @Id
+    @Column(name="g_id")
     private String g_id;
 
     public String getId(){
