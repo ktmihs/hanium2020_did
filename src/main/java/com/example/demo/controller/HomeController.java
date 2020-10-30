@@ -10,6 +10,11 @@ package com.example.demo.controller;
 public class HomeController {
 
 
+    @RequestMapping("/")
+    public String viewMainPage() {
+
+        return "index";
+    }
     @RequestMapping("/index")
     public String viewIndexPage() {
 

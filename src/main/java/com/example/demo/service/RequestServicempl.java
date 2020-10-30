@@ -2,10 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.model.request;
 import com.example.demo.repository.RequestRepository;
-import org.assertj.core.util.Lists;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalTime;
 import java.util.List;

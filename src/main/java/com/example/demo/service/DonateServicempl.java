@@ -2,12 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.model.donate;
 import com.example.demo.repository.DonateRepository;
-import org.assertj.core.util.Lists;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-import java.time.LocalTime;
 import java.util.List;
 
 @Transactional
@@ -47,5 +44,4 @@ public class DonateServicempl implements DonateService {
         return donateRepository.donate_listAll();
         //return Lists.newArrayList(donateRepository.donate_listAll());
     }
-
 }
