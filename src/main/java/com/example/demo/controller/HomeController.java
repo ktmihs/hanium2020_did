@@ -31,8 +31,8 @@ public class HomeController {
 
         return "my_blood_list";
     }
-    @RequestMapping("/donate")
-    public String viewDonatePage() {
+    @RequestMapping("/request_list")
+    public String viewRequest_listPage() {
 
         return "request_list";
     }
@@ -40,5 +40,15 @@ public class HomeController {
     public String viewProfilePage() {
 
         return "profile";
+    }
+    @RequestMapping("/request_detail_donor")
+    public String viewRequest_detail_donorPage() {
+
+        return "request_detail_donor";
+    }
+    @RequestMapping("/my_blood_list")
+    public String viewMy_blood_listPage() {
+
+        return "my_blood_list";
     }
 }

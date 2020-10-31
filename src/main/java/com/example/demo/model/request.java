@@ -4,11 +4,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
@@ -16,83 +16,84 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"request\"")
 @Data
-public class request {
+public class Request {
     @NonNull
     @Id
-    @Column(name="req_id")
-    private String req_id;
-    @Id
-    @Column(name="req_date")
-    private LocalTime req_date;
-    @Id
-    @Column(name="req_deadline")
-    private LocalTime req_deadline;
-    @Id
-    @Column(name="req_amount")
-    private int req_amount;
-    @Id
-    @Column(name="req_reason")
-    private String req_reason;
-    @Id
-    @Column(name="req_title")
-    private String req_title;
-    @Id
-    @Column(name="user_id")
-    private String user_id;
+    @Column(name = "req_id")
+    private String reqId;
 
-    public String getReq_id() {
-        return req_id;
+    @Column(name = "req_date")
+    private LocalTime reqDate;
+
+    @Column(name = "req_deadline")
+    private LocalTime reqDeadline;
+
+    @Column(name = "req_amount")
+    private int reqAmount;
+
+    @Column(name = "req_reason")
+    private String reqReason;
+
+    @Column(name = "req_title")
+    private String reqTitle;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public String getReqId() {
+        return reqId;
     }
 
-    public void setReq_id(String req_id) {
-        this.req_id = req_id;
+    public void setReqId(String reqId) {
+        this.reqId = reqId;
     }
 
-    public LocalTime getReq_date() {
-        return req_date;
+    public LocalTime getReqDate() {
+        return reqDate;
     }
 
-    public void setReq_date(LocalTime req_date) {
-        this.req_date = req_date;
+    public void setReqDate(LocalTime reqDate) {
+        this.reqDate = reqDate;
     }
 
-    public LocalTime getReq_deadline() {
-        return req_deadline;
+    public LocalTime getReqDeadline() {
+        return reqDeadline;
     }
 
-    public void setReq_deadline(LocalTime req_deadline) {
-        this.req_deadline = req_deadline;
+    public void setReqDeadline(LocalTime reqDeadline) {
+        this.reqDeadline = reqDeadline;
     }
 
-    public int getReq_amount() {
-        return req_amount;
+    public int getReqAmount() {
+        return reqAmount;
     }
 
-    public void setReq_amount(int req_amount) {
-        this.req_amount = req_amount;
+    public void setReqAmount(int reqAmount) {
+        this.reqAmount = reqAmount;
     }
 
-    public String getReq_reason() {
-        return req_reason;
+    public String getReqReason() {
+        return reqReason;
     }
 
-    public void setReq_reason(String req_reason) {
-        this.req_reason = req_reason;
+    public void setReqReason(String reqReason) {
+        this.reqReason = reqReason;
     }
 
-    public String getReq_title() {
-        return req_title;
+    public String getReqTitle() {
+        return reqTitle;
     }
 
-    public void setReq_title(String req_title) {
-        this.req_title = req_title;
+    public void setReqTitle(String reqTitle) {
+        this.reqTitle = reqTitle;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
