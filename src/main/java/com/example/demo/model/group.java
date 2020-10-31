@@ -4,10 +4,10 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -15,28 +15,28 @@ import javax.persistence.Table;
 @Setter
 @Table(name="\"group\"")
 @Data
-public class group {
+public class Group {
     @NonNull
     @Id
-    @Column(name="g_id")
-    private String g_id;
-    @Id
-    @Column(name="g_name")
-    private String g_name;
+    @Column(name = "g_id")
+    private String gId;
 
-    public String getG_id() {
-        return g_id;
+    @Column(name = "g_name")
+    private String gName;
+
+    public String getgId() {
+        return gId;
     }
 
-    public void setG_id(String g_id) {
-        this.g_id = g_id;
+    public void setgId(String gId) {
+        this.gId = gId;
     }
 
-    public String getG_name() {
-        return g_name;
+    public String getgName() {
+        return gName;
     }
 
-    public void setG_name(String g_name) {
-        this.g_name = g_name;
+    public void setgName(String gName) {
+        this.gName = gName;
     }
 }

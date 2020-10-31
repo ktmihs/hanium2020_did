@@ -1,134 +1,129 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"user\"")
 @Data
-public abstract class user {
+public abstract class User {
     @NonNull
     @Id
-    @Column(name="id")
-    private String id;
-    @Id
-    @Column(name="user_name")
-    private String user_name;
-    @Id
-    @Column(name="user_password")
-    private String user_password;
-    @Id
-    @Column(name="user_birth")
-    private int user_birth;
-    @Id
-    @Column(name="user_gender")
-    private int user_gender;
-    @Id
-    @Column(name="user_phone")
-    private String user_phone;
-    @Id
-    @Column(name="user_address")
-    private String user_address;
-    @Id
-    @Column(name="user_email")
-    private String user_email;
-    @Id
-    @Column(name="user_inputdate")
-    private String user_inputdate;
-    @Id
-    @Column(name="g_id")
-    private String g_id;
+    @Column(name = "user_id")
+    private String userId;
 
-    public String getId(){
-        return id;
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "user_password")
+    private String userPassword;
+
+    @Column(name = "user_birth")
+    private int userBirth;
+
+    @Column(name = "user_gender")
+    private int userGender;
+
+    @Column(name = "user_phone")
+    private String userPhone;
+
+    @Column(name = "user_address")
+    private String userAddress;
+
+    @Column(name = "user_email")
+    private String userEmail;
+
+    @Column(name = "user_inputdate")
+    private String userInputdate;
+
+    @ManyToOne
+    @JoinColumn(name = "g_id")
+    private Group group;
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(String id){
-        this.id=id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getUser_name(){
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name){
-        this.user_name=user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUser_password(){
-        return user_password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUser_password(String user_password){
-        this.user_password=user_password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public int getUser_birth(){
-        return user_birth;
+    public int getUserBirth() {
+        return userBirth;
     }
 
-    public void setUser_birth(int user_birth){
-        this.user_birth=user_birth;
+    public void setUserBirth(int userBirth) {
+        this.userBirth = userBirth;
     }
 
-    public int getUser_gender(){
-        return user_gender;
+    public int getUserGender() {
+        return userGender;
     }
 
-    public void setUser_gender(int user_gender) {
-        this.user_gender = user_gender;
+    public void setUserGender(int userGender) {
+        this.userGender = userGender;
     }
 
-    public String getUser_phone() {
-        return user_phone;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setUser_phone(String user_phone) {
-        this.user_phone = user_phone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getUser_address() {
-        return user_address;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setUser_address(String user_address) {
-        this.user_address = user_address;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getUser_inputdate() {
-        return user_inputdate;
+    public String getUserInputdate() {
+        return userInputdate;
     }
 
-    public void setUser_inputdate(String user_inputdate) {
-        this.user_inputdate = user_inputdate;
+    public void setUserInputdate(String userInputdate) {
+        this.userInputdate = userInputdate;
     }
 
-    public String getG_id() {
-        return g_id;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setG_id(String g_id) {
-        this.g_id = g_id;
+    public void setGroup(Group group) {
+        this.group = group;
     }
-}   //
-
-
-
-    //데이터베이스
+}

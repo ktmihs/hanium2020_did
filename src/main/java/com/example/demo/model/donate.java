@@ -1,14 +1,13 @@
 package com.example.demo.model;
+import javax.persistence.Column;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
@@ -16,62 +15,58 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"donate\"")
 @Data
-public class donate {
+public class Donate {
     @NonNull
-    @Id
-    @Column(name="req_id")
-    private String req_id;
-    @NonNull
-    @Id
-    @Column(name="user_id")
-    private String user_id;
-    @Id
-    @Column(name="donate_date")
-    private LocalTime donate_date;
-    @Id
-    @Column(name="donate_amount")
-    private int donate_amount;
-    @Id
-    @Column(name="donate_cancel")
-    private LocalTime donate_cancel;
+    @EmbeddedId
+    private DonateId donateId;
+//    @Id
+//    @OneToOne
+//    @JoinColumn(name = "request_id")
+//    private Request request;
+//
+//    @Id
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
-    public String getReq_id() {
-        return req_id;
+    @Column (name = "donate_date")
+    private LocalTime donateDate;
+
+    @Column(name = "donate_amount")
+    private int donateAmount;
+
+    @Column(name = "donate_cancel")
+    private LocalTime donateCancel;
+
+    public DonateId getDonateId() {
+        return donateId;
     }
 
-    public void setReq_id(String req_id) {
-        this.req_id = req_id;
+    public void setDonateId(DonateId donateId) {
+        this.donateId = donateId;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public LocalTime getDonateDate() {
+        return donateDate;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setDonateDate(LocalTime donateDate) {
+        this.donateDate = donateDate;
     }
 
-    public LocalTime getDonate_date() {
-        return donate_date;
+    public int getDonateAmount() {
+        return donateAmount;
     }
 
-    public void setDonate_date(LocalTime donate_date) {
-        this.donate_date = donate_date;
+    public void setDonateAmount(int donateAmount) {
+        this.donateAmount = donateAmount;
     }
 
-    public int getDonate_amount() {
-        return donate_amount;
+    public LocalTime getDonateCancel() {
+        return donateCancel;
     }
 
-    public void setDonate_amount(int donate_amount) {
-        this.donate_amount = donate_amount;
-    }
-
-    public LocalTime getDonate_cancel() {
-        return donate_cancel;
-    }
-
-    public void setDonate_cancel(LocalTime donate_cancel) {
-        this.donate_cancel = donate_cancel;
+    public void setDonateCancel(LocalTime donateCancel) {
+        this.donateCancel = donateCancel;
     }
 }
