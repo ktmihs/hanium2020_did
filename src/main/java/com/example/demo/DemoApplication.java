@@ -11,9 +11,4 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 		System.out.println("hi start...");
 	}
-
-//	@Override
-//	public void run(String... args) throws Exception {
-//		userRepository.save(new user(010, 1, "kjy", 23, 1, "여성"));
-//	}
 }
