@@ -28,9 +28,9 @@ public class DonateController {
 
         return "request_enroll";
     }
-    @RequestMapping("/donate_detail_donor")
-    public String viewDonate_detail_donorPage() {
+    @RequestMapping("/donate_enroll")
+    public String viewDonate_enrollPage() {
 
-        return "donate_detail_donor";
+        return "donate_enroll";
     }
 }
