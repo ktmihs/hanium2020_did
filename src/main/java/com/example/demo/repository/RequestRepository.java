@@ -8,13 +8,6 @@ import java.util.List;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String> {
-    public void request_create(Request re) throws Exception;
+    public List<Request> findAll();
 
-    public Request request_read(String req_id) throws Exception;
-
-    public void request_update(Request re) throws Exception;
-
-    public void request_delete(String req_id) throws Exception;
-
-    public List<Request> request_listAll() throws Exception;
 }
