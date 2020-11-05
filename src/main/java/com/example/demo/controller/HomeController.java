@@ -27,15 +27,11 @@ public class HomeController {
     }
 
     @RequestMapping("/my_blood_list")
-    public String viewMy_blood_listPage() {
+    public String viewMyBloodListPage() {
 
         return "my_blood_list";
     }
-    @RequestMapping("/request_list")
-    public String viewRequest_listPage() {
 
-        return "request_list";
-    }
     @RequestMapping("/profile")
     public String viewProfilePage() {
 

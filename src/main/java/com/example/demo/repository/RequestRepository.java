@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String> {
-    public List<Request> findAll();
-
+    Request findByReqId(int reqId);
+    //Request getOne(int reqId);
 }

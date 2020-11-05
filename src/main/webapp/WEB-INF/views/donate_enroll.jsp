@@ -180,17 +180,17 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-                    <form class="user">
+                    <form class="user" action="/donate_enroll" method="post">
                       <p align="right">* 1개 이상 선택</p>
                       <!--고정값-->
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="신촌세브란스">
+                          <input disabled type="text" class="form-control form-control-user" id="userId" placeholder="${request.userId}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요증서수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="500개">
+                          <input disabled type="text" class="form-control form-control-user" id="donateAmount" placeholder="${request.reqAmount}">
                         </div>
                       </div>
                       <!--헌혈증서 선택-->
@@ -263,8 +263,8 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_detail_donor" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>
-                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                          <a href="http://localhost:8080/request_detail_donor/${donate.donateId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>
+                          <!-- <button type="submit" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>
 
