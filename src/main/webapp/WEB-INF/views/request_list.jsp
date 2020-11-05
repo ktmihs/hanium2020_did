@@ -193,21 +193,26 @@
                         <div class="table-responsive">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <tr>
-                                            <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                        </tr>
-                                        <tr>
-                                            <td>${request.reqId}</td>
-                                            <td>${request.reqTitle}  <span class="badge badge-primary">완료</span></td>
-                                            <td>${request.reqReason}</td>
-                                            <td>${request.reqDeadline}</td>
-                                            <td>${request.reqAmount}</td>
-                                        </tr>
-
+                            <thead>
+                                <tr>
+                                    <th>no</th>
+                                    <th>제목</th>
+                                    <th>사유</th>
+                                    <th>마감일</th>
+                                    <th>필요증서 수량</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="request" items="${requestList}">
+                                <tr>
+                                    <td><a href="http://localhost:8080/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td>${request.reqTitle}</td>
+                                    <td>${request.reqReason}</td>
+                                    <td>${request.reqDeadline}</td>
+                                    <td>${request.reqAmount}</td>
+                                </tr>
+                                </c:forEach>
+                            </tbody>
                                 </table>
                               </body>
                             </div>

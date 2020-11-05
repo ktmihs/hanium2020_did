@@ -194,31 +194,31 @@
                       <p align="right">* 필수입력사항</p>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">제목 *</p>
-                          <input type="text" class="form-control form-control-user" id="req_title" placeholder="제목을 입력하세요" name="reqTitle">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">제목 *</p>
+                          <input type="text" class="form-control form-control-user" id="request.reqTitle" placeholder="제목을 입력하세요" name="request.reqTitle">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input type="text" class="form-control form-control-user" id="req_id" placeholder="신촌세브란스" name="reqId">
-                    <!--      <input disabled type="text" class="form-control form-control-user" id="req_id" placeholder="신촌세브란스">-->
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">기관(개인)명</p>
+                          <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스" name="reqId">
+                    <!--      <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">-->
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일) *</p>
-                          <input type="text" class="form-control form-control-user" id="req_deadline" placeholder="6자리 입력 ex)20190518 -> 190518" name="reqDate">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;" for="form">기간(마감일) *</p>
+                          <input type="text" class="form-control form-control-user" id="reqDeadline" placeholder="6자리 입력 ex)20190518 -> 190518" name="reqDeadline">
                         </div>
                         <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량 *</p>
-                          <input type="text" class="form-control form-control-user" id="req_amount" placeholder="300개 필요-> 300" name="reqAmount">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;" for="form">필요 증서 수량 *</p>
+                          <input type="text" class="form-control form-control-user" id="reqAmount" placeholder="300개 필요-> 300" name="reqAmount">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유 *</p>
-                          <textarea class="form-control" id="req_reason" style="height: 150px;" placeholder="요청 사유를 입력하세요" name="reqReason"></textarea>
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">요청 사유 *</p>
+                          <textarea class="form-control" id="reqReason" style="height: 150px;" placeholder="요청 사유를 입력하세요" name="reqReason"></textarea>
                         </div>
                       </div>
 
@@ -234,7 +234,7 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i> 확인  </a>
+                          <a href="http://localhost:8080/request_detail_writer/${request.reqId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i> 확인  </a>
                           <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>

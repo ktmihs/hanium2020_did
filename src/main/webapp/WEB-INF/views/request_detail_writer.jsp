@@ -183,7 +183,8 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user">
+                    <form class="user" action="/request_detail_writer">
+                    <c:forEach var="request" items="${requestList}">
                       <div class="mb-5"> 
                         <div class="float-left">작성자: ${request.reqId}</div>
                         <div align="right">작성일: ${request.reqDate}</div>
@@ -229,7 +230,7 @@
                           <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>
-
+                    </c:forEach>
                     </form>
                   </div>
                 </div>
