@@ -183,10 +183,11 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user">
+                    <form class="user" action="/request_detail_writer">
+                    <c:forEach var="request" items="${requestList}">
                       <div class="mb-5"> 
-                        <div class="float-left">작성자: 신촌세브란스</div>
-                        <div align="right">작성일: 2020.08.24</div>
+                        <div class="float-left">작성자: ${request.reqId}</div>
+                        <div align="right">작성일: ${request.reqDate}</div>
                         <hr>
                       </div>
                       
@@ -194,60 +195,26 @@
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="신촌세브란스">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.userId}">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="20년 09월 20일">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqDeadline}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="500개">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqAmount}">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
-                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">헌혈증이 필요해요</textarea>
+                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">${request.reqReason}</textarea>
                         </div>
                       </div>
-                      <!-- 테이블형식
 
-                        <table class="table table-bordered">
-                        <tbody>
-                          <form role="form">
-                            <tr>
-                              <th>기관(개인)명</th>
-                              <td> 
-                                신촌세브란스
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>기간(마감일)</th>
-                              <td>
-                                  20년 09월 20일
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>필요 증서 수량</th>
-                              <td>
-                                  500개
-                              </td>
-                            </tr>
-                            <tr>
-                              <th>요청 사유</th>
-                              <td> 
-                                헌혈증이 필요해요
-                              </td>
-                            </tr>  
-                          </form>
-                        </tbody>
-                      </table>
-
-                      -->
-                      
                       </br>
                       <!--버튼-->
                       <div class="form-group row">
@@ -263,7 +230,7 @@
                           <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>
-
+                    </c:forEach>
                     </form>
                   </div>
                 </div>

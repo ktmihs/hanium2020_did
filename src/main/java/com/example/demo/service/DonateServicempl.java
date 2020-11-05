@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.model.Donate;
 import com.example.demo.repository.DonateRepository;
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +15,19 @@ public class DonateServicempl implements DonateService {
 
     @Override
     public List<Donate> findAll(){
-        //   List list = newArrayList(test2Repository.findAll());
-        return Lists.newArrayList(donateRepository.findAll());
+        List<Donate> list=donateRepository.findAll();
+        return list;
     }
+    @Override
+    public void createDonate(Donate donate){
+        donateRepository.save(donate);
+    }
+
+    @Override
+    public Donate findByDonateId(int donateId){
+        return donateRepository.findByDonateId(donateId);
+    }
+
     @Autowired
     public DonateRepository getDonateRepository() {
         return donateRepository;

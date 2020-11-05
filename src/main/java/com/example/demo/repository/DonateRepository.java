@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface DonateRepository extends JpaRepository<Donate, String> {
-    public List<Donate> findAll();
+    Donate findByDonateId(int donateId);
+    //Donate getOne(int donateId);
 }

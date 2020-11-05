@@ -1,16 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Donate;
 import com.example.demo.model.Request;
 import com.example.demo.repository.RequestRepository;
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
-import java.time.LocalTime;
 import java.util.List;
 
 @Transactional
@@ -20,13 +15,17 @@ public class RequestServicempl implements RequestService {
 
     @Override
     public List<Request> findAll(){
-        //   List list = newArrayList(test2Repository.findAll());
-        return Lists.newArrayList(requestRepository.findAll());
+        List<Request> list=requestRepository.findAll();
+        return list;
     }
-    public void createBoard(Request re) {
-    //    RequestRepository.save(re);
+    @Override
+    public void createRequest(Request request) {
+        requestRepository.save(request);
     }
-
+    @Override
+    public Request findByReqId(int reqId){
+        return requestRepository.findByReqId(reqId);
+    }
 
 
     @Autowired

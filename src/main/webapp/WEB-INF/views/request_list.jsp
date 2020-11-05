@@ -193,46 +193,26 @@
                         <div class="table-responsive">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <tr>
-                                            <th>no</th>
-                                            <th>제목</th>
-                                            <th>사유</th>
-                                            <th>마감일</th>
-                                            <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
-                                        </tr>
-                                        <tr>
-                                            <td>273</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>275</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>276</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
+                            <thead>
+                                <tr>
+                                    <th>no</th>
+                                    <th>제목</th>
+                                    <th>사유</th>
+                                    <th>마감일</th>
+                                    <th>필요증서 수량</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="request" items="${requestList}">
+                                <tr>
+                                    <td><a href="http://localhost:8080/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td>${request.reqTitle}</td>
+                                    <td>${request.reqReason}</td>
+                                    <td>${request.reqDeadline}</td>
+                                    <td>${request.reqAmount}</td>
+                                </tr>
+                                </c:forEach>
+                            </tbody>
                                 </table>
                               </body>
                             </div>
