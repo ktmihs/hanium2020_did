@@ -4,11 +4,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -22,11 +24,13 @@ public class Request {
     @Column(name = "req_id")
     private String reqId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "req_date")
-    private LocalTime reqDate;
+    private LocalDate reqDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "req_deadline")
-    private LocalTime reqDeadline;
+    private LocalDate reqDeadline;
 
     @Column(name = "req_amount")
     private int reqAmount;
@@ -49,19 +53,19 @@ public class Request {
         this.reqId = reqId;
     }
 
-    public LocalTime getReqDate() {
+    public LocalDate getReqDate() {
         return reqDate;
     }
 
-    public void setReqDate(LocalTime reqDate) {
+    public void setReqDate(LocalDate reqDate) {
         this.reqDate = reqDate;
     }
 
-    public LocalTime getReqDeadline() {
+    public LocalDate getReqDeadline() {
         return reqDeadline;
     }
 
-    public void setReqDeadline(LocalTime reqDeadline) {
+    public void setReqDeadline(LocalDate reqDeadline) {
         this.reqDeadline = reqDeadline;
     }
 

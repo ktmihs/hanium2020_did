@@ -190,12 +190,12 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-                    <form class="user" action="/request_enroll" method="post">
+                    <form class="user" action="/request_detail_writer" method="post">
                       <p align="right">* 필수입력사항</p>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">제목 *</p>
-                          <input type="text" class="form-control form-control-user" id="request.reqTitle" placeholder="제목을 입력하세요" name="request.reqTitle">
+                          <input type="text" class="form-control form-control-user" id="reqTitle" placeholder="제목을 입력하세요" name="reqTitle">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -208,7 +208,7 @@
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;" for="form">기간(마감일) *</p>
-                          <input type="text" class="form-control form-control-user" id="reqDeadline" placeholder="6자리 입력 ex)20190518 -> 190518" name="reqDeadline">
+                          <input type="date" class="form-control form-control-user" id="reqDeadline" placeholder="6자리 입력 ex)20190518 -> 190518" name="reqDeadline">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;" for="form">필요 증서 수량 *</p>
@@ -234,7 +234,7 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_detail_writer/${request.reqId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i> 확인  </a>
+                          <a href="/request_detail_writer" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><input type="submit"> 확인 </a>
                           <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>

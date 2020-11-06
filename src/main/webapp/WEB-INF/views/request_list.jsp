@@ -205,7 +205,7 @@
                             <tbody>
                                 <c:forEach var="request" items="${requestList}">
                                 <tr>
-                                    <td><a href="http://localhost:8080/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td><a href="/request_detail_writer/${request.reqId}">${request.reqId}</td>
                                     <td>${request.reqTitle}</td>
                                     <td>${request.reqReason}</td>
                                     <td>${request.reqDeadline}</td>
