@@ -10,7 +10,7 @@ import java.util.List;
 public interface RequestService {
     List<Request> findAll();
     void createRequest(Request request);
-    Request findByReqId(int reqId);
+    Request findByReqId(String reqId);
     RequestRepository getRequestRepository();
     void setRequestRepository(RequestRepository requestRepository);
 }
