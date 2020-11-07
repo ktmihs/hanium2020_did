@@ -8,9 +8,12 @@ import java.util.List;
 
 @Service
 public interface RequestService {
+
     List<Request> findAll();
     void createRequest(Request request);
-    Request findByReqId(String reqId);
+    Request findByReqId(int reqId);
     RequestRepository getRequestRepository();
     void setRequestRepository(RequestRepository requestRepository);
+
 }
+

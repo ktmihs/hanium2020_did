@@ -190,7 +190,7 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-                    <form class="user" action="/request_detail_writer" method="post">
+                    <form class="user" action="/request_enroll" method="post">
                       <p align="right">* 필수입력사항</p>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
@@ -234,7 +234,7 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="/request_detail_writer" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><input type="submit"> 확인 </a>
+                          <a href="/request_detail_writer/${request.reqId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><input type="submit"> 확인 </a>
                           <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>
