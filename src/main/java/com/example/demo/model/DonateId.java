@@ -13,7 +13,7 @@ import java.time.LocalTime;
 
 public class DonateId implements Serializable {
     @Column(name = "req_id")
-    private String reqId;
+    private int reqId;
 
     @Column(name = "user_id")
     private LocalTime userId;

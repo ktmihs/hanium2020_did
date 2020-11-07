@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String> {
-    Request findByReqId(String reqId);
-    //Request getOne(int reqId);
+
+    Request findByReqId(int reqId);
 }

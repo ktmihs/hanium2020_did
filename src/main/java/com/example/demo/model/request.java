@@ -22,7 +22,7 @@ public class Request {
     @NonNull
     @Id
     @Column(name = "req_id")
-    private String reqId;
+    private int reqId;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "req_date")
@@ -45,11 +45,11 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public String getReqId() {
+    public int getReqId() {
         return reqId;
     }
 
-    public void setReqId(String reqId) {
+    public void setReqId(int reqId) {
         this.reqId = reqId;
     }
 

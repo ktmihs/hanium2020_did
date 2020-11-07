@@ -23,7 +23,7 @@ public class RequestServicempl implements RequestService {
         requestRepository.save(request);
     }
     @Override
-    public Request findByReqId(String reqId){
+    public Request findByReqId(int reqId){
         return requestRepository.findByReqId(reqId);
     }
 
