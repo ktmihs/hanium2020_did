@@ -233,7 +233,15 @@
                                             <td>20.2.9</td>
                                             <td>아산병원</td>
                                         </tr>
-
+                                         <c:forEach items = "${donateA}" var="donate">
+                                            <tr>
+                                              <td nowrap></td>
+                                              <td nowrap></td>
+                                              <td nowrap>${donate.donateAmount}</td>
+                                              <td nowrap>${donate.donateId.reqId}</td>
+                                              <td nowrap>${donate.donateDate}</td>
+                                            </tr>
+                                         </c:forEach>
                                         <tr>
                                             <td>2</td>
                                             <td>20.2.2</td>
