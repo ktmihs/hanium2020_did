@@ -7,13 +7,16 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"user\"")
 @Data
-public abstract class User {
+public abstract class User implements Serializable {
     @NonNull
     @Id
     @Column(name = "user_id")
@@ -41,11 +44,15 @@ public abstract class User {
     private String userEmail;
 
     @Column(name = "user_inputdate")
-    private String userInputdate;
+    private LocalTime userInputdate;
 
     @ManyToOne
     @JoinColumn(name = "g_id")
     private Group group;
+
+    User(){
+
+    }
 
     public String getUserId() {
         return userId;
@@ -111,11 +118,11 @@ public abstract class User {
         this.userEmail = userEmail;
     }
 
-    public String getUserInputdate() {
+    public LocalTime getUserInputdate() {
         return userInputdate;
     }
 
-    public void setUserInputdate(String userInputdate) {
+    public void setUserInputdate(LocalTime userInputdate) {
         this.userInputdate = userInputdate;
     }
 

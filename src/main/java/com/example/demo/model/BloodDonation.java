@@ -8,6 +8,7 @@
         import lombok.Setter;
 
         import javax.persistence.*;
+        import java.io.Serializable;
         import java.time.LocalTime;
 
 @Entity
@@ -15,7 +16,7 @@
 @Setter
 @Table(name="\"blood_donation\"")
 @Data
-public class BloodDonation {
+public class BloodDonation implements Serializable {
 
     @NonNull
     @Id

@@ -15,24 +15,24 @@ public class HomeController {
 
         return "index";
     }
-    @RequestMapping("/index")
-    public String viewIndexPage() {
+//    @RequestMapping("/index")
+//    public String viewIndexPage() {             //메인 페이지
 
-        return "index";
-    }
-    @RequestMapping("/login")
+//        return "index";
+//    }
+    @RequestMapping("/login")                   //로그인 페이지
     public String viewLoginPage() {
 
         return "login";
     }
 
-    @RequestMapping("/my_blood_list")
+    @RequestMapping("/my_blood_list")           //내 헌혈증 리스트
     public String viewMyBloodListPage() {
 
         return "my_blood_list";
     }
 
-    @RequestMapping("/profile")
+    @RequestMapping("/profile")                 //마이페이지
     public String viewProfilePage() {
 
         return "profile";

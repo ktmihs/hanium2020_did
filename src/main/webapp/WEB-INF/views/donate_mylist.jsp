@@ -174,20 +174,13 @@
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
           </div>
-          <!-- <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; border:1px solid green; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  Enroll</h4>
-          </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Generate Report</a> -->
           </div>
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
@@ -232,33 +225,6 @@
                                             <td>o</td>   <!-- 사용시 소문자 o, 미사용시 소문자 x -->
                                             <td>20.2.9</td>
                                             <td>아산병원</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>20.2.2</td>
-                                            <td>01-01-123457</td>
-                                            <td>o</td>
-                                            <td>20.2.4</td>
-                                            <td>세브란스병원</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>3</td>
-                                          <td>20.7.1</td>
-                                          <td>01-01-123458</td>
-                                          <td>o</td>
-                                          <td>20.7.15</td>
-                                          <td>세브란스병원</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>4</td>
-                                          <td>20.7.28</td>
-                                          <td>01-01-123459</td>
-                                          <td>x</td>
-                                          <td></td>
-                                          <td>아산병원</td>
                                         </tr>
                                     </tbody>
                                 </table>

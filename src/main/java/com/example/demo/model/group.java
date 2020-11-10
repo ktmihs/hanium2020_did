@@ -9,13 +9,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"group\"")
 @Data
-public class Group {
+public class Group implements Serializable {
     @NonNull
     @Id
     @Column(name = "g_id")

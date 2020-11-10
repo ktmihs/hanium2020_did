@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalTime;
 
 @Entity
@@ -16,7 +17,7 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"blood_institution\"")
 @Data
-public class BloodInstitution {
+public class BloodInstitution implements Serializable {
     @NonNull
     @Id
     @Column(name = "bdi_id")

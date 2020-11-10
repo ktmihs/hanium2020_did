@@ -143,20 +143,13 @@
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
           </div>
-          <!-- <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; border:1px solid green; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  Enroll</h4>
-          </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Generate Report</a> -->
           </div>
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
@@ -183,8 +176,8 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user" action="/request_detail_writer">
-                    <c:forEach var="request" items="${requestList}">
+                    <form class="user" action="/request_detail_writer/${reqId}" var="request" items="${Request}">
+                  //  <c:forEach var="request" items="${requestList}">
                       <div class="mb-5"> 
                         <div class="float-left">작성자: ${request.reqId}</div>
                         <div align="right">작성일: ${request.reqDate}</div>
@@ -220,17 +213,15 @@
                       <div class="form-group row">
                         <div class="col-sm-2"">
                           <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-undo"></i> 목록으로  </a>
-                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
                           <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"><i class="fas fa-trash"></i> 삭제  </a>
-                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                         </div>
                       </div>
-                    </c:forEach>
+                   // </c:forEach>
                     </form>
                   </div>
                 </div>
@@ -243,11 +234,6 @@
 
       </div>
       <!-- End of Main Content -->
-
-
-
-
-
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">

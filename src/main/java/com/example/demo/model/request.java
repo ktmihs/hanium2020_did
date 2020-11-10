@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -18,11 +19,11 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"request\"")
 @Data
-public class Request {
+public class Request implements Serializable {
     @NonNull
     @Id
     @Column(name = "req_id")
-    private int reqId;
+    private String reqId;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "req_date")
@@ -41,15 +42,19 @@ public class Request {
     @Column(name = "req_title")
     private String reqTitle;
 
+    Request(){
+
+    }
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public int getReqId() {
+    public String getReqId() {
         return reqId;
     }
 
-    public void setReqId(int reqId) {
+    public void setReqId(String reqId) {
         this.reqId = reqId;
     }
 

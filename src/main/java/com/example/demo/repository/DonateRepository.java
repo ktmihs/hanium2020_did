@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface DonateRepository extends JpaRepository<Donate, String> {
-    Donate findByDonateId(int donateId);
+    Donate findByDonateId(int donateId);        //donateId로 하나 찾기
     //Donate getOne(int donateId);
 }

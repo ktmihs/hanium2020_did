@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalTime;
 
 @Entity
@@ -15,7 +16,7 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"donate\"")
 @Data
-public class Donate {
+public class Donate implements Serializable {
     @NonNull
     @EmbeddedId
     private DonateId donateId;
