@@ -1,19 +1,20 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JacksonInject;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalTime;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"user\"")
 @Data
-public abstract class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
     @NonNull
     @Id
     @Column(name = "user_id")
@@ -41,11 +42,12 @@ public abstract class User {
     private String userEmail;
 
     @Column(name = "user_inputdate")
-    private String userInputdate;
+    private LocalTime userInputdate;
 
-    @ManyToOne
     @JoinColumn(name = "g_id")
+    @ManyToOne
     private Group group;
+
 
     public String getUserId() {
         return userId;
@@ -111,11 +113,11 @@ public abstract class User {
         this.userEmail = userEmail;
     }
 
-    public String getUserInputdate() {
+    public LocalTime getUserInputdate() {
         return userInputdate;
     }
 
-    public void setUserInputdate(String userInputdate) {
+    public void setUserInputdate(LocalTime userInputdate) {
         this.userInputdate = userInputdate;
     }
 

@@ -8,9 +8,9 @@ import java.util.List;
 
 @Service
 public interface DonateService {
-    List<Donate> findAll();
-    void createDonate(Donate donate);
-    Donate findByDonateId(int donateId);
-    DonateRepository getDonateRepository();
-    void setDonateRepository(DonateRepository donateRepository);
+    List<Donate> findAll();                                             //내 기부 목록 전체 가져오기
+    void createDonate(Donate donate);                                   //기부 페이지 작성
+    Donate findByDonateId(int donateId);                                //기부페이지에서 하나 가져오기
+    DonateRepository getDonateRepository();                             //getter
+    void setDonateRepository(DonateRepository donateRepository);        //setter
 }

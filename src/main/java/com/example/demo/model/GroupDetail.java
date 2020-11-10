@@ -1,20 +1,20 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"group_detail\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class GroupDetail {
     @NonNull
     @Id

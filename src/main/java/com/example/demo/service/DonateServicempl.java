@@ -15,25 +15,25 @@ public class DonateServicempl implements DonateService {
 
     @Override
     public List<Donate> findAll(){
-        List<Donate> list=donateRepository.findAll();
+        List<Donate> list=donateRepository.findAll();       //JPARepository의 findAll()함수 사용
         return list;
     }
     @Override
     public void createDonate(Donate donate){
-        donateRepository.save(donate);
+        donateRepository.save(donate);                      //JPARepository의 save()함수 사용하여 donate 내용 저장
     }
 
     @Override
     public Donate findByDonateId(int donateId){
-        return donateRepository.findByDonateId(donateId);
+        return donateRepository.findByDonateId(donateId);   //reqId로 하나 찾아오기
     }
 
     @Autowired
     public DonateRepository getDonateRepository() {
         return donateRepository;
-    }
+    }       //getter
     @Autowired
-    public void setDonateRepository(DonateRepository donateRepository) {
+    public void setDonateRepository(DonateRepository donateRepository) {              //setter
         this.donateRepository = donateRepository;
     }
 }

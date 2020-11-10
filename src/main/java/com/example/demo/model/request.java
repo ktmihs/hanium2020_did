@@ -1,15 +1,13 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -18,11 +16,13 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"request\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Request {
     @NonNull
     @Id
     @Column(name = "req_id")
-    private int reqId;
+    private String reqId;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "req_date")
@@ -45,11 +45,11 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public int getReqId() {
+    public String getReqId() {
         return reqId;
     }
 
-    public void setReqId(int reqId) {
+    public void setReqId(String reqId) {
         this.reqId = reqId;
     }
 

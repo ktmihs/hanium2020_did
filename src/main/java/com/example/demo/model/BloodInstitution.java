@@ -1,14 +1,12 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalTime;
 
 @Entity
@@ -16,6 +14,8 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"blood_institution\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BloodInstitution {
     @NonNull
     @Id

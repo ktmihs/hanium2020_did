@@ -1,13 +1,11 @@
 package com.example.demo.model;
 import javax.persistence.Column;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalTime;
 
 @Entity
@@ -15,6 +13,8 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"donate\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Donate {
     @NonNull
     @EmbeddedId

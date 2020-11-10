@@ -1,20 +1,20 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"group\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Group {
     @NonNull
     @Id
@@ -23,6 +23,7 @@ public class Group {
 
     @Column(name = "g_name")
     private String gName;
+
 
     public String getgId() {
         return gId;

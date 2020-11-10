@@ -2,12 +2,10 @@
 
         package com.example.demo.model;
 
-        import lombok.Data;
-        import lombok.Getter;
-        import lombok.NonNull;
-        import lombok.Setter;
+        import lombok.*;
 
         import javax.persistence.*;
+        import java.io.Serializable;
         import java.time.LocalTime;
 
 @Entity
@@ -15,6 +13,8 @@
 @Setter
 @Table(name="\"blood_donation\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BloodDonation {
 
     @NonNull

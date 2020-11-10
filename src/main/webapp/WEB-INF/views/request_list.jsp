@@ -153,20 +153,13 @@
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
           </div>
-          <!-- <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; border:1px solid green; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  Enroll</h4>
-          </div> -->
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
              <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Generate Report</a> -->
           </div>
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
@@ -203,9 +196,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="request" items="${requestList}">
+                                <c:forEach var="request" items="${requestList}" action="request_list">
                                 <tr>
-                                    <td><a href="/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td>${request.req_id}</td>
                                     <td>${request.reqTitle}</td>
                                     <td>${request.reqReason}</td>
                                     <td>${request.reqDeadline}</td>

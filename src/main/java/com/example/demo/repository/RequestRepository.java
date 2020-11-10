@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String> {
 
-    Request findByReqId(int reqId);
+    Request findByReqId(String reqId);     //reqId로 하나 찾기
 }

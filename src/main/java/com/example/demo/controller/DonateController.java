@@ -6,6 +6,7 @@ import com.example.demo.service.DonateServicempl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +21,18 @@ public class DonateController {
     @Autowired
     DonateService servicempl;
 
-    @RequestMapping("/request_detail_donor")
-    public String viewRequestDetailDonorPage() {
+//    @RequestMapping("/request_detail_donor")        //선택한 페이지 상세보기
+//    public String viewRequestDetailDonorPage() {
+//
+//        return "request_detail_donor";
+//    }
 
-        return "request_detail_donor";
-    }
-
-    @RequestMapping("/donate_enroll")
+    @GetMapping("/donate_enroll")                   //기부 페이지 가져오기
     public ModelAndView viewDonateEnrollPage(){
         ModelAndView nextView=new ModelAndView("/donate_enroll");
         return nextView;
     }
-    @PostMapping("/donate_enroll")
+    @PostMapping("/donate_enroll")                  //기부 페이지 저장하기
     public ModelAndView viewDonateEnrollPage(Donate donate) {
 
         servicempl.createDonate(donate);
@@ -41,7 +42,7 @@ public class DonateController {
         return nextView;
     }
 
-    @RequestMapping("/request_detail_donor/{donateId}")
+    @GetMapping("/request_detail_donor/{donateId}")     //선택한 페이지 상세보기
     public ModelAndView viewRequestDetailDonorPage(@PathVariable("donateId") int donateId){
         Donate donate=servicempl.findByDonateId(donateId);
         ModelAndView nextView=new ModelAndView("/request_detail_donor");
