@@ -12,14 +12,13 @@ public class HomeController {
 
     @RequestMapping("/")
     public String viewMainPage() {
+        return "index";
+    }
+    @RequestMapping("/index")
+    public String viewIndexPage() {             //메인 페이지
 
         return "index";
     }
-//    @RequestMapping("/index")
-//    public String viewIndexPage() {             //메인 페이지
-
-//        return "index";
-//    }
     @RequestMapping("/login")                   //로그인 페이지
     public String viewLoginPage() {
 

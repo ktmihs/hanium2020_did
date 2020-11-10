@@ -1,10 +1,7 @@
 package com.example.demo.model;
 import javax.persistence.Column;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,7 +13,9 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"donate\"")
 @Data
-public class Donate implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Donate {
     @NonNull
     @EmbeddedId
     private DonateId donateId;

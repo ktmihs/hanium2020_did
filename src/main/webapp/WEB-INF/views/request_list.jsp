@@ -196,9 +196,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="request" items="${requestList}">
+                                <c:forEach var="request" items="${requestList}" action="request_list">
                                 <tr>
-                                    <td><a href="/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td>${request.req_id}</td>
                                     <td>${request.reqTitle}</td>
                                     <td>${request.reqReason}</td>
                                     <td>${request.reqDeadline}</td>

@@ -2,10 +2,7 @@
 
         package com.example.demo.model;
 
-        import lombok.Data;
-        import lombok.Getter;
-        import lombok.NonNull;
-        import lombok.Setter;
+        import lombok.*;
 
         import javax.persistence.*;
         import java.io.Serializable;
@@ -16,7 +13,9 @@
 @Setter
 @Table(name="\"blood_donation\"")
 @Data
-public class BloodDonation implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class BloodDonation {
 
     @NonNull
     @Id

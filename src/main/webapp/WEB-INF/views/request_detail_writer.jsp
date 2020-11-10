@@ -176,11 +176,11 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user" action="/request_detail_writer/${reqId}" var="request" items="${Request}">
-                  //  <c:forEach var="request" items="${requestList}">
+                    <form class="user" action="request_detail_writer/${reqId}" var="request" items="${RequestL}">
+
                       <div class="mb-5"> 
-                        <div class="float-left">작성자: ${request.reqId}</div>
-                        <div align="right">작성일: ${request.reqDate}</div>
+                        <div class="float-left" name="reqId">작성자: ${request.req_id}</div>
+                        <div align="right">작성일: ${request.req_date}</div>
                         <hr>
                       </div>
                       
@@ -221,7 +221,7 @@
                           <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"><i class="fas fa-trash"></i> 삭제  </a>
                         </div>
                       </div>
-                   // </c:forEach>
+
                     </form>
                   </div>
                 </div>

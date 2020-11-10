@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +13,9 @@ import java.io.Serializable;
 @Setter
 @Table(name="\"group\"")
 @Data
-public class Group implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Group {
     @NonNull
     @Id
     @Column(name = "g_id")
@@ -24,6 +23,7 @@ public class Group implements Serializable {
 
     @Column(name = "g_name")
     private String gName;
+
 
     public String getgId() {
         return gId;

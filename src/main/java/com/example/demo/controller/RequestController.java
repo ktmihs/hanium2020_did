@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,11 +22,27 @@ public class RequestController {
     @Autowired
     RequestService servicempl;
     @Autowired
-    RequestRepository requestRepository;
+    RequestRepository requestRepo;
 
-    public RequestController(RequestService servicempl) {
-        this.servicempl = servicempl;
+    @Autowired
+    public void setRequestService(RequestService requestService) {
+        this.servicempl = requestService;
     }
+    @Autowired
+    public void setRequestRepository(RequestRepository requestRepository) {
+        this.requestRepo = requestRepository;
+    }
+    @Autowired
+    public RequestService getRequestService(){
+        return servicempl;
+    }
+    @Autowired
+    public RequestRepository getRequestRepository(){
+        return requestRepo;
+    }
+    //public RequestController(RequestService servicempl) {
+    //    this.servicempl = servicempl;
+    //}
 
     /*
     @GetMapping("/request_list")                    //전체 요청내역 페이지
@@ -37,19 +54,15 @@ public class RequestController {
         return nextView;
     }
     */
-    @RequestMapping("/donate_mylist")
+    @RequestMapping("/request_list")
     public String ListDonate(Model uiModel) {
         List<Request> list = servicempl.findAll();
+        System.out.println(list);
         uiModel.addAttribute("requestList", list);
+        System.out.println(list);
         return "request_list";
     }
 
-    @GetMapping(value="/index")
-    public Model ListRequest(Model uiModel) {
-        List<Request> list = servicempl.findAll();
-        uiModel.addAttribute("requestList", list);
-        return uiModel;
-    }
 
     @GetMapping("/request_enroll")                  //헌혈증 요청 작성 페이지 가져오기
     @ResponseBody
@@ -68,28 +81,20 @@ public class RequestController {
         return nextView;
     }
 
-    @GetMapping("/request_detail_user")             //요청 작성 페이지 완료 후 보이는 페이지
-    @ResponseBody
+    @RequestMapping("/request_detail_user")             //요청 작성 페이지 완료 후 보이는 페이지
     public String viewRequestDetailUserPage() {
 
         return "request_detail_user";
     }
 
-//    @GetMapping("/request_detail_writer/{reqId}")      //요청 내역 중 하나 클릭해서 들어갔을 떄 페이지
-//    @ResponseBody
-//    public ModelAndView viewRequestDetailWriterPage(@PathVariable("reqId") String reqId) {
-//        Request req=servicempl.findByReqId(reqId);
-
-//        ModelAndView nextView=new ModelAndView("/request_detail_writer");
-//        nextView.addObject("Request", req);
-//        return nextView;
-//    }
-
-    @GetMapping("/request_detail_writer/{reqId}")
-    public Request getPost(@PathVariable String reqId){
-        //Long postID=Long.parseLong(reqId);
-        Optional<Request> req= Optional.ofNullable(requestRepository.findByReqId(reqId));
-
-        return req.get();
+    @RequestMapping("/request_detail_writer/{reqId}")      //요청 내역 중 하나 클릭해서 들어갔을 떄 페이지
+    public String viewRequestDetailWriterPage(@PathVariable("reqId") String reqId, Model uiModel) {
+        Request req=servicempl.findByReqId(reqId);
+        //System.out.println(reqId);
+        uiModel.addAttribute("RequestL",req);
+//        ModelAndView nextView=new ModelAndView("/request_detail_writer/{reqId}");
+//        nextView.addObject("RequestL", req);
+        return "request_detail_writer";
     }
+
 }

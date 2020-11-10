@@ -1,14 +1,10 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JacksonInject;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -16,7 +12,9 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"user\"")
 @Data
-public abstract class User implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
     @NonNull
     @Id
     @Column(name = "user_id")
@@ -46,13 +44,10 @@ public abstract class User implements Serializable {
     @Column(name = "user_inputdate")
     private LocalTime userInputdate;
 
-    @ManyToOne
     @JoinColumn(name = "g_id")
+    @ManyToOne
     private Group group;
 
-    User(){
-
-    }
 
     public String getUserId() {
         return userId;

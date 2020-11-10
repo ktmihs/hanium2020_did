@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -19,7 +16,9 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"request\"")
 @Data
-public class Request implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Request {
     @NonNull
     @Id
     @Column(name = "req_id")
@@ -41,10 +40,6 @@ public class Request implements Serializable {
 
     @Column(name = "req_title")
     private String reqTitle;
-
-    Request(){
-
-    }
 
     @ManyToOne
     @JoinColumn(name = "user_id")

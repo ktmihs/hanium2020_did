@@ -185,30 +185,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4" var="request" items="${requestList}">
             <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
-            <table class="table" id="datatable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>no</th>
-                                                <th>제목</th>
-                                                <th>사유</th>
-                                                <th>마감일</th>
-                                                <th>필요증서 수량</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="request" items="${requestList}">
-                                            <tr>
-                                                <td><a href="/request_detail_writer/${request.reqId}">${request.reqId}</td>
-                                                <td>${request.reqTitle}</td>
-                                                <td>${request.reqReason}</td>
-                                                <td>${request.reqDeadline}</td>
-                                                <td>${request.reqAmount}</td>
-                                            </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                            </table>
 
           </div>
 
