@@ -5,6 +5,9 @@ import com.example.demo.repository.RequestRepository;
 import com.example.demo.service.RequestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,15 +56,42 @@ public class RequestController {
         nextView.addObject("requestList",list);
         return nextView;
     }
-    */
+
     @RequestMapping("/request_list")
     public String ListDonate(Model uiModel) {
-        List<Request> list = servicempl.findAll();
+        List<Request> list = requestRepo.findAll();
         System.out.println(list);
         uiModel.addAttribute("requestList", list);
         System.out.println(list);
         return "request_list";
     }
+
+    @RequestMapping("/request_list")
+    public ModelAndView boardList(){
+        List<Request> list=servicempl.findAll();
+        ModelAndView nextView=new ModelAndView("request_list");
+        nextView.addObject("boardList",list);
+        return nextView;
+    }
+
+     */
+
+    @RequestMapping(value = "/request_list", method = RequestMethod.GET)
+    public String findAll(Model uiModel){
+        List<Request> requestList=servicempl.findAll();
+        uiModel.addAttribute("List",requestList);
+        System.out.println(requestList);
+        return "request_list";
+    }
+    /*
+    @RequestMapping(value = "/request_list", method = RequestMethod.GET)
+    public List<Request> paging(@PageableDefault(size=5, sort="createdTime")Pageable pageRequest){
+        List<Request> requestList=requestRepo.findAll();
+        List<Request> pagingList=requestList;
+        return pagingList;
+    }
+
+     */
 
 
     @GetMapping("/request_enroll")                  //헌혈증 요청 작성 페이지 가져오기
@@ -71,13 +101,23 @@ public class RequestController {
         return nextView;
     }
 
-    @PostMapping("/request_enroll")                 //헌혈증 요청 작성 페이지 저장하기
+    @PostMapping("/request_enroll")                 //헌혈증 요청 작성 페이지 저장하기 complete!!
     @ResponseBody
     public ModelAndView viewRequestEnrollPage(Request request){
         servicempl.createRequest(request);
         ModelAndView nextView=new ModelAndView("request_detail_writer");
-        List<Request> list= (List<Request>) servicempl.findByReqId(request.getReqId());        //수정
+        List<Request> list= (List<Request>) servicempl.findByReqId(request.getReqId());
         nextView.addObject("requestList",list);
+        return nextView;
+    }
+
+    @RequestMapping("/request_detail_writer/{reqId}")
+    @ResponseBody
+    public ModelAndView viewRequestDetailWriterPage(@PathVariable("reqId") Integer reqId){
+        servicempl.findByReqId(reqId);
+        ModelAndView nextView=new ModelAndView("request_detail_writer");
+        //List<Request> list= (List<Request>) servicempl.findByReqId(reqId);
+        nextView.addObject("List",reqId);
         return nextView;
     }
 
@@ -87,14 +127,15 @@ public class RequestController {
         return "request_detail_user";
     }
 
+/*
     @RequestMapping("/request_detail_writer/{reqId}")      //요청 내역 중 하나 클릭해서 들어갔을 떄 페이지
     public String viewRequestDetailWriterPage(@PathVariable("reqId") String reqId, Model uiModel) {
-        Request req=servicempl.findByReqId(reqId);
+        Request req=requestRepo.findByReqId(reqId);
         //System.out.println(reqId);
         uiModel.addAttribute("RequestL",req);
 //        ModelAndView nextView=new ModelAndView("/request_detail_writer/{reqId}");
 //        nextView.addObject("RequestL", req);
         return "request_detail_writer";
     }
-
+ */
 }

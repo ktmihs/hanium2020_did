@@ -183,29 +183,30 @@
                     </div>
                       <hr class="mt-4">
                         <!-- request list datatable -->
-                        <div class="table-responsive">
+                        <div class="table-responsive" action="request_list">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
-                            <thead>
+
                                 <tr>
                                     <th>no</th>
+                                    <th>ID</th>
                                     <th>제목</th>
                                     <th>사유</th>
                                     <th>마감일</th>
                                     <th>필요증서 수량</th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="request" items="${requestList}" action="request_list">
+
+                                <c:forEach var="request" items="${List}" >
                                 <tr>
-                                    <td>${request.req_id}</td>
-                                    <td>${request.reqTitle}</td>
-                                    <td>${request.reqReason}</td>
-                                    <td>${request.reqDeadline}</td>
-                                    <td>${request.reqAmount}</td>
+                                    <td>${index+1}</td>
+                                    <td><a href="request_detail_writer?reqId=${request.reqId}">${request.reqId }</td>
+                                    <td>${request.reqTitle }</td>
+                                    <td>${request.reqReason }</td>
+                                    <td>${request.reqDeadline }</td>
+                                    <td>${request.reqAmount }</td>
                                 </tr>
                                 </c:forEach>
-                            </tbody>
+
                                 </table>
                               </body>
                             </div>
