@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -21,10 +22,12 @@ import java.time.LocalTime;
 public class Request {
     @NonNull
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "req_id")
-    private String reqId;
+    private Integer reqId;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @CreationTimestamp
     @Column(name = "req_date")
     private LocalDate reqDate;
 
@@ -45,11 +48,20 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public String getReqId() {
+    
+    @Builder
+    public Request(Integer reqId, LocalDate reqDeadline, int reqAmount, String reqTitle, String reqReason){
+        this.reqId=reqId;
+        this.reqDeadline=reqDeadline;
+        this.reqAmount=reqAmount;
+        this.reqTitle=reqTitle;
+        this.reqReason=reqReason;
+    }
+    public Integer getReqId() {
         return reqId;
     }
 
-    public void setReqId(String reqId) {
+    public void setReqId(Integer reqId) {
         this.reqId = reqId;
     }
 

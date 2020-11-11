@@ -13,16 +13,16 @@ import java.time.LocalTime;
 
 public class DonateId implements Serializable {
     @Column(name = "req_id")
-    private String reqId;
+    private Integer reqId;
 
     @Column(name = "user_id")
     private String userId;
 
-    public String getReqId() {
+    public Integer getReqId() {
         return reqId;
     }
 
-    public void setReqId(String reqId) {
+    public void setReqId(Integer reqId) {
         this.reqId = reqId;
     }
 

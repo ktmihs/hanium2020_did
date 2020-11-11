@@ -183,7 +183,7 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-                    <form class="user" action="/request_enroll" method="post">
+                    <form class="user" action="/request_enroll" method="post" >
                       <p align="right">* 필수입력사항</p>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
@@ -194,8 +194,8 @@
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">기관(개인)명</p>
-                          <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스" name="reqId">
-                    <!--      <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">-->
+                    <!--      <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스" name="reqId">-->
+                         <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -220,13 +220,15 @@
                       <!--버튼-->
                       <div class="form-group row">
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"><i class="fas fa-trash"></i> 취소  </a>
+                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 취소  </a>
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><a href="/request_detail_writer/${request.reqId}"></a>
+                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><a href="/request_detail_writer/${request.reqId}"></a>
+<!--                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><a href="/request_detail_writer/${request.reqId}"></a>-->
+
                         </div>
                       </div>
                     </form>
