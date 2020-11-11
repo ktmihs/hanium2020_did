@@ -176,7 +176,7 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user" action="request_detail_writer/${List}" var="request" items="${List}">
+                    <form class="user" action="request_detail_writer/${writerList}" var="request" items="${writerList}">
 
                       <div class="mb-5"> 
                         <div class="float-left" name="reqId">작성자: ${List}</div>

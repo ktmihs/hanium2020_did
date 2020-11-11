@@ -6,7 +6,9 @@ import com.example.demo.service.RequestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -76,21 +78,21 @@ public class RequestController {
 
      */
 
-    @RequestMapping(value = "/request_list", method = RequestMethod.GET)
-    public String findAll(Model uiModel){
-        List<Request> requestList=servicempl.findAll();
+    @RequestMapping(value = "/request_list")
+    public String list(Model uiModel,@PageableDefault(sort={"reqId"},direction = Sort.Direction.DESC,size=6) Pageable pageable){
+        Page<Request> requestList=servicempl.findAll(pageable);
         uiModel.addAttribute("List",requestList);
         System.out.println(requestList);
         return "request_list";
     }
     /*
-    @RequestMapping(value = "/request_list", method = RequestMethod.GET)
-    public List<Request> paging(@PageableDefault(size=5, sort="createdTime")Pageable pageRequest){
-        List<Request> requestList=requestRepo.findAll();
-        List<Request> pagingList=requestList;
-        return pagingList;
+    @RequestMapping(value = "/request_list")
+    public String list(Model uiModel){
+        List<Request> requestList=servicempl.findAll();
+        uiModel.addAttribute("List",requestList);
+        System.out.println(requestList);
+        return "request_list";
     }
-
      */
 
 
@@ -117,7 +119,7 @@ public class RequestController {
         servicempl.findByReqId(reqId);
         ModelAndView nextView=new ModelAndView("request_detail_writer");
         //List<Request> list= (List<Request>) servicempl.findByReqId(reqId);
-        nextView.addObject("List",reqId);
+        nextView.addObject("writerList",reqId);
         return nextView;
     }
 
