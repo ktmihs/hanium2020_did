@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -186,28 +187,40 @@
                         <div class="table-responsive" action="request_list">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
-
                                 <tr>
                                     <th>no</th>
-                                    <th>ID</th>
+                                    <th>작성자</th>
                                     <th>제목</th>
-                                    <th>사유</th>
                                     <th>마감일</th>
                                     <th>필요증서 수량</th>
                                 </tr>
 
-                                <c:forEach var="request" items="${List}" >
+                                <c:forEach var="request" items="${List.content}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                                 <tr>
-                                    <td>${index+1}</td>
-                                    <td><a href="request_detail_writer?reqId=${request.reqId}">${request.reqId }</td>
-                                    <td>${request.reqTitle }</td>
-                                    <td>${request.reqReason }</td>
-                                    <td>${request.reqDeadline }</td>
-                                    <td>${request.reqAmount }</td>
+                                    <td>${status.index+1}</td>
+                                    <td><a href="/request_detail_user/${request.reqId}">${request.user.userName}</td>
+                                    <td>${request.reqTitle}</td>
+                                    <td>${request.reqDeadline}</td>
+                                    <td>${request.reqAmount}</td>
                                 </tr>
                                 </c:forEach>
 
                                 </table>
+                                <div class="pager" align="right">
+
+                                    <c:if test="${!List.first}"><div class="col-sm-1 pl-4" style="float: left;">
+                                      <a href="?page=${List.number-1}" class="btn   btn-user btn-block" style="background-color:#888888; color: white; width: 50px;">&larr;</a>
+                                    </div></c:if>
+
+
+                                    <c:if test="${!List.last}"><div class="col-sm-1 mr-4" style="float: right;">
+                                      <a href="?page=${List.number+1}" class="btn   btn-user btn-block" style="background-color:#444444; color: white; width: 50px;">&rarr;</a>
+                                    </div></c:if>
+
+                                </div>
+                                <div>
+                                </div>
+
                               </body>
                             </div>
                             </br>

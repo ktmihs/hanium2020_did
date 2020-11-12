@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,51 +177,54 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user">
-                      <div class="mb-5">
-                        <div class="float-left">작성자: 신촌세브란스</div>
-                        <div align="right">작성일: 2020.08.24</div>
-                        <hr>
-                      </div>
+                    <c:set var="request" value="${req}"/>
+                        <form class="user" action="request_detail_user/${request.reqId}" >
 
-                      <!--고정값-->
-                      <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="신촌세브란스">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="20년 09월 20일">
-                        </div>
-                        <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="500개">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
-                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">헌혈증이 필요해요</textarea>
-                        </div>
-                      </div>
+                          <div class="mb-5">
+                            <div class="float-left">작성자:${request.user.userName}</div>
+                            <div align="right">작성일: ${request.reqDate}</div>
+                            <hr>
+                          </div>
 
-                      </br>
-                      <!--버튼-->
-                      <div class="form-group row">
-                        <div class="col-sm-2"">
-                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-undo"></i> 목록으로  </a>
-                        </div>
-                        <div>
-                            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        </div>
-                        <div class="col-sm-2">
-                          <a href="http://localhost:8080/donate_enroll" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>
-                        </div>
-                      </div>
-                    </form>
+                          <!--고정값-->
+                          <div class="form-group row">
+                            <div class="col-sm-12 mb-3 mb-sm-0">
+                              <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.user.group.gName}">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqDeadline}">
+                            </div>
+                            <div class="col-sm-6">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqAmount}">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-sm-12 mb-3 mb-sm-0">
+                              <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
+                              <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">${request.reqReason}</textarea>
+                            </div>
+                          </div>
+
+                          </br>
+                          <!--버튼-->
+                          <div class="form-group row">
+                            <div class="col-sm-2"">
+                              <a href="/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"> 목록으로  </a>
+                            </div>
+                            <div>
+                                <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                            <div class="col-sm-2">
+                              <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 삭제  </a>
+                            </div>
+                          </div>
+
+                        </form>
                   </div>
                 </div>
               </div>

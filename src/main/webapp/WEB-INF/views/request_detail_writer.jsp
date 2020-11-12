@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -176,10 +178,11 @@
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user" action="request_detail_writer/${List}" var="request" items="${List}">
+                    <c:set var="request" value="${req}"/>
+                    <form class="user" action="request_detail_writer/${request.reqId}" >
 
-                      <div class="mb-5"> 
-                        <div class="float-left" name="reqId">작성자: ${List}</div>
+                      <div class="mb-5">
+                        <div class="float-left">작성자:${request.user.userName}</div>
                         <div align="right">작성일: ${request.reqDate}</div>
                         <hr>
                       </div>
@@ -188,7 +191,7 @@
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.userId}">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.user.group.gName}">
                         </div>
                       </div>
                       <div class="form-group row">

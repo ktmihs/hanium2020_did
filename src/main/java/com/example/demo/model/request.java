@@ -48,15 +48,6 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
-    
-    @Builder
-    public Request(Integer reqId, LocalDate reqDeadline, int reqAmount, String reqTitle, String reqReason){
-        this.reqId=reqId;
-        this.reqDeadline=reqDeadline;
-        this.reqAmount=reqAmount;
-        this.reqTitle=reqTitle;
-        this.reqReason=reqReason;
-    }
     public Integer getReqId() {
         return reqId;
     }

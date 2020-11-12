@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Repository
-public interface RequestRepository extends JpaRepository<Request, String> {
+public interface RequestRepository extends JpaRepository<Request, Integer> {
 
     Request findByReqId(Integer reqId);     //reqId로 하나 찾기
 }

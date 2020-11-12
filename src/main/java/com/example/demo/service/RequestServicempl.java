@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -22,17 +24,19 @@ public class RequestServicempl implements RequestService {
     RequestRepository requestRepository;
 
     @Override
-    public List<Request> findAll(){
-        List<Request> lists=requestRepository.findAll();     //JPARepository의 findAll()함수 사용
-        List<Request> requestList=new ArrayList<>();
+    public Page<Request> findAll(Pageable pageable){
+        Page<Request> lists=requestRepository.findAll(pageable);     //JPARepository의 findAll()함수 사용
+//        List<Request> requestList=new ArrayList<>();
 
-        for(Request request:lists){
-            Request request1 = new Request(request.getReqId(),request.getReqDeadline(),request.getReqAmount(),request.getReqTitle(),request.getReqReason());
-            requestList.add(request1);
-        }
+//        for(Request request:lists){
+//            Request request1 = new Request(request.getReqId(),request.getReqDeadline(),request.getReqAmount(),request.getReqTitle(),request.getReqReason());
+//            requestList.add(request1);
+//        }
 //        return Lists.newArrayList(requestRepository.findAll());
-        return requestList;
+//        return requestList;
+        return lists;
     }
+
 
 
     @Override
