@@ -187,19 +187,18 @@
                         <div class="table-responsive" action="request_list">
 
                           <table class="table" id="datatable" width="100%" cellspacing="0">
-
                                 <tr>
                                     <th>no</th>
-                                    <th>ID</th>
+                                    <th>작성자</th>
                                     <th>제목</th>
                                     <th>마감일</th>
                                     <th>필요증서 수량</th>
                                 </tr>
 
-                                <c:forEach var="request" items="${List.content}" varStatus="status" >
+                                <c:forEach var="request" items="${List.content}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                                 <tr>
                                     <td>${status.index+1}</td>
-                                    <td><a href="/request_detail_writer/${request.reqId}">${request.reqId}</td>
+                                    <td><a href="/request_detail_user/${request.reqId}">${request.user.userName}</td>
                                     <td>${request.reqTitle}</td>
                                     <td>${request.reqDeadline}</td>
                                     <td>${request.reqAmount}</td>
