@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -173,17 +175,20 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-                    <form class="user" action="/donate_enroll" method="post">
+
+
+                    <c:set var="request" value="${requestEnl}" />
+                    <form class="user" action="/donate_enroll/${request.reqId}" method="post" >
                       <p align="right">* 1개 이상 선택</p>
                       <!--고정값-->
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="userId" placeholder="${request.userId}">
+                          <input disabled type="text" class="form-control form-control-user" id="userId" placeholder="${request.user.group.gName}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요증서수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="donateAmount" placeholder="${request.reqAmount}">
+                          <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="${request.reqAmount}">
                         </div>
                       </div>
                       <!--헌혈증서 선택-->
@@ -192,32 +197,32 @@
                           <div class="table-responsive">
                             <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 선택 *</p>
                             <table class="table" id="datatable" width="100%" cellspacing="0">
-                              <thead>
                               <tr>
                                 <th class="w-10">헌혈 증서 번호</th>
                                 <th class="w-10">혈액원명</th>
                                 <th class="w-25">헌혈 용량</th>
+                                <th class="w-25">혈액 종류</th>
                               </tr>
+                              <c:forEach var="bloodDonation" items="${bdList}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                               <tr>
                                 <td>
-                                  <input type="checkbox" id="select1">
-                                  01-02-12345
+                                  ${status.index+1}. <input type="checkbox" name="bdCheck" id="donateAmount" value="${bloodDonation.bdId}">
+                                  ${bloodDonation.bdId}
                                 </td>
                                 <td>
-                                  인천혈액원
+                                  ${bloodDonation.bloodInstitution.bdiName}
                                 </td>
                                 <td>
-                                  400ml
+                                  ${bloodDonation.bdAmount}
+                                </td>
+                                <td>
+                                  ${bloodDonation.bdType}
                                 </td>
                               </tr>
-                              <tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
+                              </c:forEach>
                             </table>
                           </div>
                         </div>
-
                       </div>
 
 
@@ -226,13 +231,15 @@
                       <!--버튼-->
                       <div class="form-group row">
                         <div class="col-sm-2"">
-                          <a href="http://localhost:8080/request_detail_user" class="btn   btn-user btn-block" style="background-color:red; color: white"><i class="fas fa-trash"></i>   취소  </a>
+                          <a onclick="history.back()" class="btn   btn-user btn-block" style="background-color:red; color: white">   취소  </a>
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_detail_donor/${donate.donateId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>
+                          <!--<a href="http://localhost:8080/request_detail_donor/${donate.donateId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>-->
+                          <input type="submit" value="기부하기" id="donateBoard" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
+
                         </div>
                       </div>
 
@@ -305,5 +312,14 @@
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 
 </body>
+<script type="text/javascript">
+$("#donateBoard").click(function(){
 
+	var result = confirm("기부하시겠습니까?");
+	if(result){
+		location.href = '/request_list';
+	}
+});
+
+</script>
 </html>

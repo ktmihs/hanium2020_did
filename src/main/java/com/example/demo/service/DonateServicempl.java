@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Donate;
+import com.example.demo.model.DonateId;
 import com.example.demo.repository.DonateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,19 +14,11 @@ import java.util.List;
 public class DonateServicempl implements DonateService {
     DonateRepository donateRepository;
 
-    @Override
-    public List<Donate> findAll(){
-        List<Donate> list=donateRepository.findAll();       //JPARepository의 findAll()함수 사용
-        return list;
+    public void save(Donate donate){
+        donateRepository.save(donate);
     }
-    @Override
-    public void createDonate(Donate donate){
-        donateRepository.save(donate);                      //JPARepository의 save()함수 사용하여 donate 내용 저장
-    }
-
-    @Override
-    public Donate findByDonateId(int donateId){
-        return donateRepository.findByDonateId(donateId);   //reqId로 하나 찾아오기
+    public Donate findByDonateId(DonateId donateId){
+        return donateRepository.findByDonateId(donateId);
     }
 
     @Autowired

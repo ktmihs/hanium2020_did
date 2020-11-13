@@ -198,8 +198,8 @@
                                 <c:forEach var="request" items="${List.content}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                                 <tr>
                                     <td>${status.index+1}</td>
-                                    <td><a href="/request_detail_user/${request.reqId}">${request.user.userName}</td>
-                                    <td>${request.reqTitle}</td>
+                                    <td>${request.user.userName}</td>
+                                    <td><a href="/request_detail_user/${request.reqId}">${request.reqTitle}</td>
                                     <td>${request.reqDeadline}</td>
                                     <td>${request.reqAmount}</td>
                                 </tr>

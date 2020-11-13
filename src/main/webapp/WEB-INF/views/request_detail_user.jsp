@@ -146,10 +146,10 @@
             <h4 class=" mb-0 text-gray-200">  </h4>
           </div>
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-             <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
+             <a href="/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
+             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
           </div>
@@ -181,7 +181,7 @@
                         <form class="user" action="request_detail_user/${request.reqId}" >
 
                           <div class="mb-5">
-                            <div class="float-left">작성자:${request.user.userName}</div>
+                            <div class="float-left" name="userName">작성자:${request.user.userName}</div>
                             <div align="right">작성일: ${request.reqDate}</div>
                             <hr>
                           </div>
@@ -200,7 +200,7 @@
                             </div>
                             <div class="col-sm-6">
                               <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
-                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqAmount}">
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" name="reqAmount" placeholder="${request.reqAmount}">
                             </div>
                           </div>
                           <div class="form-group row">
@@ -220,7 +220,7 @@
                                 <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                             </div>
                             <div class="col-sm-2">
-                              <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 삭제  </a>
+                              <a href="/donate_enroll/${request.reqId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"> 기부하기  </a>
                             </div>
                           </div>
 

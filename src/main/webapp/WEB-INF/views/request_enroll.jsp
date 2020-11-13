@@ -182,6 +182,7 @@
                       <h3 class="h3 text-gray-900 mb-4">헌혈증서 요청하기</h3>
                     </div>
                     <hr>
+
                     <!--카드 안 내용-->
                     <c:set var="request" value="${enrollList}"/>
                     <form class="user" action="/request_enroll" method="post" >
@@ -221,13 +222,13 @@
                       <!--버튼-->
                       <div class="form-group row">
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 취소  </a>
+                          <a href="/request_list" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 취소  </a>
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><a href="/request_list"></a>
+                          <input type="submit" value="확인" id="createBoard" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
 <!--                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><a href="/request_detail_writer/${request.reqId}"></a>-->
 
                         </div>
@@ -301,4 +302,12 @@
 
 </body>
 
+<script type="text/javascript">
+$("#createBoard").click(function(){
+	var result = confirm("요청글을 게시하겠습니까?");
+	if(result){
+		location.href = 'http://localhost:8080/request_list';
+	}
+});
+</script>
 </html>
