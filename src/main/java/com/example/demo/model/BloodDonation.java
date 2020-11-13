@@ -1,12 +1,9 @@
+package com.example.demo.model;
 
+import lombok.*;
 
-        package com.example.demo.model;
-
-        import lombok.*;
-
-        import javax.persistence.*;
-        import java.io.Serializable;
-        import java.time.LocalTime;
+import javax.persistence.*;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -22,8 +19,9 @@ public class BloodDonation {
     @Column(name = "bd_id")
     private String bdId;
 
-    @Column(name = "bdi_id")
-    private String bdiId;
+    @JoinColumn(name = "bdi_id")
+    @ManyToOne
+    private BloodInstitution bloodInstitution;
 
     @Column(name = "bd_type")
     private String bdType;
@@ -34,8 +32,8 @@ public class BloodDonation {
     @Column(name = "bd_date")
     private LocalTime bdDate;
 
-    @Column(name = "bd_institute")
-    private String bdInstitute;
+    @Column(name = "bd_check")
+    private byte bdCheck;
 
     @JoinColumn(name = "user_id")
     @ManyToOne
@@ -49,12 +47,12 @@ public class BloodDonation {
         this.bdId = bdId;
     }
 
-    public String getBdiId() {
-        return bdiId;
+    public BloodInstitution getBloodInstitution() {
+        return bloodInstitution;
     }
 
-    public void setBdiId(String bdiId) {
-        this.bdiId = bdiId;
+    public void setBloodInstitution(BloodInstitution bloodInstitution) {
+        this.bloodInstitution = bloodInstitution;
     }
 
     public String getBdType() {
@@ -81,12 +79,12 @@ public class BloodDonation {
         this.bdDate = bdDate;
     }
 
-    public String getBdInstitute() {
-        return bdInstitute;
+    public byte getBdCheck() {
+        return bdCheck;
     }
 
-    public void setBdInstitute(String bdInstitute) {
-        this.bdInstitute = bdInstitute;
+    public void setBdCheck(byte bdCheck) {
+        this.bdCheck = bdCheck;
     }
 
     public User getUser() {
