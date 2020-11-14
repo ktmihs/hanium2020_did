@@ -219,7 +219,7 @@
                           </div>
                         </select>
                         <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원 유형</p>
-                        <select class="dropdown form-control col-sm-6 mb-sm-0" style="margin-right:10px;" >
+                        <select name="userType" class="dropdown form-control col-sm-6 mb-sm-0" style="margin-right:10px;" >
                           <div class="dropdown-menu col-sm-6 animated--fade-in" style="">
                             <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;"value="personal">개인</option>                        
                             <option class="dropdown-item" value="organization">기업</option>

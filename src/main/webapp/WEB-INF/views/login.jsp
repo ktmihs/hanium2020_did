@@ -173,7 +173,7 @@
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-             <a href="#" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
+             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -222,10 +222,10 @@
                       <hr>
                       <form class="user">
                         <div class="form-group">
-                          <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                          <input type="text" name="userId" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email ID...">
                         </div>
                         <div class="form-group">
-                          <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                          <input type="password" name ="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                         </div>
                         <div class="form-group">
                           <div class="custom-control custom-checkbox small">
@@ -233,9 +233,10 @@
                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                           </div>
                         </div>
-                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                        <!-- a href="index.html" class="btn btn-primary btn-user btn-block">
                           Login
-                        </a>
+                        </a -->
+                        <input type="submit" value="login">
                         <hr>
                         <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                           <i class="fab fa-google fa-fw"></i> Login with Google
@@ -249,7 +250,7 @@
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                       </div>
                       <div class="text-center">
-                        <a class="small" href="register.html">Create an Account!</a>
+                        <a class="small" href="/register">Create an Account!</a>
                       </div>
                     </div>
                   </div>

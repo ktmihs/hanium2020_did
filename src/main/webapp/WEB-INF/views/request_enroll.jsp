@@ -193,11 +193,12 @@
                           <input type="text" class="form-control form-control-user" id="reqTitle" placeholder="제목을 입력하세요" name="reqTitle">
                         </div>
                       </div>
+                      <c:set var="groupName" value="${groupName}"/>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">기관(개인)명</p>
-                          <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">
-                    <!--     <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="${request.reqId}">-->
+                    <!--      <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">-->
+                         <input disabled type="text" class="form-control form-control-user" id="gName" placeholder="${groupName}">
                         </div>
                       </div>
                       <div class="form-group row">

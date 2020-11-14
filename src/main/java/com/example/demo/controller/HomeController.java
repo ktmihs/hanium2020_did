@@ -24,11 +24,6 @@ public class HomeController {
 
         return "index_login";
     }
-    @RequestMapping("/login")                   //로그인 페이지
-    public String viewLoginPage() {
-
-        return "login";
-    }
 
     @RequestMapping("/my_blood_list")           //내 헌혈증 리스트
     public String viewMyBloodListPage() {

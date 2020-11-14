@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Request;
-import com.example.demo.repository.RequestRepository;
+import com.example.demo.model.User;
 import com.example.demo.service.RequestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,13 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.WebUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Slf4j      //various logging frameworks
 @Controller
+@SessionAttributes("userSession")
 public class RequestController {
 
     @Autowired
@@ -38,13 +42,24 @@ public class RequestController {
      */
 
     @GetMapping(value = "/request_enroll")      //요청글 작성 페이지 불러오기
-    public String enroll(){
+    public String enroll(Model uiModel, HttpServletRequest httpServlet){
+
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        String groupName=userSession.getUser().getGroup().getgName();
+        uiModel.addAttribute("groupName", groupName);
+
+
+
         return "request_enroll";
     }
 
     @PostMapping(value = "/request_enroll")     //요청글 작성 페이지에서 작성 후 저장, 요청리스트 페이지로 이동
-    public String enroll(Request request, Model uiModel){
+    public String enroll(Request request, Model uiModel, HttpServletRequest httpServlet){
         servicempl.createRequest(request);
+
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        request.setUser(userSession.getUser());
+
         request.setReqDeadline(request.getReqDeadline().plusDays(1));       //날짜가 전날로 나와서 +1해줌
         Request req=servicempl.findByReqId(request.getReqId());
         uiModel.addAttribute("enrollList",req);
