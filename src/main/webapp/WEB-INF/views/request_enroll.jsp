@@ -197,7 +197,7 @@
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;" for="form">기관(개인)명</p>
                           <input type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">
-                    <!--     <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="신촌세브란스">-->
+                    <!--     <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="${request.reqId}">-->
                         </div>
                       </div>
                       <div class="form-group row">
@@ -228,7 +228,7 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <input type="submit" value="확인" id="createBoard" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
+                          <input type="submit" value="확인" id="createBoard"  class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
 <!--                          <input type="submit" value="확인" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;"><i class="fas fa-check"></i><a href="/request_detail_writer/${request.reqId}"></a>-->
 
                         </div>

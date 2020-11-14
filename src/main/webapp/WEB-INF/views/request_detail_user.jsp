@@ -172,12 +172,13 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="p-5">
+                  <c:set var="request" value="${req}"/>
+
                     <div class="text-center">
-                      <h3 class="h3 text-gray-900 mb-4">헌혈증 요청합니다</h3>
+                      <h3 class="h3 text-gray-900 mb-4">${request.reqTitle}</h3>
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <c:set var="request" value="${req}"/>
                         <form class="user" action="request_detail_user/${request.reqId}" >
 
                           <div class="mb-5">

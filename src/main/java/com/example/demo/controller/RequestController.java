@@ -45,6 +45,7 @@ public class RequestController {
     @PostMapping(value = "/request_enroll")     //요청글 작성 페이지에서 작성 후 저장, 요청리스트 페이지로 이동
     public String enroll(Request request, Model uiModel){
         servicempl.createRequest(request);
+        request.setReqDeadline(request.getReqDeadline().plusDays(1));       //날짜가 전날로 나와서 +1해줌
         Request req=servicempl.findByReqId(request.getReqId());
         uiModel.addAttribute("enrollList",req);
         return "redirect:/request_list";

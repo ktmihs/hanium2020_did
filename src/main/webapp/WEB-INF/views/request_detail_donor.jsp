@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -169,14 +171,16 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
+                  <c:set var="request" value="${req}"/>
                     <div class="text-center">
                       <h3 class="h3 text-gray-900 mb-4">${request.reqTitle}</h3>
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->
-                    <form class="user" var="request" items="${requestList}">
+                    <form class="user" action="request_detail_user/${request.reqId}" >
+
                       <div class="mb-5">
-                        <div class="float-left">작성자: ${request.userId}</div>
+                        <div class="float-left" name="userName">작성자:${request.user.userName}</div>
                         <div align="right">작성일: ${request.reqDate}</div>
                         <hr>
                       </div>
@@ -185,7 +189,7 @@
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.userId}">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.user.group.gName}">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -195,13 +199,13 @@
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqAmount}">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" name="reqAmount" placeholder="${request.reqAmount}">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-12" style="margin:1px;font-size: 1rem;">요청 사유</p>
-                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="${request.reqReason}"></textarea>
+                          <textarea disabled class="form-control" id="exampleFirstName" style="height: 150px;" placeholder="">${request.reqReason}</textarea>
                         </div>
                       </div>
 
@@ -209,13 +213,13 @@
                       <!--버튼-->
                       <div class="form-group row">
                         <div class="col-sm-2"">
-                          <a href="http://localhost:8080/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"> 목록으로  </a>
+                          <a href="/request_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"> 목록으로  </a>
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <a href="http://localhost:8080/request_detail_user/${request.reqId}" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 기부취소 </a>
+                          <a href="/request_detail_user/${request.reqId}" id="doneCancel" class="btn   btn-user btn-block" style="background-color:red; color: white;"> 기부취소 </a>
                         </div>
                       </div>
                     </form>
@@ -286,5 +290,12 @@
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 
 </body>
-
+<script type="text/javascript">
+$("#doneCancel").click(function(){
+	var result = confirm("기부를 취소하겠습니까?");
+	if(result){
+		location.href = 'http://localhost:8080/request_list';
+	}
+});
+</script>
 </html>

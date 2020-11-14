@@ -49,7 +49,7 @@ public class DonateController {
     @RequestMapping(value = "/donate_enroll/{reqId}")      //기부글 작성 페이지 불러오기
     public String enroll(@PathVariable("reqId") Integer reqId,User user, Model uiModel){
 
-        Request request=rServicempl.findByReqId(reqId);//donate에 reqId저장하기
+        Request request=rServicempl.findByReqId(reqId);//donate에 reqId저장하기(성공)
         uiModel.addAttribute("requestEnl", request);
 
         List<BloodDonation> bdList=bdServicempl.findAll();      //내 헌혈증 리스트 부르기(성공)
@@ -69,8 +69,6 @@ public class DonateController {
         return "donate_enroll";
     }
 
-
-
     @PostMapping(value = "/donate_enroll/{reqId}")     //기부글 작성 페이지에서 작성 후 저장, 요청리스트 페이지로 이동
     public String enroll(@PathVariable("reqId") Integer reqId,Donate donate, Model uiModel){
 
@@ -78,23 +76,27 @@ public class DonateController {
         //dId.setReqId(reqId);
         //Request request=rServicempl.findByReqId(dId.getReqId());//donate에 reqId저장하기
         //uiModel.addAttribute("requestEnl", request);
-        donate.getDonateId().setReqId(reqId);
-        //donate.getDonateId().setUserId("980518");
+        donate.getRequest().setReqId(reqId);
+        donate.getUser().setUserId("980518");
+        donate.setDonateAmount(10);
         servicempl.save(donate);                                //기부 내역 저장
-        Donate don=servicempl.findByDonateId(donate.getDonateId());
-        uiModel.addAttribute("enrollList",don);
-        return "donate_enroll";
+
+        //Donate don=servicempl.findByDonateId(donate.getDonateId());
+        //uiModel.addAttribute("donateEnroll",don);
+        uiModel.addAttribute("donateEnroll",donate);
+        return "redirect:/request_detail_donor";
     }
 //requestEnl->reqId로 req정보 받기, donateEnl->헌혈증 리스트 전부 출력
-    /*
-    @GetMapping("/request_detail_donor/{donateId}")     //선택한 페이지 상세보기
-    public ModelAndView viewRequestDetailDonorPage(@PathVariable("donateId") Donate donateId){
-        Donate donate=servicempl.findByDonateId(donateId);
-        ModelAndView nextView=new ModelAndView("/request_detail_donor");
-        nextView.addObject("Donate", donate);
-        return nextView;
+
+    @RequestMapping(value = "/request_detail_donor/{reqId}")      //기부글 작성 페이지 불러오기
+    public String detailDonor(@PathVariable("reqId") Integer reqId, Model uiModel){
+
+        Request request=rServicempl.findByReqId(reqId);//donate에 reqId저장하기(성공)
+        uiModel.addAttribute("req", request);
+
+        return "request_detail_donor";
     }
 
 
- */
+
 }

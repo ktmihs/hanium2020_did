@@ -19,6 +19,11 @@ public class HomeController {
 
         return "index";
     }
+    @RequestMapping("/index_login")
+    public String viewIndexLoginPage() {             //메인 페이지
+
+        return "index_login";
+    }
     @RequestMapping("/login")                   //로그인 페이지
     public String viewLoginPage() {
 

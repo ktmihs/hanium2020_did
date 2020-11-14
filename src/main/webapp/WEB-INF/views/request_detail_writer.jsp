@@ -173,8 +173,9 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
+                  <c:set var="request" value="${req}"/>
                     <div class="text-center">
-                      <h3 class="h3 text-gray-900 mb-4">헌혈증 요청합니다</h3>
+                      <h3 class="h3 text-gray-900 mb-4">${request.reqTitle}</h3>
                     </div>
                     <hr class="mt-4">
                     <!--카드 안 내용-->

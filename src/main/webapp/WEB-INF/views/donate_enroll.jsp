@@ -170,6 +170,7 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
+                  <c:set var="donate" value="${donateEnroll}" />
                     <div class="text-center">
                       <h1 class="h3 text-gray-900 mb-4">기부하기</h1>
                     </div>
@@ -237,12 +238,9 @@
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <!--<a href="http://localhost:8080/request_detail_donor/${donate.donateId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>-->
                           <input type="submit" value="기부하기" id="donateBoard" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
-
                         </div>
                       </div>
-
                     </form>
                   </div>
                 </div>
