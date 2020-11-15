@@ -25,6 +25,38 @@ public class UserController {
         this.userService = userService;
     }
 
+
+    @ModelAttribute("currentLogin")
+    public CurrentLogin loginData(){return new CurrentLogin(); }
+
+    @RequestMapping("/login")
+    public String handleRequest(HttpServletRequest request,
+                                @ModelAttribute("CurrentLogin") CurrentLogin loginData, Model uiModel ) {
+        User user = userService.findByUserIdAndUserPassword(loginData.getUserId(), loginData.getPassword());
+        if (user == null)       //로그인 창에 아무것도 안 썼을 때
+            return "/login";
+        if (loginData.getPassword().equals(user.getUserPassword())) {       //회원가입 한 아이디와 비밀번호로 로그인 시
+            UserSession userSession = new UserSession(user, loginData().getUserId());
+            uiModel.addAttribute("userSession", userSession);
+            return "/index_login";
+        }
+        else                    //로그인 시도한 user정보가 db와 다를 경우
+            return "/login";
+    }
+
+    @RequestMapping("/loginout")
+    public String logout(HttpSession session, SessionStatus sessionStatus){
+        session.removeAttribute("userSession");
+        sessionStatus.setComplete();
+        return "/index";
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String showForm() {
+        return "/sign_up";
+    }
+
+
     @RequestMapping("/profile")
     public String viewProfilePage(Model uiModel, HttpServletRequest httpServlet) {
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
@@ -73,34 +105,5 @@ public class UserController {
         return "profile";
     }
 
-    @ModelAttribute("currentLogin")
-    public CurrentLogin loginData(){return new CurrentLogin(); }
-
-    @RequestMapping("/login")
-    public String handleRequest(HttpServletRequest request,
-                                      @ModelAttribute("CurrentLogin") CurrentLogin loginData, Model uiModel ) {
-        User user = userService.findByUserIdAndUserPassword(loginData.getUserId(), loginData.getPassword());
-        if (user == null)       //로그인 창에 아무것도 안 썼을 때
-            return "/login";
-        if (loginData.getPassword().equals(user.getUserPassword())) {       //회원가입 한 아이디와 비밀번호로 로그인 시
-            UserSession userSession = new UserSession(user, loginData().getUserId());
-            uiModel.addAttribute("userSession", userSession);
-            return "/index";
-        }
-        else                    //로그인 시도한 user정보가 db와 다를 경우
-           return "/login";
-    }
-
-    @RequestMapping("/loginout")
-    public String logout(HttpSession session, SessionStatus sessionStatus){
-        session.removeAttribute("userSession");
-        sessionStatus.setComplete();
-        return "/index";
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String showForm() {
-        return "/sign_up";
-    }
 
 }

@@ -27,14 +27,11 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column" >
+<!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#9FB4F3;">
 
       <!-- Main Content -->
-      <div id="content">
+      <div id="content" style="background-color:#9FB4F3;">
 
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
@@ -50,130 +47,63 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div> 
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Sign up, logout -->  
+
+            <!-- profile, Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <a href="http://localhost:8080/profile" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <a href="#" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${empty userSession.userId}">
+                    <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                </c:if>
+                <c:if test="${!empty userSession.userId}">
+                    <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                </c:if>
               </li>
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-            
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1" style="margin: auto;">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>                
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Topbar2 -->
-        <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-
-          <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-             <a href="http://localhost:8080/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
-          </div>
-          <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-             <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
-          </div>
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          </div>
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-        </div>
-        <!-- End of Topbar2 -->
-
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" background="#9FB4F3">
-
+        <div class="container-fluid"  style="background-color:#9FB4F3;">
+            <a class="card  o-hidden border-0 my-5" style="height: 40px; background-color:#9FB4F3; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;"></a>
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4" var="request" items="${requestList}">
-            <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
+          <a href="/profile_pre" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                           <div style="padding:0;margin:auto; ">
+                                             <h3><b>마이페이지</b></h3>
+                                               <!-- Nested Row within Card Body -->
 
-          </div>
+                                           </div>
+                                         </a>
+         <a href="/my_blood_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                          <div style="padding:0;margin:auto; ">
+                                            <h3><b>내헌혈증 관리</b></h3>
+                                              <!-- Nested Row within Card Body -->
 
-          <!-- Content Row -->
-          <div class="row">
-          </div>
-        </div>
-        <!-- /.container-fluid -->
+                                          </div>
+                                        </a>
+        <a href="/request_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                          <div style="padding:0;margin:auto; ">
+                            <h3><b>기부요청 게시판</b></h3>
+                              <!-- Nested Row within Card Body -->
 
-      </div>
+                          </div>
+                        </a>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
+      <footer class="sticky-footer bg-#9FB4F3" >
+        <div class="container my-auto" style="background-color:#9FB4F3;">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
           </div>

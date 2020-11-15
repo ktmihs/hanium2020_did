@@ -33,10 +33,10 @@
 
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#9FB4F3;">
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#aFc4Ff;">
 
       <!-- Main Content -->
-      <div id="content" style="background-color:#9FB4F3;">
+      <div id="content" style="background-color:#f0f0f0;">
 
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
@@ -74,29 +74,45 @@
         </nav>
         <!-- End of Topbar -->
 
-
+        <!-- Topbar2 -->
+        <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
+          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
+            <h4 class=" mb-0 text-gray-200">  </h4>
+          </div>
+          <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
+             <a href="/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
+          </div>
+          <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
+             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
+          </div>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          </div>
+          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
+            <h4 class=" mb-0 text-gray-200">  </h4>
+          </div>
+        </div>
+        <!-- End of Topbar2 -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid"  style="background-color:#9FB4F3;">
-            <a class="card  o-hidden border-0 my-5" style="height: 40px; background-color:#9FB4F3; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;"></a>
+        <div class="container-fluid"  style="background-color:#f0f0f0;">
           <!-- Page Heading -->
-          <a href="/profile" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#e9e9e9; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+          <a href="/profile" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
                                            <div style="padding:0;margin:auto; ">
-                                             <h3><b>회원정보관리</b></h3>
+                                             <h3>회원정보관리</h3>
                                                <!-- Nested Row within Card Body -->
 
                                            </div>
                                          </a>
-         <a href="/request_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#e9e9e9; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+         <a href="/request_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
                                           <div style="padding:0;margin:auto; ">
-                                            <h3><b>요청내역관리</b></h3>
+                                            <h3>요청내역관리</h3>
                                               <!-- Nested Row within Card Body -->
 
                                           </div>
                                         </a>
-        <a href="/donate_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#e9e9e9; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+        <a href="/donate_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
                           <div style="padding:0;margin:auto; ">
-                            <h3><b>기부내역관리</b></h3>
+                            <h3>기부내역관리</h3>
                               <!-- Nested Row within Card Body -->
 
                           </div>
@@ -107,8 +123,8 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-#9FB4F3" >
-        <div class="container my-auto" style="background-color:#9FB4F3;">
+      <footer class="sticky-footer bg-#f0f0f0" >
+        <div class="container my-auto" style="background-color:#f0f0f0;">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
           </div>
