@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DID_헌혈팀</title>
+  <title>전자 헌혈증 관리 서비스</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
+  <script type="text/javascript" src="<c:url value="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.js"/>"></script>
 
 </head>
 
@@ -44,34 +46,6 @@
           <!-- End of Page title -->
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow h-100 " style="margin: auto;">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-            </li>
 
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
@@ -177,7 +151,7 @@
                     <hr>
                     <!--카드 안 내용-->
 
-
+                    <c:set var="donate" value="${donateEnroll}"/>
                     <c:set var="request" value="${requestEnl}" />
                     <form class="user" action="/donate_enroll/${request.reqId}" method="post" >
                       <p align="right">* 1개 이상 선택</p>
@@ -185,12 +159,18 @@
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="userId" placeholder="${request.user.group.gName}">
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${request.user.group.gName}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요증서수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="${request.reqAmount}">
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${request.reqAmount}">
                         </div>
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">개수입력</p>
+                        <input type="text" class="form-control form-control-user" name="donateAmount" id="donateAmount">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">reqId</p>
+                                                <input type="text" class="form-control form-control-user" name="request.reqId" id="request.reqId">
+                                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">userid</p>
+                                                                        <input type="text" class="form-control form-control-user" name="user.userId" id="user.userId">
                       </div>
                       <!--헌혈증서 선택-->
                       <div class="form-group row">
@@ -199,6 +179,7 @@
                             <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 선택 *</p>
                             <table class="table" id="datatable" width="100%" cellspacing="0">
                               <tr>
+                                <th class="w-10"> </th>
                                 <th class="w-10">헌혈 증서 번호</th>
                                 <th class="w-10">혈액원명</th>
                                 <th class="w-25">헌혈 용량</th>
@@ -207,7 +188,9 @@
                               <c:forEach var="bloodDonation" items="${bdList}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                               <tr>
                                 <td>
-                                  ${status.index+1}. <input type="checkbox" name="bdCheck" id="donateAmount" value="${bloodDonation.bdId}">
+                                  <input type="checkbox" id="donateAmount" name="donateAmount" value="${bloodDonation.bdId}">
+                                  </td>
+                                  <td>
                                   ${bloodDonation.bdId}
                                 </td>
                                 <td>
@@ -220,6 +203,7 @@
                                   ${bloodDonation.bdType}
                                 </td>
                               </tr>
+
                               </c:forEach>
                             </table>
                           </div>
@@ -231,7 +215,7 @@
                       </br>
                       <!--버튼-->
                       <div class="form-group row">
-                        <div class="col-sm-2"">
+                        <div class="col-sm-2">
                           <a onclick="history.back()" class="btn   btn-user btn-block" style="background-color:red; color: white">   취소  </a>
                         </div>
                         <div>
@@ -311,13 +295,24 @@
 
 </body>
 <script type="text/javascript">
-$("#donateBoard").click(function(){
-
-	var result = confirm("기부하시겠습니까?");
-	if(result){
-		location.href = '/request_list';
-	}
+$(document).ready(function(){
+    $("#getCheckedAll").click(function() {
+    			$("input[name=donateAmount]:checked").each(function() {
+    				var test = $(this).val();
+    				console.log(test);
+    			});
+    		});
 });
-
+</script>
+<script type="text/javascript">
+$("#donateBoard").click(function(){
+    confirm("기부하시겠습니까?");
+});
 </script>
 </html>
+<!--
+	var result = confirm("기부하시겠습니까?");
+	if(result){
+	    donate.donateAmount=$("input:checkbox[donateAmount]:checked").length;
+	}
+-->

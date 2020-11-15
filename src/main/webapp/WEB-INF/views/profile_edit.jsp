@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DID_헌혈팀</title>
+  <title>전자 헌혈증 관리 서비스</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,34 +63,6 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow h-100 " style="margin: auto;">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-            </li>
 
             <!-- Sign up, logout -->  
             <div style="width:100%; margin:auto; ">
@@ -205,7 +177,7 @@
                       <h1 class="h3 text-gray-900 mb-4">회원정보수정</h1>
                     </div>
                     <hr>
-                    <form class="user">
+                    <form class="user" method="post" action="profile_edit_">
                       
 
                       
@@ -249,7 +221,7 @@
 
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="아이디">
+                          <input disabled value="${userInfo['userId']}"type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="아이디">
                         </div>
                         <!-- <div class="col-sm-2" style="">
                           <a href="#" class="btn  bg-gray-400 btn-user btn-block"> 중복확인  </a>
@@ -260,49 +232,50 @@
 
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이름">
+                          <input disabled value="${userInfo['userName']}" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이름">
                         </div>
                         <div class="col-sm-6">
-                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="생년월일">
+                          <input disabled value="${userInfo['userBirth']}"type="text" class="form-control form-control-user" id="exampleLastName" placeholder="생년월일">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                          <input type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="기존 비밀번호">
+                          <input  name="updatePassword" type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="기존 비밀번호">
                         </div>                   
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                          <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="새 비밀번호">
+                          <input name="updateNewPassword1" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="새 비밀번호">
                         </div>
                         <div class="col-sm-6">
-                          <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="새 비밀번호 확인">
+                          <input name="updateNewPassword2" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="새 비밀번호 확인">
                         </div>
                       </div>
                       
                       <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="주소">
+                        <input value="${userInfo['userAddress']}"  name="updateUserAddress" type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="주소" >
                       </div>
                       <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="전화번호">
+                        <input value="${userInfo['userPhone']}" name="updateUserPhone" type="phone" class="form-control form-control-user" id="exampleInputEmail" placeholder="전화번호">
                       </div>
                       <div class="form-group">
-                        <input  type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="이메일">
+                        <input value="${userInfo['userEmail']}" name="updateUserEmail"  type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="이메일">
                       </div>
                       <!-- <hr> -->
                       <div class="col-sm-2" style=" float:right; margin-bottom:1rem;">
-                        <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white"><i class="fas fa-check" style=""></i>   수정  </a>
+                      <input type="submit" value="수정" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white"></input>
+                        <!-- <a href="http://localhost:8080/profile_edit_" type="submit" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white"><i class="fas fa-check" style=""></i>   수정  </a>-->
                         <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                       </div>
                       <div class="col-sm-2" style="float:left; margin-bottom:1rem;">
-                        <a href="#" class="btn   btn-user btn-block" style="background-color:red; color: white"><i class="fas fa-trash" style=""></i> 취소  </a>
+                        <a href="/profile_pre" class="btn   btn-user btn-block" style="background-color:red; color: white"><i class="fas fa-trash" style=""></i> 취소  </a>
                         <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                       </div>
-                      <!-- <a href="#" class="btn   btn-user btn-block" style="background-color:red; 88a; color: white"><i class="fas fa-check" style=""></i>   수정  </a> -->
+                      <!-- <a href="/profile_pre" class="btn   btn-user btn-block" style="background-color:red; 88a; color: white"><i class="fas fa-check" style=""></i>   수정  </a> -->
 
                       <!-- <div><a href="login.html" class="btn btn-primary btn-user btn-block">회원가입</a></div> -->
-                    
+
 
                      
                    

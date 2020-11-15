@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DID_헌혈팀</title>
+  <title>전자 헌혈증 관리 서비스</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,34 +63,6 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow h-100 " style="margin: auto;">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-            </li>
 
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
@@ -205,7 +177,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="김헌혈">
+                      <input disabled  value="${userInfo['userName']}" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이름">
                       </div>
                     <div class="col-sm-6">
                       <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원유형</p>
@@ -216,48 +188,35 @@
                     <div class="form-group row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
                         <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="990911">
+                        <input disabled  value="${userInfo['userBirth']}" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="생년월일">
                         </div>
                       <div class="col-sm-6">
                         <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성별</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="남자">
+                      <input disabled   type="text" class="form-control form-control-user" id="exampleLastName" placeholder="성별">
                           </div>
                       </div>
 
                       <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">주소</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="서울시 양천구 목동">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">주소</p>
+                          <input disabled  value="${userInfo['userAddress']}"type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="주소">
                           </div>
-                        <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">등록된 헌혈증 개수</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="4개">
-                            </div>
+
                         </div>
 
                         <div class="form-group row">
                           <div class="col-sm-6 mb-3 mb-sm-0">
                               <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이메일</p>
-                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="eun298310@naver.com">
+                            <input disabled  value="${userInfo['userEmail']}"type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이메일">
                             </div>
                           <div class="col-sm-6">
                               <p class="col-sm-6" style="margin:1px;font-size: 1rem;">전화번호</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="010-3342-1124">
+                          <input disabled  value="${userInfo['userPhone']}"type="text" class="form-control form-control-user" id="exampleLastName" placeholder="전화번호">
                               </div>
                           </div>
 
                           <div class="col-sm-2" style=" float:right; margin-bottom:2rem;">
-                           <a href="#" class="btn   btn-user btn-block" style="background-color:#2E64FE; color: white; width: 130px;"><i class="fas fa-checkㄴ" style="margin-right:1rem;"></i> 정보수정 </a>
-
-                          <div class="col-sm-2" style=" float:right; margin-bottom:2rem;">
-                           <a href="#" class="btn   btn-user btn-block" style="background-color:#2E64FE; color: white; width: 130px;"><i class="fas fa-check" style="margin-right:1rem;"></i> 기부내역 </a>
-
-
-
-
-
-
-
+                           <a href="http://localhost:8080/profile_edit" class="btn   btn-user btn-block" style="background-color:#2E64FE; color: white; width: 130px;"><i class="fas fa-checkㄴ" style="margin-right:1rem;"></i> 정보수정 </a>
 
           <!-- Content Row -->
           <div class="row">

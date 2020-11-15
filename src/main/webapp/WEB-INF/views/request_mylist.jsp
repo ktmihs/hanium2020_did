@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DID_헌혈팀</title>
+  <title>전자 헌혈증 관리 서비스</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,34 +53,6 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow h-100 " style="margin: auto;">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-            </li>
 
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
@@ -186,7 +159,7 @@
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">내 기부내역</h1>
+                      <h1 class="h3 text-gray-900 mb-4">요청내역</h1>
                     </div>
                       <hr class="mt-4">
                         <!-- request list datatable -->
@@ -196,47 +169,19 @@
                                         <tr>
                                             <th>no</th>
                                             <th>제목</th>
-                                            <th>사유</th>
                                             <th>마감일</th>
                                             <th>필요증서 수량</th>
-                                            <th>기부된 수량</th>
+                                            <th>작성날짜</th>
                                         </tr>
-
-                                        <tr>
-                                            <td>100</td>
-                                            <td>백혈병을 앓고  <span class="badge badge-primary">완료</span></td>
-                                            <td>B형 헌혈증이 필요</td>
-                                            <td>20.8.20</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>274</td>
-                                            <td>A형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>274</td>
-                                            <td>O형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>274</td>
-                                            <td>AB형 수혈이 필  </td>
-                                            <td> </td>
-                                            <td>20.10.3</td>
-                                            <td>5</td>
-                                            <td>1</td>
-                                        </tr>
-
+                                        <c:forEach var="requests"  items = "${requests}"   varStatus="status">
+                                            <tr onclick="location.href='/request_detail_writer/${requests.reqId}'" style="cursor:pointer">
+                                              <td>${status.count}</td>
+                                              <td>${requests.reqTitle}</td>
+                                              <td>${requests.reqDeadline}</td>
+                                              <td>${requests.reqAmount}</td>
+                                              <td>${requests.reqDate}</td>
+                                            </tr>
+                                         </c:forEach>
                                 </table>
                               </body>
                             </div>
