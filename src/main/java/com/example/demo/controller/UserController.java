@@ -5,11 +5,10 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.util.WebUtils;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +23,54 @@ public class UserController {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @RequestMapping("/profile")
+    public String viewProfilePage(Model uiModel, HttpServletRequest httpServlet) {
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        User user = userSession.getUser();
+
+        uiModel.addAttribute("userInfo", user);
+
+        return "profile";
+    }
+
+    @RequestMapping("/profile_edit")
+    public String viewProfileEditPage(Model uiModel, HttpServletRequest httpServlet) {
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        String userId =userSession.getUser().getUserId();
+        User user = userSession.getUser();
+
+        uiModel.addAttribute("userInfo", user);
+
+        return "profile_edit";
+    }
+
+    @RequestMapping("/profile_edit_")
+    public String updateProfile(Model uiModel, HttpServletRequest httpServlet, @RequestParam("updateNewPassword1") String updateNewPassword1, @RequestParam("updateNewPassword2") String updateNewPassword2, @RequestParam("updateUserEmail") String updateUserEmail, @RequestParam("updateUserAddress") String updateUserAddress, @RequestParam("updateUserPhone") String updateUserPhone){
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        String userId =userSession.getUser().getUserId();
+
+        //비밀번호를 수정하거나 주소, 이메일등을 수정할 시에 데이터베이스 업데이트
+        if((updateNewPassword1 == updateNewPassword2) || (updateNewPassword1==null && updateNewPassword2 ==null)){
+            User user = userService.findByUserId(userId);
+            User e;
+            user.setUserAddress(updateUserAddress);
+            user.setGroup(user.getGroup());
+            user.setUserBirth(user.getUserBirth());
+            user.setUserEmail(updateUserEmail);
+            user.setUserPhone(updateUserPhone);
+            user.setUserGender(user.getUserGender());
+            user.setUserInputdate(user.getUserInputdate());
+            user.setUserName(user.getUserName());
+            user.setUserPassword(updateNewPassword1);
+            userService.save(user);
+
+            uiModel.addAttribute("address", user.getUserAddress());
+            uiModel.addAttribute("phone", user.getUserPhone());
+            uiModel.addAttribute("email", user.getUserEmail());
+        }
+        return "profile";
     }
 
     @ModelAttribute("currentLogin")
@@ -56,16 +103,4 @@ public class UserController {
         return "/sign_up";
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String onSubmit(
-//            HttpServletRequest request, HttpSession session,
-//            @ModelAttribute("user") AccountForm accountForm,
-//            BindingResult result) throws Exception {
-//
-//        UserSession userSession = new UserSession(
-//                us.getUser(accountForm.getAccount().getUsername()));
-//
-//        session.setAttribute("userSession", userSession);
-//        return successViewName;
-//    }
 }

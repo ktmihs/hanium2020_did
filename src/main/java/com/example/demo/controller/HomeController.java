@@ -31,9 +31,20 @@ public class HomeController {
         return "my_blood_list";
     }
 
-    @RequestMapping("/profile")                 //마이페이지
-    public String viewProfilePage() {
+    @RequestMapping("/enroll_com")
+    public String viewEnrollComPage() {
 
-        return "profile";
+        return "enroll_com";
     }
+    @RequestMapping("/enroll_res")
+    public String viewEnrollResPage() {
+
+        return "enroll_res";
+    }
+    @RequestMapping("/profile_pre")                 //마이페이지
+    public String viewProfilePrePage() {
+
+        return "profile_pre";
+    }
+
 }

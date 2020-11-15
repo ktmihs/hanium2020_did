@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Request;
+import com.example.demo.model.User;
 import com.example.demo.repository.RequestRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,9 @@ public interface RequestService {
     void createRequest(Request request);                                //요청 페이지 작성하기
     Request findByReqId(Integer reqId);                                 //reqId로 하나 불러오기
     void deleteOne(Integer reqId);                                      //reqId로 하나 지우기
+    List<Request> findOneByReqId(String reqId);
+    List<Request> findAllByUser(User user);
+
     RequestRepository getRequestRepository();                           //getter
     void setRequestRepository(RequestRepository requestRepository);     //setter
 

@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Request;
+import com.example.demo.model.User;
 import com.example.demo.repository.RequestRepository;
 import lombok.NoArgsConstructor;
 import org.assertj.core.util.Lists;
@@ -42,6 +43,16 @@ public class RequestServicempl implements RequestService {
     @Override
     public void deleteOne(Integer reqId) {
         requestRepository.deleteByReqId(reqId);
+    }
+
+    @Override
+    public List<Request> findOneByReqId(String reqId){
+        //   List list = newArrayList(test2Repository.findAll());
+        return Lists.newArrayList(requestRepository.findOneByReqId(reqId));
+    }
+    @Override
+    public List<Request> findAllByUser(User user) {
+        return Lists.newArrayList(requestRepository.findAllByUser(user));
     }
 
     @Autowired

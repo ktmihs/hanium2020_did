@@ -20,4 +20,15 @@ public class UserServicempl implements UserService {
     public User findByUserIdAndUserPassword(String userId, String password) {
         return userRepository.findByUserIdAndUserPassword(userId, password);
     }
+
+    @Override
+    public User findByUserId(String userId){
+        return (userRepository.findByUserId(userId));
+    }
+
+    @Override
+    public User save(User user) {
+        userRepository.save(user);
+        return user;
+    }
 }
