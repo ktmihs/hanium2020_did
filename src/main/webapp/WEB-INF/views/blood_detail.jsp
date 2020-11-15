@@ -117,57 +117,56 @@
                       <h3 class="h4 text-gray-900 mb-4">헌혈증 상세정보</h3>
                     </div>
                     <hr>
-                    <form class="user">
-
-
+                  <c:set var="bloodDonation" value="${bd}"/>
+                  <form class="user" action="blood_detail/${bloodDonation.bdId}">
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                       <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈증 번호</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="200130203">
+                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdId}">
                       </div>
                     <div class="col-sm-6">
                       <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
-                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="김헌혈">
+                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userName}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
                         <p class="col-sm-6" style="margin:1px;font-size: 1rem;">발급일</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="20.11.21">
+                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdDate}">
                         </div>
                       <div class="col-sm-6">
                         <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="98.07.05">
+                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userBirth}">
                           </div>
                       </div>
 
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈일자</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="19.08.13">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdDate}">
                           </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈종류</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="전혈">
+                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.bdType}">
                             </div>
                         </div>
 
                         <div class="form-group row">
                           <div class="col-sm-6 mb-3 mb-sm-0">
                               <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원명</p>
-                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="서울 혈액원">
+                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bloodInstitution.bdiName}">
                             </div>
                           <div class="col-sm-6">
                               <p class="col-sm-6" style="margin:1px;font-size: 1rem;">용량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="300ml">
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.bdAmount}">
                               </div>
                           </div>
 
                           <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">사용여부</p>
-                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="o">
+                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기부여부</p>
+                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdCheck}">
                               </div>
                             </div>
 
@@ -175,14 +174,7 @@
 
                             <div class="form-group row">
                                                <div class="col-sm-2">
-                                                 <a href="#" class="btn  text-white btn-danger btn-block" style="border-radius: 50px; width: 130px;"><i class="fas fa-check" style="margin-right:0.5rem;"></i> 변경  </a>
-                                                 <!-- <button type="text" class=" btn form-control bg-primary-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
-                                               </div>
-                                               <div>
-                                                 <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                               </div>
-                                               <div class="col-sm-2">
-                                                 <a href="#" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;"> <i class="fas fa-check" style="margin-right:0.5rem;"></i>완료  </a>
+                                                 <a href="/my_blood_list" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;">확인  </a>
                                                  <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                                                </div>
                                              </div>

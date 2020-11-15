@@ -21,13 +21,6 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <script type="javascript">
-    function click_check(){
-        location.href=""
-    }
-  </script>
-
-
 </head>
 
 <body id="page-top">

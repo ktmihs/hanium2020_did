@@ -33,7 +33,7 @@ public class RequestController {
 
     @RequestMapping(value = "/request_list")    //paging한 요청글 전체보기
     public String list(Model uiModel,
-                       @PageableDefault(sort={"reqId"},direction = Sort.Direction.DESC,size=6) Pageable pageable){    //한 페이지 당 6개씩
+                       @PageableDefault(sort={"reqId"},direction = Sort.Direction.DESC,size=5) Pageable pageable){    //한 페이지 당 6개씩
         Page<Request> requestList=servicempl.findAll(pageable);     //jpaRepository의 findAll함수를 사용
         uiModel.addAttribute("List",requestList);
         return "request_list";

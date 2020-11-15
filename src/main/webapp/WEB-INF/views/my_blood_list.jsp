@@ -123,65 +123,32 @@
                     </div>
                       <hr class="mt-4">
                         <!-- donate list datatable -->
-                        <div class="table-responsive">
-
-                          <table class="table" id="datatable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>no</th>
-                                            <th>헌혈증 번호</th>
-                                            <th>헌혈날짜</th>
-                                            <th>헌혈종류</th>
-                                            <th>혈액원명</th>
-                                            <th>용량</th>
-                                            <th>사용여부</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>200545448</td>
-                                            <td>2019-05-11</td>
-                                            <td>전혈</td>
-                                            <td>헌혈의집 망우역센터</td>
-                                            <td>300ml</td>
-                                            <td>x</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>200569208</td>
-                                            <td>2019-08-20</td>
-                                            <td>전혈</td>
-                                            <td>헌혈의집 회기센터</td>
-                                            <td>300ml</td>
-                                            <td>x</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>3</td>
-                                          <td>200975645</td>
-                                          <td>2020-01-06</td>
-                                          <td>전혈</td>
-                                          <td>헌혈의집 망우역센터</td>
-                                          <td>300ml</td>
-                                          <td>x</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="table-responsive" action="my_blood_list">
+                            <table class="table" id="datatable" width="100%" cellspacing="0">
+                              <tr>
+                                <th class="w-10">no </th>
+                                <th class="w-10">헌혈 증서 번호</th>
+                                <th class="w-10">혈액원명</th>
+                                <th class="w-25">헌혈 용량</th>
+                                <th class="w-25">혈액 종류</th>
+                              </tr>
+                              <c:forEach var="bloodDonation" items="${List}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
+                              <tr onclick="location.href='/blood_detail/${bloodDonation.bdId}'" style="cursor:pointer">
+                                <td>${status.index+1}</td>
+                                <td>${bloodDonation.bdId}</td>
+                                <td>${bloodDonation.bloodInstitution.bdiName}</td>
+                                <td>${bloodDonation.bdAmount}</td>
+                                <td>${bloodDonation.bdType}</td>
+                              </tr>
+                              </c:forEach>
+                            </table>
                             </div>
                           </br>
                           <!--버튼-->
                           <div class="form-group row">
-                            <div class="col-sm-3">
-                              <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-undo"></i> 뒤로가기  </a>
-                              <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
-                            </div>
-                            <div>
-                            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                            </div>
-                            <div class="col-sm-3">
-                              <a href="#" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 헌혈증발급  </a>
+
+                            <div class="col-sm-4">
+                              <a href="/blood_issue" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 헌혈증발급  </a>
                               <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                             </div>
                           </div>

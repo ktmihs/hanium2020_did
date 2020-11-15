@@ -123,87 +123,68 @@
                     <h3 class="h3 text-gray-900 mb-4" >전자 헌혈증 발급</h3>
                   </div>
                   <hr>
-                  <form class="user">
+                  <c:set var="bloodDonation" value="${blood}"/>
+                  <form class="user" action="/blood_issue" method="post" >
                     <div class="col-md-12">
                       <p align="right">*필수입력사항</p>
 
                       <div class="form-group row">
                         <div class="col-sm-12 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 번호 *</p>
-                          <input type="text" class="form-control form-control-user" id="bdid" placeholder="헌혈 증서 번호">
+                          <input type="text" class="form-control form-control-user" name="bdId" id="bdId" placeholder="헌혈 증서 번호">
                         </div>
                       </div>
-
                       <div class="form-group row">
+                      <c:set var="user" value="${user}"/>
                         <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성명 *</p>
-                          <input type="text" class="form-control form-control-user" id="name" placeholder="사용자 실명">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성명</p>
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${user.userName}">
                         </div>
                         <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일 *</p>
-                          <input type="text" class="form-control form-control-user" id="birth" placeholder="사용자 생년월일">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${user.userBirth}">
                         </div>
                       </div>
-
                       <div class="form-group row">
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 종류 *</p>
-                          <select class="dropdown form-control  col-sm-12 mb-sm-0" style="border-radius: 50px; height: 50px;">
+                          <select class="dropdown form-control  col-sm-12 mb-sm-0"id="bdType" name="bdType" style="border-radius: 50px; height: 50px;">
                             <div class="dropdown-menu col-sm-6 animated--fade-in" >
-                              <option class="dropdown-item" value="general">전혈</option>
-                              <option class="dropdown-item" value="particular">성분헌혈</option>
+                              <option class="dropdown-item" value="전혈">전혈</option>
+                              <option class="dropdown-item" value="성분헌혈">성분헌혈</option>
                             </div>
                           </select>
                         </div>
-
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 용량 *</p>
-                          <input type="text" class="form-control form-control-user" id="bdAmount" placeholder="헌혈 용량">
+                          <input type="text" class="form-control form-control-user" id="bdAmount" name="bdAmount" placeholder="헌혈 용량">
                         </div>
                       </div>
-
                       <div class="form-group row">
                         <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성별 *</p>
-                          <select class="dropdown form-control col-sm-12 mb-sm-0" style="border-radius: 50px; height: 50px;" >
-                            <div class="dropdown-menu col-sm-6 animated--fade-in" >
-                              <option class="dropdown-item" value="woman">여자</option>
-                              <option class="dropdown-item" value="man">남자</option>
-                            </div>
-                          </select>
-                        </div>
-                      </div>
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원ID *</p>
+                          <input type="text" class="form-control form-control-user" id="bloodInstitution.bdiId" name="bloodInstitution.bdiId" placeholder="100200">
 
-                      <div class="form-group row">
-                        <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 일자 *</p>
-                          <input type="text" class="form-control form-control-user" id="bdDate" placeholder="헌혈 일자">
-                        </div>
-                        <div class="col-sm-6">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원명 *</p>
-                          <select class="dropdown form-control col-sm-12 mb-sm-0" style="border-radius: 50px; height: 50px;">
-                            <div class="dropdown-menu col-sm-6 animated--fade-in" >
-                              <option class="dropdown-item" value="gangso">강서혈액원</option>
-                              <option class="dropdown-item" value="inchun">인천혈액원</option>
-                            </div>
-                          </select>
                         </div>
                       </div>
                     </div>
-                  </form>
-                  <div class="form-group row">
+                    <div class="form-group row">
                     <div class="col-sm-2">
-                      <a href="#" class="btn  text-white btn-danger btn-block" style="border-radius: 50px;"><i class="fas fa-trash" style="margin-right:0.5rem;"></i> 취소  </a>
+                      <a href="/my_blood_list" class="btn  text-white btn-danger btn-block" style="border-radius: 50px;"><i class="fas fa-trash" style="margin-right:0.5rem;"></i> 취소  </a>
                       <!-- <button type="text" class=" btn form-control bg-primary-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                     </div>
                     <div>
                       <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     </div>
                     <div class="col-sm-2">
-                      <a href="#" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;"> <i class="fas fa-check" style="margin-right:0.5rem;"></i>발급요청  </a>
+                    <input type="submit" value="발급" id="createBlood"  class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
+
+                 <!--     <a href="#" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;"> <i class="fas fa-check" style="margin-right:0.5rem;"></i>발급요청  </a>-->
                       <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                     </div>
                   </div>
+                  </form>
+
 
                   <!-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
@@ -286,5 +267,12 @@
 <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 
 </body>
-
+<script type="text/javascript">
+$("#createBlood").click(function(){
+	var result = confirm("헌혈증을 발급하겠습니까?");
+	if(result){
+		location.href = 'my_blood_list';
+	}
+});
+</script>
 </html>

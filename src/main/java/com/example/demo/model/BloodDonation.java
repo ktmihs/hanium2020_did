@@ -1,8 +1,12 @@
 package com.example.demo.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -29,8 +33,9 @@ public class BloodDonation {
     @Column(name = "bd_amount")
     private int bdAmount;
 
+    @CreationTimestamp
     @Column(name = "bd_date")
-    private LocalTime bdDate;
+    private LocalDateTime bdDate;
 
     @Column(name = "bd_check")
     private byte bdCheck;
@@ -71,11 +76,11 @@ public class BloodDonation {
         this.bdAmount = bdAmount;
     }
 
-    public LocalTime getBdDate() {
+    public LocalDateTime getBdDate() {
         return bdDate;
     }
 
-    public void setBdDate(LocalTime bdDate) {
+    public void setBdDate(LocalDateTime bdDate) {
         this.bdDate = bdDate;
     }
 
