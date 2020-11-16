@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,18 +23,15 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" background="#9FB4F3">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column" >
+<!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#9FB4F3;">
 
       <!-- Main Content -->
-      <div id="content">
+      <div id="content" style="background-color:#9FB4F3;">
 
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
@@ -49,21 +47,9 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div> 
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
 
             <!-- profile, Sign up, logout -->
             <div style="width:100%; margin:auto; ">
@@ -81,52 +67,43 @@
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Topbar2 -->
-        <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-          <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-             <a href="/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
-          </div>
-          <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
-          </div>
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          </div>
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-        </div>
-        <!-- End of Topbar2 -->
+
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
+        <div class="container-fluid"  style="background-color:#9FB4F3;">
+            <a class="card  o-hidden border-0 my-5" style="height: 40px; background-color:#9FB4F3; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;"></a>
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
-           
-          </div>
+          <a href="/profile_pre" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                           <div style="padding:0;margin:auto; ">
+                                             <h3><b>마이페이지</b></h3>
+                                               <!-- Nested Row within Card Body -->
 
-          <!-- Content Row -->
-          <div class="row">
-          </div>
-        </div>
-        <!-- /.container-fluid -->
+                                           </div>
+                                         </a>
+         <a href="/my_blood_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                          <div style="padding:0;margin:auto; ">
+                                            <h3><b>내헌혈증 관리</b></h3>
+                                              <!-- Nested Row within Card Body -->
 
-      </div>
+                                          </div>
+                                        </a>
+        <a href="/request_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                          <div style="padding:0;margin:auto; ">
+                            <h3><b>기부요청 게시판</b></h3>
+                              <!-- Nested Row within Card Body -->
+
+                          </div>
+                        </a>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
+      <footer class="sticky-footer bg-#9FB4F3" >
+        <div class="container my-auto" style="background-color:#9FB4F3;">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
           </div>
@@ -158,7 +135,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.jsp">Logout</a>
         </div>
       </div>
     </div>

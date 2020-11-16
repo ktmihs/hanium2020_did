@@ -16,18 +16,20 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Donate {
+
     @NonNull
-    @EmbeddedId
-    private DonateId donateId;
-//    @Id
-//    @OneToOne
-//    @JoinColumn(name = "request_id")
-//    private Request request;
-//
-//    @Id
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "donate_id")
+    private Integer donateId;
+
+    @OneToOne
+    @JoinColumn(name = "req_id")
+    private Request request;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column (name = "donate_date")
     private LocalTime donateDate;
@@ -35,15 +37,28 @@ public class Donate {
     @Column(name = "donate_amount")
     private int donateAmount;
 
-    @Column(name = "donate_cancel")
-    private LocalTime donateCancel;
-
-    public DonateId getDonateId() {
+    public Integer getDonateId() {
         return donateId;
     }
 
-    public void setDonateId(DonateId donateId) {
+    public void setDonateId(Integer donateId) {
         this.donateId = donateId;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalTime getDonateDate() {
@@ -62,11 +77,4 @@ public class Donate {
         this.donateAmount = donateAmount;
     }
 
-    public LocalTime getDonateCancel() {
-        return donateCancel;
-    }
-
-    public void setDonateCancel(LocalTime donateCancel) {
-        this.donateCancel = donateCancel;
-    }
 }

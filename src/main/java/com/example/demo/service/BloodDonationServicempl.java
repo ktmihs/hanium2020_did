@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.BloodDonation;
+import com.example.demo.model.Request;
 import com.example.demo.model.User;
 import com.example.demo.repository.BloodDonationRepository;
 import lombok.NoArgsConstructor;
@@ -25,14 +26,16 @@ public class BloodDonationServicempl implements BloodDonationService {
         List<BloodDonation> lists=bloodDonationRepository.findByUserAndBdCheck(user,bdCheck);
         return lists;
     }
-    /*
+
     @Override
-    public List<BloodDonation> findIdAndCheck(User user, byte bdCheck){
-        List<BloodDonation> lists=bloodDonationRepository.findByUserIdAndBdCheck(user.getUserId(),bdCheck);
-        return lists;
+    public BloodDonation findByBdId(String bdId){
+        return bloodDonationRepository.findByBdId(bdId);           //reqId로 하나 찾아오기
     }
 
-     */
+    @Override
+    public void saveBlood(BloodDonation bloodDonation) {
+        bloodDonationRepository.save(bloodDonation);                    //JPARepository의 save()함수 사용하여 request내용 저장
+    }
 
     @Override
     public List<BloodDonation> findAll(){

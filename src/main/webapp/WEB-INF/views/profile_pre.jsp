@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,15 +28,15 @@
 <body id="page-top">
 
   <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div id="wrapper" >
 
 
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column" >
+    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#aFc4Ff;">
 
       <!-- Main Content -->
-      <div id="content">
+      <div id="content" style="background-color:#f0f0f0;">
 
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
@@ -53,21 +52,9 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
 
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
@@ -106,64 +93,38 @@
         </div>
         <!-- End of Topbar2 -->
 
-
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
+        <div class="container-fluid"  style="background-color:#f0f0f0;">
           <!-- Page Heading -->
-          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5" style="margin:auto">
-            <div class="card-body p-0">
-              <!-- Nested Row within Card Body -->
-              <div class="row">
-                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
-                <div class="col-lg-12">
-                  <div class="p-5">
-                    <div class="text-center">
-                      <h1 class="h3 text-gray-900 mb-4">내 헌혈증</h1>
-                    </div>
-                      <hr class="mt-4">
-                        <!-- donate list datatable -->
-                        <div class="table-responsive" action="my_blood_list">
-                            <table class="table" id="datatable" width="100%" cellspacing="0">
-                              <tr>
-                                <th class="w-10">no </th>
-                                <th class="w-10">헌혈 증서 번호</th>
-                                <th class="w-10">혈액원명</th>
-                                <th class="w-25">헌혈 용량</th>
-                                <th class="w-25">혈액 종류</th>
-                              </tr>
-                              <c:forEach var="bloodDonation" items="${List}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
-                              <tr onclick="location.href='/blood_detail/${bloodDonation.bdId}'" style="cursor:pointer">
-                                <td>${status.index+1}</td>
-                                <td>${bloodDonation.bdId}</td>
-                                <td>${bloodDonation.bloodInstitution.bdiName}</td>
-                                <td>${bloodDonation.bdAmount}</td>
-                                <td>${bloodDonation.bdType}</td>
-                              </tr>
-                              </c:forEach>
-                            </table>
-                            </div>
-                          </br>
-                          <!--버튼-->
-                          <div class="form-group row">
+          <a href="/profile" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                           <div style="padding:0;margin:auto; ">
+                                             <h3>회원정보관리</h3>
+                                               <!-- Nested Row within Card Body -->
 
-                            <div class="col-sm-4">
-                              <a href="/blood_issue" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 헌혈증발급  </a>
-                              <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
-                            </div>
+                                           </div>
+                                         </a>
+         <a href="/request_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                                          <div style="padding:0;margin:auto; ">
+                                            <h3>요청내역관리</h3>
+                                              <!-- Nested Row within Card Body -->
+
+                                          </div>
+                                        </a>
+        <a href="/donate_mylist" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#718FE9; color:#ffffff; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+                          <div style="padding:0;margin:auto; ">
+                            <h3>기부내역관리</h3>
+                              <!-- Nested Row within Card Body -->
+
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                        </a>
+
+
 
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
+      <footer class="sticky-footer bg-#f0f0f0" >
+        <div class="container my-auto" style="background-color:#f0f0f0;">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
           </div>
@@ -183,7 +144,7 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

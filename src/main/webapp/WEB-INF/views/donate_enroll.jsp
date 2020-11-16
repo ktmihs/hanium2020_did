@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DID_헌혈팀</title>
+  <title>전자 헌혈증 관리 서비스</title>
 
   <!-- Custom fonts for this template-->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +22,7 @@
 
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
+  <script type="text/javascript" src="<c:url value="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.js"/>"></script>
 
 </head>
 
@@ -45,34 +49,6 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow h-100 " style="margin: auto;">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-            </li>
-
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
@@ -86,69 +62,21 @@
             </div>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1" style="margin: auto;">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
           </ul>
 
         </nav>
         <!-- End of Topbar -->
+
         <!-- Topbar2 -->
         <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
           <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
             <h4 class=" mb-0 text-gray-200">  </h4>
           </div>
           <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-            <a href="http://localhost:8080/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;"><h4> Enroll</h4></a>
+             <a href="/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
           </div>
           <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <a href="http://localhost:8080/request_list" class="d-none d-sm-inline-block h-100 w-100 btn " style="color:white;" ><h4> Donate</h4></a>
+             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
           </div>
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
           </div>
@@ -157,7 +85,6 @@
           </div>
         </div>
         <!-- End of Topbar2 -->
-
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -170,13 +97,14 @@
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
+                  <c:set var="donate" value="${donateEnroll}" />
                     <div class="text-center">
                       <h1 class="h3 text-gray-900 mb-4">기부하기</h1>
                     </div>
                     <hr>
                     <!--카드 안 내용-->
 
-
+                    <c:set var="donate" value="${donateEnroll}"/>
                     <c:set var="request" value="${requestEnl}" />
                     <form class="user" action="/donate_enroll/${request.reqId}" method="post" >
                       <p align="right">* 1개 이상 선택</p>
@@ -184,12 +112,18 @@
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
-                          <input disabled type="text" class="form-control form-control-user" id="userId" placeholder="${request.user.group.gName}">
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${request.user.group.gName}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요증서수량</p>
-                          <input disabled type="text" class="form-control form-control-user" id="reqId" placeholder="${request.reqAmount}">
+                          <input disabled type="text" class="form-control form-control-user" placeholder="${request.reqAmount}">
                         </div>
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">개수입력</p>
+                        <input type="text" class="form-control form-control-user" name="donateAmount" id="donateAmount">
+                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">reqId</p>
+                                                <input type="text" class="form-control form-control-user" name="request.reqId" id="request.reqId">
+                                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">userid</p>
+                                                                        <input type="text" class="form-control form-control-user" name="user.userId" id="user.userId">
                       </div>
                       <!--헌혈증서 선택-->
                       <div class="form-group row">
@@ -198,6 +132,7 @@
                             <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 선택 *</p>
                             <table class="table" id="datatable" width="100%" cellspacing="0">
                               <tr>
+                                <th class="w-10"> </th>
                                 <th class="w-10">헌혈 증서 번호</th>
                                 <th class="w-10">혈액원명</th>
                                 <th class="w-25">헌혈 용량</th>
@@ -206,7 +141,9 @@
                               <c:forEach var="bloodDonation" items="${bdList}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
                               <tr>
                                 <td>
-                                  ${status.index+1}. <input type="checkbox" name="bdCheck" id="donateAmount" value="${bloodDonation.bdId}">
+                                  <input type="checkbox" id="donateAmount" name="donateAmount" value="${bloodDonation.bdId}">
+                                  </td>
+                                  <td>
                                   ${bloodDonation.bdId}
                                 </td>
                                 <td>
@@ -230,19 +167,16 @@
                       </br>
                       <!--버튼-->
                       <div class="form-group row">
-                        <div class="col-sm-2"">
+                        <div class="col-sm-2">
                           <a onclick="history.back()" class="btn   btn-user btn-block" style="background-color:red; color: white">   취소  </a>
                         </div>
                         <div>
                             <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <div class="col-sm-2">
-                          <!--<a href="http://localhost:8080/request_detail_donor/${donate.donateId}" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;"><i class="fas fa-check"></i> 기부하기  </a>-->
                           <input type="submit" value="기부하기" id="donateBoard" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
-
                         </div>
                       </div>
-
                     </form>
                   </div>
                 </div>
@@ -313,13 +247,24 @@
 
 </body>
 <script type="text/javascript">
-$("#donateBoard").click(function(){
-
-	var result = confirm("기부하시겠습니까?");
-	if(result){
-		location.href = '/request_list';
-	}
+$(document).ready(function(){
+    $("#getCheckedAll").click(function() {
+    			$("input[name=donateAmount]:checked").each(function() {
+    				var test = $(this).val();
+    				console.log(test);
+    			});
+    		});
 });
-
+</script>
+<script type="text/javascript">
+$("#donateBoard").click(function(){
+    confirm("기부하시겠습니까?");
+});
 </script>
 </html>
+<!--
+	var result = confirm("기부하시겠습니까?");
+	if(result){
+	    donate.donateAmount=$("input:checkbox[donateAmount]:checked").length;
+	}
+-->

@@ -19,21 +19,26 @@ public class HomeController {
 
         return "index";
     }
-    @RequestMapping("/login")                   //로그인 페이지
-    public String viewLoginPage() {
+    @RequestMapping("/index_login")
+    public String viewIndexLoginPage() {             //메인 페이지
 
-        return "login";
+        return "index_login";
     }
 
-    @RequestMapping("/my_blood_list")           //내 헌혈증 리스트
-    public String viewMyBloodListPage() {
+    @RequestMapping("/enroll_com")
+    public String viewEnrollComPage() {
 
-        return "my_blood_list";
+        return "enroll_com";
+    }
+    @RequestMapping("/enroll_res")
+    public String viewEnrollResPage() {
+
+        return "enroll_res";
+    }
+    @RequestMapping("/profile_pre")                 //마이페이지
+    public String viewProfilePrePage() {
+
+        return "profile_pre";
     }
 
-    @RequestMapping("/profile")                 //마이페이지
-    public String viewProfilePage() {
-
-        return "profile";
-    }
 }

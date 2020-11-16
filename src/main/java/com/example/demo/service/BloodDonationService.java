@@ -10,9 +10,10 @@ import java.util.List;
 @Service
 public interface BloodDonationService {
     List<BloodDonation> findAll();
+    BloodDonation findByBdId(String bdId);
+    void saveBlood(BloodDonation bloodDonation);
     List<BloodDonation> findIdAndCheck(User user, byte bdCheck);                              //id와 check로 찾기
 
-//    List<BloodDonation> findIdAndCheck(User userId, byte bdCheck);                              //id와 check로 찾기
     BloodDonationRepository getBloodDonationRepository();                                    //getter
     void setBloodDonationRepository(BloodDonationRepository bloodDonationRepository);        //setter
 }

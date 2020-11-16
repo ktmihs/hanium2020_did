@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface BloodDonationRepository extends JpaRepository<BloodDonation, String> {
     List<BloodDonation> findByUserAndBdCheck(User user, byte bdCheck);
-    //Donate findByDonateId(DonateId donateId);        //donateId로 하나 찾기
-    //Donate getOne(int donateId);
+    BloodDonation findByBdId(String bdId);        //bdId로 하나 찾기
+
 }
