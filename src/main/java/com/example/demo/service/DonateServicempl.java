@@ -31,9 +31,12 @@ public class DonateServicempl implements DonateService {
         return Lists.newArrayList(donateRepository.findAllByUser(user));
     }
 
-    public void save(Donate donate){
+    @Override
+    public void bdSave(Donate donate){
         donateRepository.save(donate);
     }
+
+    @Override
     public Donate findByDonateId(Integer donateId){
         return donateRepository.findByDonateId(donateId);
     }

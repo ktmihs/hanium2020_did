@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,34 +50,22 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div> 
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Sign up, logout -->  
+            <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->                
-                <a href="#" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="#" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${empty userSession}">
+                  <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                </c:if>
+                <c:if test="${!empty userSession}">
+                  <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                </c:if>
               </li>
             </div>
-
             <div class="topbar-divider d-none d-sm-block"></div>
           </ul>
 
@@ -109,7 +97,7 @@
           <!-- Page Heading -->
           <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">회원가입</h1>
-           
+
           </div> -->
 
           <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5"style="margin:auto">
@@ -123,113 +111,72 @@
                       <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
                     </div>
                     <hr>
-                    <form class="user">
-                      
-
-                      
-                      <!-- <div class=" form-gorup dropdown mb-4">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원 유형</p>
-                        <select class="dropdown form-control col-sm-6 mb-sm-0" style="margin-right:10px;" >
-                          <div class="dropdown-menu col-sm-6 animated--fade-in" style="">
-                            <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;"value="personal">개인</option>                        
-                            <option class="dropdown-item" value="organization">기업</option>
-                          </div>
-                        </select>
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원 유형</p>
-                        <select name="userType" class="dropdown form-control col-sm-6 mb-sm-0" style="margin-right:10px;" >
-                          <div class="dropdown-menu col-sm-6 animated--fade-in" style="">
-                            <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;"value="personal">개인</option>                        
-                            <option class="dropdown-item" value="organization">기업</option>
-                          </div>
-                        </select>
-                      </div> -->
-              
+                    <form:form modelAttribute="accountForm" action="/sign_up" class="user"  method="post">
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원 유형</p>
-                          <select class="dropdown form-control col-sm-12 mb-sm-0" style="margin-right:10px;" >
+                          <form:select path="group" class="dropdown form-control col-sm-12 mb-sm-0" style="margin-right:10px;" >
                             <div class="dropdown-menu col-sm-6 animated--fade-in" style="">
-                              <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;"value="personal">개인</option>                        
-                              <option class="dropdown-item" value="organization">기업</option>
+                              <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;" value="x">개인</option>
+                              <option class="dropdown-item" style=" padding: 0.25rem 1.5rem;" value="o">기업</option>
                             </div>
-                          </select>
+                          </form:select>
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성별</p>
-                          <select class="dropdown form-control col-sm-12 mb-sm-0"  >
+                          <form:select path="gender" class="dropdown form-control col-sm-12 mb-sm-0"  >
                             <div class="dropdown-menu col-sm-6 animated--fade-in" >
-                              <option class="dropdown-item" value="personal">여자</option>                        
-                              <option class="dropdown-item" value="organization">남자</option>
+                              <option class="dropdown-item" value="1">여자</option>
+                              <option class="dropdown-item" value="2">남자</option>
                             </div>
-                          </select>
+                          </form:select>
                         </div>
                       </div>
-
                       <div class="form-group row">
-                        <div class="col-sm-10 mb-3 mb-sm-0">
-                          <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="아이디 *">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                         <form:input class="form-control form-control-user" path="userId" placeholder="아이디 *"/>
+                       </div>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <form:input class="form-control form-control-user" path="name" placeholder="이름 *"/>
                         </div>
-                        <div class="col-sm-2" style="">
-                          <a href="#" class="btn  bg-gray-400 btn-user btn-block"> 중복확인  </a>
-                          <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
-                        </div>
-                      
                       </div>
-
+                      <div class="form-group">
+                        <div class="col-sm-6">
+                          <form:input class="form-control form-control-user" path="birth" placeholder="생년월일(ex 19980518) *"/>
+                        </div>
+                      </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                          <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이름 *">
+                          <form:password class="form-control form-control-user" path="password" placeholder="비밀번호 *"/>
                         </div>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="생년월일 *">
+                          <form:password class="form-control form-control-user" path="checkPassword" placeholder="비밀번호 확인 *"/>
                         </div>
                       </div>
-                      
-                      <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="비밀번호 *">
-                        </div>
-                        <div class="col-sm-6">
-                          <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="비밀번호 확인 *">
-                        </div>
-                      </div>
-                      
-                      <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="주소">
-                      </div>
-                      <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="전화번호">
-                      </div>
-                      <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="이메일 *">
-                      </div>
-                      
 
-                      <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        회원가입
-                      </a>
-                     
-                    </form>
+                      <div class="form-group">
+                        <form:input class="form-control form-control-user" path="address" placeholder="주소"/>
+                      </div>
+                      <div class="form-group">
+                        <form:input class="form-control form-control-user" path="phone" placeholder="전화번호"/>
+                      </div>
+                      <div class="form-group">
+                        <form:input class="form-control form-control-user" path="email" placeholder="이메일 *"/>
+                      </div>
+                      <input type="submit" value="회원가입" class="btn btn-primary btn-user btn-block">
+                    </form:form>
                     <hr>
-                    <div class="text-center">
-                      <a class="large" href="login.html">Already have an account? Login!</a>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-       
+
         </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
-
-
-
-
-
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -251,25 +198,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>

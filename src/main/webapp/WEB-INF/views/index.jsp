@@ -49,69 +49,50 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div> 
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- profile, Sign up, logout -->
+            <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="/login" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <c:if test="${empty userSession.userId}">
-                    <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                <c:if test="${empty userSession}">
+                  <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
                 </c:if>
-                <c:if test="${!empty userSession.userId}">
-                    <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${!empty userSession}">
+                  <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
                 </c:if>
               </li>
             </div>
-
             <div class="topbar-divider d-none d-sm-block"></div>
+
 
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Topbar2 -->
-        <div class="navbar navbar-expand navbar-light topbar mb-4 shadow" style="background-color:#9FB4F3;">
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-          <div style="height: 90%;margin-left: 2rem;  width: 150%;  text-align: center; float: left;">
-             <a href="/my_blood_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Enroll</h4></a>
-          </div>
-          <div style="height: 90%; margin-left: 2rem; width: 150%;  text-align: center; float: left;">
-             <a href="/request_list" class="d-none d-sm-inline-block h-100 w-100 btn" style="color: white;"><h4> Donate</h4></a>
-          </div>
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          </div>
-          <div style="margin-right: 2rem; margin-left: 2rem; width: 150%; text-align: center; float: left;">
-            <h4 class=" mb-0 text-gray-200">  </h4>
-          </div>
-        </div>
-        <!-- End of Topbar2 -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
+          <div >
+          <br/><br/>
+            <a href="/login" class="card  o-hidden border-0 shadow-lg my-5" style="height: 180px; background-color:#819FF9; color:#ffffff; width: 500px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+              <div style="padding:0;margin:auto; ">
+                <h2>로그인 하러 가기</h2>
+                <br/>
+                <h6>로그인 후 사용합니다 <i>click</i></h6>
+              </div>
+            </a>
+            <a href="/sign_up" class="card  o-hidden border-0 shadow-lg my-5" style="height: 180px; background-color:#819FF9; color:#ffffff; width: 500px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+              <div style="padding:0;margin:auto; ">
+                <h2>회원가입 하러 가기</h2>
+                <br/>
+                <h6>계정이 없으신가요? <i>click</i></h6>
+              </div>
+            </a>
            
           </div>
 
@@ -144,25 +125,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>

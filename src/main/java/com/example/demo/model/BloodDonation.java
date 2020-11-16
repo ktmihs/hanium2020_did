@@ -38,11 +38,14 @@ public class BloodDonation {
     private LocalDateTime bdDate;
 
     @Column(name = "bd_check")
-    private byte bdCheck;
+    private int bdCheck;
 
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
+
+    @Column(name = "bd_donate")
+    private String bdDonate;
 
     public String getBdId() {
         return bdId;
@@ -84,11 +87,11 @@ public class BloodDonation {
         this.bdDate = bdDate;
     }
 
-    public byte getBdCheck() {
+    public int getBdCheck() {
         return bdCheck;
     }
 
-    public void setBdCheck(byte bdCheck) {
+    public void setBdCheck(int bdCheck) {
         this.bdCheck = bdCheck;
     }
 
@@ -100,11 +103,12 @@ public class BloodDonation {
         this.user = user;
     }
 
-    //    public String getUser_id() {
-//        return user_id;
-//    }
-//
-//    public void setUser_id(String user_id) {
-//        this.user_id = user_id;
-//    }
+    public String getBdDonate() {
+        return bdDonate;
+    }
+
+    public void setBdDonate(String bdDonate) {
+        this.bdDonate = bdDonate;
+    }
+
 }

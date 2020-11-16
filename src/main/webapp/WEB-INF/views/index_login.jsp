@@ -28,10 +28,10 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column" style="background-color:#9FB4F3;">
+    <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content" style="background-color:#9FB4F3;">
+      <div id="content">
 
         <!-- Topbar -->
         <nav style="background-color: #718FE9; height: 100px;"class="navbar navbar-expand navbar-light  topbar static-top shadow">
@@ -49,23 +49,20 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-
-            <!-- profile, Sign up, logout -->
+            <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
                 <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <c:if test="${empty userSession.userId}">
-                    <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                <c:if test="${empty userSession}">
+                  <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
                 </c:if>
-                <c:if test="${!empty userSession.userId}">
-                    <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${!empty userSession}">
+                  <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
                 </c:if>
               </li>
             </div>
-
             <div class="topbar-divider d-none d-sm-block"></div>
           </ul>
 
@@ -75,45 +72,29 @@
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid"  style="background-color:#9FB4F3;">
-            <a class="card  o-hidden border-0 my-5" style="height: 40px; background-color:#9FB4F3; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;"></a>
+        <div>
+        </br></br></br></br>
+        <div class="d-sm-flex align-items-center justify-content-between mb-2" style="margin-left:150px; margin-right:150px;">
           <!-- Page Heading -->
-          <a href="/profile_pre" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
-                                           <div style="padding:0;margin:auto; ">
-                                             <h3><b>마이페이지</b></h3>
-                                               <!-- Nested Row within Card Body -->
-
-                                           </div>
-                                         </a>
-         <a href="/my_blood_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
-                                          <div style="padding:0;margin:auto; ">
-                                            <h3><b>내헌혈증 관리</b></h3>
-                                              <!-- Nested Row within Card Body -->
-
-                                          </div>
-                                        </a>
-        <a href="/request_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 100px; background-color:#f8f8f8; color:#808080; width: 250px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
-                          <div style="padding:0;margin:auto; ">
-                            <h3><b>기부요청 게시판</b></h3>
-                              <!-- Nested Row within Card Body -->
-
-                          </div>
-                        </a>
+          <a href="/profile_pre" class="card  o-hidden border-0 shadow-lg my-5" style="height: 300px; background-color:#9FB4F3; color:#ffffff; width: 300px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+            <div style="padding:0;margin:auto; ">
+              <h3>마이페이지</h3>
+            </div>
+          </a>
+          <a href="/my_blood_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 300px; background-color:#9FB4F3; color:#ffffff; width: 300px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+            <div style="padding:0;margin:auto; ">
+              <h3>내헌혈증 관리</h3>
+            </div>
+          </a>
+          <a href="/request_list" class="card  o-hidden border-0 shadow-lg my-5" style="height: 300px; background-color:#9FB4F3; color:#ffffff; width: 300px; margin:auto; text-align:center; text-decoration:none; vertical-align:middle;">
+            <div style="padding:0;margin:auto; ">
+              <h3>기부요청 게시판</h3>
+            </div>
+          </a>
+        </div></br></br></br>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-#9FB4F3" >
-        <div class="container my-auto" style="background-color:#9FB4F3;">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
 
@@ -121,25 +102,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.jsp">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>

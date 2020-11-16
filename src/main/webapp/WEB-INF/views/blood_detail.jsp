@@ -50,37 +50,24 @@
           </div>
           <!-- End of Page title -->
 
-
-          <!-- Topbar Search -->
-          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form> -->
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="#" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="#" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${empty userSession}">
+                  <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                </c:if>
+                <c:if test="${!empty userSession}">
+                  <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                </c:if>
               </li>
             </div>
-
             <div class="topbar-divider d-none d-sm-block"></div>
           </ul>
-
         </nav>
         <!-- End of Topbar -->
 
@@ -105,80 +92,80 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
           <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5"style="margin:auto">
-                  <div class="card-body p-0" >
-                    <div class="row">
-                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+            <div class="card-body p-0" >
+              <div class="row">
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
                       <h3 class="h4 text-gray-900 mb-4">헌혈증 상세정보</h3>
                     </div>
                     <hr>
-                  <c:set var="bloodDonation" value="${bd}"/>
-                  <form class="user" action="blood_detail/${bloodDonation.bdId}">
-                  <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈증 번호</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdId}">
+                    <c:set var="bloodDonation" value="${bd}"/>
+                    <form class="user" action="blood_detail/${bloodDonation.bdId}">
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈증 번호</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdId}">
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userName}">
+                        </div>
                       </div>
-                    <div class="col-sm-6">
-                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
-                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userName}">
-                        </div>
-                    </div>
 
-                    <div class="form-group row">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">발급일</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdDate}">
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">발급일</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdDate}">
                         </div>
-                      <div class="col-sm-6">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
-                      <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userBirth}">
-                          </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.user.userBirth}">
+                        </div>
                       </div>
 
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈일자</p>
                           <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdDate}">
-                          </div>
+                        </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈종류</p>
-                        <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.bdType}">
-                            </div>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.bdType}">
                         </div>
+                      </div>
 
-                        <div class="form-group row">
-                          <div class="col-sm-6 mb-3 mb-sm-0">
-                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원명</p>
-                            <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bloodInstitution.bdiName}">
-                            </div>
-                          <div class="col-sm-6">
-                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">용량</p>
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">혈액원명</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bloodInstitution.bdiName}">
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">용량</p>
                           <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="${bloodDonation.bdAmount}">
-                              </div>
-                          </div>
+                        </div>
+                      </div>
 
-                          <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기부여부</p>
-                              <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdCheck}">
-                              </div>
-                            </div>
-
-
-
-                            <div class="form-group row">
-                                               <div class="col-sm-2">
-                                                 <a href="/my_blood_list" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;">확인  </a>
-                                                 <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
-                                               </div>
-                                             </div>
-
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기부여부</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${bloodDonation.bdCheck}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-2">
+                          <a href="/my_blood_list" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;">확인  </a>
+                          <!-- <button type="text" class=" btn form-control bg-primary-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Content Row -->
           <div class="row">
           </div>
@@ -208,25 +195,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>

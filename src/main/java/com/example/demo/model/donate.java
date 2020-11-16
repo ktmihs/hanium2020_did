@@ -2,10 +2,13 @@ package com.example.demo.model;
 import javax.persistence.Column;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -31,8 +34,10 @@ public class Donate {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @CreationTimestamp
     @Column (name = "donate_date")
-    private LocalTime donateDate;
+    private LocalDateTime donateDate;
 
     @Column(name = "donate_amount")
     private int donateAmount;
@@ -61,11 +66,11 @@ public class Donate {
         this.user = user;
     }
 
-    public LocalTime getDonateDate() {
+    public LocalDateTime getDonateDate() {
         return donateDate;
     }
 
-    public void setDonateDate(LocalTime donateDate) {
+    public void setDonateDate(LocalDateTime donateDate) {
         this.donateDate = donateDate;
     }
 

@@ -24,10 +24,19 @@ public class BloodDonationController {
     @RequestMapping(value = "/my_blood_list")    //내 헌혈증 전체보기
     public String bloodList(Model uiModel, HttpServletRequest httpServlet){
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
-        List<BloodDonation> bdList = servicempl.findIdAndCheck(userSession.getUser(), (byte) 0);      //내 헌혈증 중 사용하지 않은(bdCheck==0) 헌혈증 가져오기
+        List<BloodDonation> bdList = servicempl.findIdAndCheck(userSession.getUser(), 0);      //내 헌혈증 중 사용하지 않은(bdCheck==0) 헌혈증 가져오기
         uiModel.addAttribute("List", bdList);
 
         return "my_blood_list";
+    }
+
+    @RequestMapping(value = "/get_blood_list")    //내 헌혈증 전체보기
+    public String getBloodList(Model uiModel, HttpServletRequest httpServlet){
+        UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+        List<BloodDonation> bdList = servicempl.findByBdDoneAndBDC(userSession.getUser().getUserId(),1);           // 기부된 헌혈증 중 내게 기부된 헌혈증 리스트 가져오기
+        uiModel.addAttribute("List", bdList);
+
+        return "get_blood_list";
     }
 
     @RequestMapping(value = "/blood_detail/{bdId}")               //reqId에 대한 상세요청글 보기(작성자 시점)
@@ -50,16 +59,13 @@ public class BloodDonationController {
     @PostMapping(value = "/blood_issue")     //헌혈증 발급 페이지에서 작성 후 저장, 내 헌혈증 리스트 페이지로 이동
     public String issue(BloodDonation bloodDonation, Model uiModel, HttpServletRequest httpServlet){
 
-
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
         bloodDonation.setUser(userSession.getUser());                             //현재 user 정보 받아옴
-        bloodDonation.getUser().setUserId(bloodDonation.getUser().getUserId());
+        bloodDonation.getUser().setUserId(bloodDonation.getUser().getUserId());   //
         servicempl.saveBlood(bloodDonation);
         BloodDonation bd=servicempl.findByBdId(bloodDonation.getBdId());
         uiModel.addAttribute("blood",bd);
         return "redirect:/my_blood_list";
     }
-
-
 
 }
