@@ -13,7 +13,7 @@ public interface DonateService {
     List<Donate> findAll();
     List<Donate> findAllByUser(User user);
     List<Donate> findByRequest(Request request);
-    void save(Donate donate);
+    void bdSave(Donate donate);
     Donate findByDonateId(Integer donateId);
     DonateRepository getDonateRepository();                             //getter
     void setDonateRepository(DonateRepository donateRepository);        //setter

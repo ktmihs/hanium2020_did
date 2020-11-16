@@ -20,10 +20,15 @@ public class BloodDonationServicempl implements BloodDonationService {
     @Autowired
     BloodDonationRepository bloodDonationRepository;
 
+    @Override
+    public List<BloodDonation> findIdAndCheck(User user, int bdCheck){
+        List<BloodDonation> lists=bloodDonationRepository.findByUserAndBdCheck(user,bdCheck);
+        return lists;
+    }
 
     @Override
-    public List<BloodDonation> findIdAndCheck(User user, byte bdCheck){
-        List<BloodDonation> lists=bloodDonationRepository.findByUserAndBdCheck(user,bdCheck);
+    public List<BloodDonation> findByBdDoneAndBDC(String bdDonate,int bdCheck){
+        List<BloodDonation> lists=bloodDonationRepository.findByBdDonateAndBdCheck(bdDonate,bdCheck);
         return lists;
     }
 
@@ -32,11 +37,16 @@ public class BloodDonationServicempl implements BloodDonationService {
         return bloodDonationRepository.findByBdId(bdId);           //reqId로 하나 찾아오기
     }
 
+
     @Override
     public void saveBlood(BloodDonation bloodDonation) {
         bloodDonationRepository.save(bloodDonation);                    //JPARepository의 save()함수 사용하여 request내용 저장
     }
 
+    @Override
+    public BloodDonation findByBdCheck(int bdCheck){
+        return bloodDonationRepository.findByBdCheck(bdCheck);
+    }
     @Override
     public List<BloodDonation> findAll(){
         List<BloodDonation> lists=bloodDonationRepository.findAll();

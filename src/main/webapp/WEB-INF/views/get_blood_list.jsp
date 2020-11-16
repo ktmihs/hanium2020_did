@@ -21,6 +21,9 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Custom styles for this page -->
+  <link href="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -49,6 +52,19 @@
             <h1 class="h3 mb-0 text-gray-200" style="margin-left: 2rem;">Blood donation certificate issuance service</h1>
           </div>
           <!-- End of Page title -->
+
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -96,70 +112,53 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5"style="margin:auto">
-                  <div class="card-body p-0" >
-                    <div class="row">
+          <div class="card col-lg-7 o-hidden border-0 shadow-lg my-5" style="margin:auto">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
                 <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                 <div class="col-lg-12">
                   <div class="p-5">
                     <div class="text-center">
-                      <h3 class="h4 text-gray-900 mb-4">회원상세정보</h3>
+                      <h1 class="h3 text-gray-900 mb-4">기부받은 헌혈증</h1>
                     </div>
-                    <hr>
-                    <form class="user">
-
-
-                  <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이름</p>
-                      <input disabled  value="${userInfo['userName']}" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이름">
-                      </div>
-                    <div class="col-sm-6">
-                      <p class="col-sm-6" style="margin:1px;font-size: 1rem;">회원유형</p>
-                    <input disabled type="text" class="form-control form-control-user" id="exampleLastName" placeholder="개인">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">생년월일</p>
-                        <input disabled  value="${userInfo['userBirth']}" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="생년월일">
-                        </div>
-                      <div class="col-sm-6">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">성별</p>
-                      <input disabled   type="text" class="form-control form-control-user" id="exampleLastName" placeholder="성별">
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">주소</p>
-                          <input disabled  value="${userInfo['userAddress']}"type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="주소">
-                          </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                          <div class="col-sm-6 mb-3 mb-sm-0">
-                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">이메일</p>
-                            <input disabled  value="${userInfo['userEmail']}"type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="이메일">
+                      <hr class="mt-4">
+                        <!-- donate list datatable -->
+                        <div class="table-responsive" action="my_blood_list">
+                            <table class="table" id="datatable" width="100%" cellspacing="0">
+                              <tr>
+                                <th class="w-10">no </th>
+                                <th class="w-10">헌혈 증서 번호</th>
+                                <th class="w-10">혈액원명</th>
+                                <th class="w-25">헌혈 용량</th>
+                                <th class="w-25">혈액 종류</th>
+                              </tr>
+                              <c:forEach var="bloodDonation" items="${List}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
+                              <tr>
+                                <td>${status.count}</td>
+                                <td>${bloodDonation.bdId}</td>
+                                <td>${bloodDonation.bloodInstitution.bdiName}</td>
+                                <td>${bloodDonation.bdAmount}</td>
+                                <td>${bloodDonation.bdType}</td>
+                              </tr>
+                              </c:forEach>
+                            </table>
                             </div>
-                          <div class="col-sm-6">
-                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">전화번호</p>
-                          <input disabled  value="${userInfo['userPhone']}"type="text" class="form-control form-control-user" id="exampleLastName" placeholder="전화번호">
-                              </div>
+                          </br>
+                          <!--버튼-->
+                          <div class="form-group row">
+
+                            <div class="col-sm-4">
+                              <a href="/my_blood_list" class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white; width: 110px;">뒤로가기  </a>
+                            </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                          <div class="col-sm-2" style=" float:middle; margin-bottom:2rem;">
-                           <a href="http://localhost:8080/profile_edit" class="btn   btn-user btn-block" style="background-color:#2E64FE; color: white; width: 130px;"><i class="fas fa-check" style="margin-right:1rem;"></i>정보수정 </a>
-
-          <!-- Content Row -->
-          <div class="row">
-          </div>
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -195,7 +194,7 @@
 
   <!-- Page level plugins -->
   <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
-
+  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <!-- Page level custom scripts -->
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>

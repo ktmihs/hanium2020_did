@@ -9,7 +9,8 @@ import java.util.List;
 
 @Repository
 public interface BloodDonationRepository extends JpaRepository<BloodDonation, String> {
-    List<BloodDonation> findByUserAndBdCheck(User user, byte bdCheck);
-    BloodDonation findByBdId(String bdId);        //bdId로 하나 찾기
-
+    List<BloodDonation> findByUserAndBdCheck(User user, int bdCheck);
+    List<BloodDonation> findByBdDonateAndBdCheck(String bdDonate, int bdCheck);
+    BloodDonation findByBdId(String bdId);        //bdId로 찾기
+    BloodDonation findByBdCheck(int bdCheck);
 }

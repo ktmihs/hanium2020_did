@@ -19,8 +19,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    //User user;
-
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
@@ -31,24 +29,24 @@ public class UserController {
 
     @RequestMapping("/login")
     public String handleRequest(HttpServletRequest request,
-                                @ModelAttribute("CurrentLogin") CurrentLogin loginData, Model uiModel ) {
+                                @ModelAttribute("currentLogin") CurrentLogin loginData, Model model ) {
+        System.out.println(loginData.getUserId() + "//" + loginData.getPassword());
         User user = userService.findByUserIdAndUserPassword(loginData.getUserId(), loginData.getPassword());
-        if (user == null)       //로그인 창에 아무것도 안 썼을 때
+        if (user == null)
             return "/login";
-        if (loginData.getPassword().equals(user.getUserPassword())) {       //회원가입 한 아이디와 비밀번호로 로그인 시
+        if (loginData.getPassword().equals(user.getUserPassword())) {
             UserSession userSession = new UserSession(user, loginData().getUserId());
-            uiModel.addAttribute("userSession", userSession);
-            return "/index_login";
-        }
-        else                    //로그인 시도한 user정보가 db와 다를 경우
+            model.addAttribute("userSession", userSession);
+            return "redirect:/index_login";
+        } else
             return "/login";
     }
 
-    @RequestMapping("/loginout")
+    @RequestMapping("/logout")
     public String logout(HttpSession session, SessionStatus sessionStatus){
         session.removeAttribute("userSession");
         sessionStatus.setComplete();
-        return "/index";
+        return "redirect:/login";
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -60,17 +58,17 @@ public class UserController {
     @RequestMapping("/profile")
     public String viewProfilePage(Model uiModel, HttpServletRequest httpServlet) {
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
+//        String userId =userSession.getUser().getUserId();
         User user = userSession.getUser();
 
         uiModel.addAttribute("userInfo", user);
 
         return "profile";
     }
-
     @RequestMapping("/profile_edit")
     public String viewProfileEditPage(Model uiModel, HttpServletRequest httpServlet) {
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
-        String userId =userSession.getUser().getUserId();
+        //String userId =userSession.getUser().getUserId();
         User user = userSession.getUser();
 
         uiModel.addAttribute("userInfo", user);
@@ -79,12 +77,14 @@ public class UserController {
     }
 
     @RequestMapping("/profile_edit_")
-    public String updateProfile(Model uiModel, HttpServletRequest httpServlet, @RequestParam("updateNewPassword1") String updateNewPassword1, @RequestParam("updateNewPassword2") String updateNewPassword2, @RequestParam("updateUserEmail") String updateUserEmail, @RequestParam("updateUserAddress") String updateUserAddress, @RequestParam("updateUserPhone") String updateUserPhone){
+    public String updateProfile(Model uiModel, HttpServletRequest httpServlet, @RequestParam("updateNewPassword1") String updateNewPassword1,
+                                @RequestParam("updateNewPassword2") String updateNewPassword2, @RequestParam("updateUserEmail") String updateUserEmail,
+                                @RequestParam("updateUserAddress") String updateUserAddress,  @RequestParam("updateUserPhone") String updateUserPhone){
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");
         String userId =userSession.getUser().getUserId();
 
         //비밀번호를 수정하거나 주소, 이메일등을 수정할 시에 데이터베이스 업데이트
-        if((updateNewPassword1 == updateNewPassword2) || (updateNewPassword1==null && updateNewPassword2 ==null)){
+        if((updateNewPassword1 == updateNewPassword2) || (updateNewPassword1==null && updateNewPassword2==null)){
             User user = userService.findByUserId(userId);
             User e;
             user.setUserAddress(updateUserAddress);
@@ -104,6 +104,4 @@ public class UserController {
         }
         return "profile";
     }
-
-
 }

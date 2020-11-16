@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,15 +50,17 @@
             <!-- Sign up, logout -->
             <div style="width:100%; margin:auto; ">
               <li class="mb-1" style="height: 30%; margin-left: 1rem;  margin-right:1rem; width: 80%;  text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="http://localhost:8080/profile" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
+                <a href="/profile_pre" class="d-none d-sm-inline-block  w-100  nav-link" style="padding: 0; background-color: #718FE9; color: white;"> <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-200"></i> Profile</a>
               </li>
               <li style="height: 20%; margin-left: 1rem;  width: 80%;    text-align: center; ">
-                <!-- <h4 class=" mb-0 text-gray-200" >  Donate</h4> -->
-                <a href="http://localhost:8080/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                <c:if test="${empty userSession}">
+                  <a href="/login" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Login</a>
+                </c:if>
+                <c:if test="${!empty userSession}">
+                  <a href="/logout" class="d-none d-sm-inline-block  w-100 nav-link " style="padding: 0; background-color: #718FE9; color: white;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i> Logout</a>
+                </c:if>
               </li>
             </div>
-
             <div class="topbar-divider d-none d-sm-block"></div>
           </ul>
 
@@ -103,8 +103,6 @@
                     </div>
                     <hr>
                     <!--카드 안 내용-->
-
-                    <c:set var="donate" value="${donateEnroll}"/>
                     <c:set var="request" value="${requestEnl}" />
                     <form class="user" action="/donate_enroll/${request.reqId}" method="post" >
                       <p align="right">* 1개 이상 선택</p>
@@ -118,53 +116,45 @@
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요증서수량</p>
                           <input disabled type="text" class="form-control form-control-user" placeholder="${request.reqAmount}">
                         </div>
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">개수입력</p>
-                        <input type="text" class="form-control form-control-user" name="donateAmount" id="donateAmount">
-                        <p class="col-sm-6" style="margin:1px;font-size: 1rem;">reqId</p>
-                                                <input type="text" class="form-control form-control-user" name="request.reqId" id="request.reqId">
-                                                <p class="col-sm-6" style="margin:1px;font-size: 1rem;">userid</p>
-                                                                        <input type="text" class="form-control form-control-user" name="user.userId" id="user.userId">
+
                       </div>
                       <!--헌혈증서 선택-->
-                      <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mt-3 mb-sm-0">
-                          <div class="table-responsive">
-                            <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 선택 *</p>
-                            <table class="table" id="datatable" width="100%" cellspacing="0">
-                              <tr>
-                                <th class="w-10"> </th>
-                                <th class="w-10">헌혈 증서 번호</th>
-                                <th class="w-10">혈액원명</th>
-                                <th class="w-25">헌혈 용량</th>
-                                <th class="w-25">혈액 종류</th>
-                              </tr>
-                              <c:forEach var="bloodDonation" items="${bdList}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
-                              <tr>
-                                <td>
-                                  <input type="checkbox" id="donateAmount" name="donateAmount" value="${bloodDonation.bdId}">
-                                  </td>
-                                  <td>
-                                  ${bloodDonation.bdId}
-                                </td>
-                                <td>
-                                  ${bloodDonation.bloodInstitution.bdiName}
-                                </td>
-                                <td>
-                                  ${bloodDonation.bdAmount}
-                                </td>
-                                <td>
-                                  ${bloodDonation.bdType}
-                                </td>
-                              </tr>
-                              </c:forEach>
-                            </table>
+                        <div class="form-group row">
+                          <div class="col-sm-12 mb-3 mt-3 mb-sm-0">
+                            <div class="table-responsive">
+                              <p class="col-sm-6" style="margin:1px;font-size: 1rem;">헌혈 증서 선택 *</p>
+                              <table class="table" id="datatable" width="100%" cellspacing="0">
+                                <tr>
+                                  <th class="w-10"> no </th>
+                                  <th class="w-10">헌혈 증서 번호</th>
+                                  <th class="w-10">혈액원명</th>
+                                  <th class="w-25">헌혈 용량</th>
+                                  <th class="w-25">혈액 종류</th>
+                                </tr>
+                                <c:forEach var="bloodDonation" items="${bdList}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
+                                  <tr>
+                                    <td>
+                                      <input type="checkbox" name="bdId" value="${bloodDonation.bdId}">
+                                    </td>
+                                    <td>
+                                      ${bloodDonation.bdId}
+                                    </td>
+                                    <td>
+                                      ${bloodDonation.bloodInstitution.bdiName}
+                                    </td>
+                                    <td>
+                                      ${bloodDonation.bdAmount}
+                                    </td>
+                                    <td>
+                                      ${bloodDonation.bdType}
+                                    </td>
+                                  </tr>
+                                </c:forEach>
+                              </table>
+                            </div>
                           </div>
                         </div>
-                      </div>
-
-
-
-                      </br>
+                        </br>
                       <!--버튼-->
                       <div class="form-group row">
                         <div class="col-sm-2">
@@ -209,24 +199,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="http://localhost:8080/login">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
@@ -247,24 +219,8 @@
 
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-    $("#getCheckedAll").click(function() {
-    			$("input[name=donateAmount]:checked").each(function() {
-    				var test = $(this).val();
-    				console.log(test);
-    			});
-    		});
-});
-</script>
-<script type="text/javascript">
 $("#donateBoard").click(function(){
     confirm("기부하시겠습니까?");
 });
 </script>
 </html>
-<!--
-	var result = confirm("기부하시겠습니까?");
-	if(result){
-	    donate.donateAmount=$("input:checkbox[donateAmount]:checked").length;
-	}
--->
