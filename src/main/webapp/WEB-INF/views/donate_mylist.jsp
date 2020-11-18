@@ -113,34 +113,28 @@
                         <div class="table-responsive">
 
                           <table class="table table-hover" id="datatable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>no</th>
-                                            <th>요청글</th>
-                                            <th>기부 날짜</th>
-                                            <th>기부량</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                         <c:forEach var="donate"  items = "${donateA}"   varStatus="status">
-                                            <tr onclick="location.href='/request_detail_donor/${donate.request.reqId}'" style="cursor:pointer">
-                                              <td>${status.count}</td>
-                                              <td>${donate.request.reqTitle}</td>
-                                              <td>${donate.donateDate}</td>
-                                              <td>${donate.donateAmount}</td>
-                                            </tr>
-                                         </c:forEach>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
+                            <tr>
+                              <th>no</th>
+                              <th>요청글</th>
+                              <th>기부 날짜</th>
+                              <th>기부량</th>
+                            </tr>
+                            <c:forEach var="donate"  items = "${donate}"   varStatus="status">
+                               <tr onclick="location.href='/request_detail_donor/${donate.request.reqId}'" style="cursor:pointer">
+                                 <td>${status.count}</td>
+                                 <td>${donate.request.reqTitle}</td>
+                                 <td>${donate.donateDate}</td>
+                                 <td>${donate.donateAmount}</td>
+                               </tr>
+                            </c:forEach>
+                          </table>
                         </div>
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
       <!-- End of Main Content -->
 

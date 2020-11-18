@@ -113,15 +113,19 @@
 
                       <!--고정값-->
                       <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                          <p class="col-sm-12" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기관(개인)명</p>
                           <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.user.group.gName}">
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqDeadline}">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">기간(마감일)</p>
-                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="${request.reqDeadline}">
+                          <p class="col-sm-6" style="margin:1px;font-size: 1rem;">현재 기부된 개수</p>
+                          <input disabled type="text" class="form-control form-control-user" id="exampleFirstName" name="reqTotal" placeholder="${request.reqTotal}">
                         </div>
                         <div class="col-sm-6">
                           <p class="col-sm-6" style="margin:1px;font-size: 1rem;">필요 증서 수량</p>

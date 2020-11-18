@@ -49,12 +49,6 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String showForm() {
-        return "/sign_up";
-    }
-
-
     @RequestMapping("/profile")
     public String viewProfilePage(Model uiModel, HttpServletRequest httpServlet) {
         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(httpServlet, "userSession");

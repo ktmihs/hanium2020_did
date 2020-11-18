@@ -66,8 +66,6 @@
               </li>
             </div>
             <div class="topbar-divider d-none d-sm-block"></div>
-
-
           </ul>
 
         </nav>
@@ -75,7 +73,6 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
           <div >
           <br/><br/>
@@ -93,9 +90,9 @@
                 <h6>계정이 없으신가요? <i>click</i></h6>
               </div>
             </a>
-           
           </div>
-
+          <div>
+          </div>
           <!-- Content Row -->
           <div class="row">
           </div>

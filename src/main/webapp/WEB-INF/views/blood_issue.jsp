@@ -166,8 +166,6 @@
                     <div class="col-sm-2">
                     <input type="submit" value="발급" id="createBlood"  class="btn   btn-user btn-block" style="background-color:#1cc88a; color: white;">
 
-                 <!--     <a href="#" class="btn  text-white btn-success btn-block" style="border-radius: 50px; width: 130px;"> <i class="fas fa-check" style="margin-right:0.5rem;"></i>발급요청  </a>-->
-                      <!-- <button type="text" class=" btn form-control bg-gray-400 form-control-user"  style="border:1px solid red; text-align:center;" > <p style="border:1px solid red; text-align:center; vertical-align: middle;" >중복확인</p></button> -->
                     </div>
                   </div>
                   </form>

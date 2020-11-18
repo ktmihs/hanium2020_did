@@ -116,7 +116,7 @@
                                     <th>작성자</th>
                                     <th>제목</th>
                                     <th>마감일</th>
-                                    <th>필요증서 수량</th>
+                                    <th>기부된 헌혈증/필요증서 수량</th>
                                 </tr>
 
                                 <c:forEach var="request" items="${List.content}" varStatus="status" >   <!--list모든 내역 하나씩 불러오기-->
@@ -126,7 +126,7 @@
                                     <td>${request.user.userName}</td>
                                     <td>${request.reqTitle}</td>
                                     <td>${request.reqDeadline}</td>
-                                    <td>${request.reqAmount}</td>
+                                    <td>${request.reqTotal}/${request.reqAmount}</td>
                                 </tr>
                                 </c:forEach>
 
@@ -136,8 +136,6 @@
                                     <c:if test="${!List.first}"><div class="col-sm-1 pl-4" style="float: left;">
                                       <a href="?page=${List.number-1}" class="btn   btn-user btn-block" style="background-color:#888888; color: white; width: 50px;">&larr;</a>
                                     </div></c:if>
-
-
                                     <c:if test="${!List.last}"><div class="col-sm-1 mr-4" style="float: right;">
                                       <a href="?page=${List.number+1}" class="btn   btn-user btn-block" style="background-color:#444444; color: white; width: 50px;">&rarr;</a>
                                     </div></c:if>

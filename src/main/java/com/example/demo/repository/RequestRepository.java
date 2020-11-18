@@ -13,6 +13,6 @@ public interface RequestRepository extends JpaRepository<Request, Integer> {
 
     Request findByReqId(Integer reqId);     //reqId로 하나 찾기
     void deleteByReqId(Integer reqId);      //reqId로 하나 지우기
-    List<Request> findOneByReqId(String reqId);
+    List<Request> findOneByReqId(Integer reqId);
     List<Request> findAllByUser(User user);
 }
