@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("userSession")
 public class HomeController {
 
-
     @RequestMapping("/")
     public String viewMainPage() {
         return "index";
@@ -27,16 +26,6 @@ public class HomeController {
         return "index_login";
     }
 
-    @RequestMapping("/enroll_com")
-    public String viewEnrollComPage() {
-
-        return "enroll_com";
-    }
-    @RequestMapping("/enroll_res")
-    public String viewEnrollResPage() {
-
-        return "enroll_res";
-    }
     @RequestMapping("/profile_pre")                 //마이페이지
     public String viewProfilePrePage() {
 

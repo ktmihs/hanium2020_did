@@ -46,7 +46,7 @@ public class RequestServicempl implements RequestService {
     }
 
     @Override
-    public List<Request> findOneByReqId(String reqId){
+    public List<Request> findOneByReqId(Integer reqId){
         //   List list = newArrayList(test2Repository.findAll());
         return Lists.newArrayList(requestRepository.findOneByReqId(reqId));
     }

@@ -6,7 +6,7 @@ public class CurrentLogin {
 
     public CurrentLogin() {}
 
-    public CurrentLogin(String userId, String password) {
+    public CurrentLogin(String userId, String password) {       //현재 입력받은 정보
         this.userId = userId;
         this.password = password;
     }

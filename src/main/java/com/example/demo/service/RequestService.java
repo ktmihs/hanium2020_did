@@ -16,7 +16,7 @@ public interface RequestService {
     void createRequest(Request request);                                //요청 페이지 작성하기
     Request findByReqId(Integer reqId);                                 //reqId로 하나 불러오기
     void deleteOne(Integer reqId);                                      //reqId로 하나 지우기
-    List<Request> findOneByReqId(String reqId);
+    List<Request> findOneByReqId(Integer reqId);
     List<Request> findAllByUser(User user);
 
     RequestRepository getRequestRepository();                           //getter

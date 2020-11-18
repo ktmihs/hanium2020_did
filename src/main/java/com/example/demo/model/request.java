@@ -38,6 +38,9 @@ public class Request {
     @Column(name = "req_amount")
     private int reqAmount;
 
+    @Column(name = "req_total")
+    private int reqTotal;
+
     @Column(name = "req_reason")
     private String reqReason;
 
@@ -78,6 +81,14 @@ public class Request {
 
     public void setReqAmount(int reqAmount) {
         this.reqAmount = reqAmount;
+    }
+
+    public int getReqTotal() {
+        return reqTotal;
+    }
+
+    public void setReqTotal(int reqTotal) {
+        this.reqTotal = reqTotal;
     }
 
     public String getReqReason() {
