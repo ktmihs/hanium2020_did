@@ -24,7 +24,6 @@ public class RequestController {
     @Autowired
     RequestService servicempl;
 
-
     //기부요청글 작성하기
     @GetMapping(value = "/request_enroll")      //요청글 작성 페이지 불러오기
     public String enroll(Model uiModel, HttpServletRequest httpServlet){
