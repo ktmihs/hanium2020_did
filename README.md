@@ -44,20 +44,22 @@
 👉 Main page
 : 메인 페이지
 
+![screencapture-localhost-8080-2021-09-03-15_46_55](https://user-images.githubusercontent.com/63227474/131963946-e8bf4532-7f5f-4323-bbc8-1a6fb465db78.png)
 
 👉 Blood issue page
 : 헌혈증 발급 페이지
 
-👉 Search page
-: 검색 및 병원 조회가 가능한 페이지
-
+![image](https://user-images.githubusercontent.com/63227474/131963675-39d7611d-214e-45c0-a25e-99d2730f5d98.png)
 
 👉 Donation page
 : 모든 헌혈증 요청글을 볼 수 있고 기부할 수 있는 페이지
 
+![image](https://user-images.githubusercontent.com/63227474/131963720-31e93719-6e0b-4ff5-9856-034dbafd783c.png)
 
 👉 My blood donation page
 : 내 헌혈증을 관리할 수 있는 페이지
+
+![image](https://user-images.githubusercontent.com/63227474/131963646-b337f905-c370-4bba-8dfd-84f631c25fd8.png)
 
 
 <hr/>
@@ -65,12 +67,13 @@
 
 ## 📄 ERD CHART <a name="erd"></a>
 
+![image](https://user-images.githubusercontent.com/63227474/131963795-3f947129-72b9-4cd2-b0da-0ab0832568b8.png)
 
 <hr/>
 <br/>
 
 ## 📄 SYSTEM DIAGRAM <a name="system"></a>
 
-
+![image](https://user-images.githubusercontent.com/63227474/131963903-00e38f0a-9c83-42e8-8ee3-68a9769613da.png)
 
 <a href="#top">TOP</a>
