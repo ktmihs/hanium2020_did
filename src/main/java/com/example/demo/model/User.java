@@ -1,32 +1,18 @@
 package com.example.demo.model;
 
-<<<<<<< HEAD
-import lombok.*;
 
+import lombok.*;
 import javax.persistence.*;
 import java.time.LocalTime;
-=======
-import com.fasterxml.jackson.annotation.JacksonInject;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
-
-import javax.persistence.*;
->>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
 
 @Entity
 @Getter
 @Setter
 @Table(name="\"user\"")
 @Data
-<<<<<<< HEAD
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-=======
-public abstract class User {
->>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
     @NonNull
     @Id
     @Column(name = "user_id")
@@ -54,7 +40,6 @@ public abstract class User {
     private String userEmail;
 
     @Column(name = "user_inputdate")
-<<<<<<< HEAD
     private LocalTime userInputdate;
 
     @JoinColumn(name = "g_id")
@@ -62,14 +47,6 @@ public abstract class User {
     private Group group;
 
 
-=======
-    private String userInputdate;
-
-    @ManyToOne
-    @JoinColumn(name = "g_id")
-    private Group group;
-
->>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
     public String getUserId() {
         return userId;
     }
@@ -134,19 +111,11 @@ public abstract class User {
         this.userEmail = userEmail;
     }
 
-<<<<<<< HEAD
     public LocalTime getUserInputdate() {
         return userInputdate;
     }
 
     public void setUserInputdate(LocalTime userInputdate) {
-=======
-    public String getUserInputdate() {
-        return userInputdate;
-    }
-
-    public void setUserInputdate(String userInputdate) {
->>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
         this.userInputdate = userInputdate;
     }
 
