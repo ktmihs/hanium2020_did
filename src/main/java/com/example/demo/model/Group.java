@@ -24,7 +24,7 @@ public class Group {
     @Column(name = "g_name")
     private String gName;
 
-
+  
     public String getgId() {
         return gId;
     }

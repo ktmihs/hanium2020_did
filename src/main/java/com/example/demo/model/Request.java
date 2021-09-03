@@ -51,6 +51,7 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
+  
     public Integer getReqId() {
         return reqId;
     }

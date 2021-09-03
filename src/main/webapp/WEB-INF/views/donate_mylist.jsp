@@ -112,6 +112,7 @@
                         <!-- donate list datatable -->
                         <div class="table-responsive">
 
+<<<<<<< HEAD
                           <table class="table table-hover" id="datatable" width="100%" cellspacing="0">
                             <tr>
                               <th>no</th>
@@ -128,6 +129,66 @@
                                </tr>
                             </c:forEach>
                           </table>
+=======
+                          <table class="table" id="datatable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>no</th>
+                                            <th>기부날짜</th>
+                                            <th>헌혈증 번호</th>
+                                            <th>사용</th>
+                                            <th>사용날짜</th>
+                                            <th>사용처</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>20.2.1</td>
+                                            <td>01-01-123456</td>
+                                            <td>o</td>   <!-- 사용시 소문자 o, 미사용시 소문자 x -->
+                                            <td>20.2.9</td>
+                                            <td>아산병원</td>
+                                        </tr>
+                                         <c:forEach items = "${donateA}" var="donate">
+                                            <tr>
+                                              <td nowrap></td>
+                                              <td nowrap></td>
+                                              <td nowrap>${donate.donateAmount}</td>
+                                              <td nowrap>${donate.donateId.reqId}</td>
+                                              <td nowrap>${donate.donateDate}</td>
+                                            </tr>
+                                         </c:forEach>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>20.2.2</td>
+                                            <td>01-01-123457</td>
+                                            <td>o</td>
+                                            <td>20.2.4</td>
+                                            <td>세브란스병원</td>
+                                        </tr>
+
+                                        <tr>
+                                          <td>3</td>
+                                          <td>20.7.1</td>
+                                          <td>01-01-123458</td>
+                                          <td>o</td>
+                                          <td>20.7.15</td>
+                                          <td>세브란스병원</td>
+                                        </tr>
+
+                                        <tr>
+                                          <td>4</td>
+                                          <td>20.7.28</td>
+                                          <td>01-01-123459</td>
+                                          <td>x</td>
+                                          <td></td>
+                                          <td>아산병원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+>>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
                         </div>
                     </div>
                   </div>
