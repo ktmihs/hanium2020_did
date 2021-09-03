@@ -1,12 +1,22 @@
 package com.example.demo.model;
 
+<<<<<<< HEAD
 import lombok.*;
+=======
+import lombok.Data;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+>>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+<<<<<<< HEAD
 import java.io.Serializable;
+=======
+>>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
 import java.time.LocalTime;
 
 @Entity
@@ -14,8 +24,11 @@ import java.time.LocalTime;
 @Setter
 @Table(name="\"blood_institution\"")
 @Data
+<<<<<<< HEAD
 @AllArgsConstructor
 @NoArgsConstructor
+=======
+>>>>>>> 79a0b908c4b665403b5fe0fc69cd1c64075e2f16
 public class BloodInstitution {
     @NonNull
     @Id
